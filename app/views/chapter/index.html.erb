@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="container__content">
+    <main>
+      <section>
+        <%= render({ :partial => "chapter/chapters",
+                     :locals => { :chapters => @chapters,
+                                  } }) %>
+      </section>
+      <section>
+        <%= render({:partial => "character/character", :locals => {:characters => @characters}}) %>
+      </section>
+      <section>
+        <%= react_component('FileUploadArea') %>
+      </section>
+    </main>
+  </div>
+</div>
+

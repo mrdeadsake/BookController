@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -21,6 +22,19 @@ module BookControl
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 react ] ]"
+
+
+    unless Rails.env.production?
+      # Work around sprockets+teaspoon mismatch:
+      Rails.application.config.assets.precompile += %w(spec_helper.js)
+
+      # Make sure Browserify is triggered when
+      # asked to serve javascript spec files
+      config.browserify_rails.paths << lambda { |p|
+        p.start_with?(Rails.root.join("spec/javascripts").to_s)
+      }
+    end
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
