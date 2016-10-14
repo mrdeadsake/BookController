@@ -6,10 +6,18 @@ Rails.application.routes.draw do
 
   resources :book_series, {:param => :id} do
     get "book", {:to => "book#index"}
+    get "chapter", {:to => "chapter#index"}
+    resources :chapter, {:param => :id} do
+
+    end
   end
 
-  resources :book do
+  resources :chapter, {:param => :id} do
+    get "character_details", {:to => "character_detail#index"}
+  end
 
+  resources :book, {:param => :book_id } do
+    get "chapter", {:to => "chapter#show"}
   end
 
   get '/chapter', {:to => "chapter#index"}

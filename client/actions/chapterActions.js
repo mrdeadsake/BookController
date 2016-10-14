@@ -1,11 +1,10 @@
 import {restActionsGenerator} from 'react-data-actions';
 
 const chapterActions = restActionsGenerator({
-  path: `/chapter`,
+  path: `/book_series/:series_id/chapter/:chapter_id`,
   extension: 'json',
-  maxAge: 5000000,
 });
 
 export {
-  chapterActions
+  chapterActions,
 }

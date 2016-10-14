@@ -41,7 +41,7 @@ function renderAction () {
     </DataProvider>), document.getElementById('react-container'));
 
   history.listen(location => {
-    Analytics.trackPageView(location.pathname.substr(1));
+
   });
 }
 

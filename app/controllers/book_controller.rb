@@ -1,7 +1,6 @@
 class BookController < ApplicationController
   respond_to :html, :json
   def index
-    puts params
     @current = BookSeries.find(params[:book_series_id])
     @books = @current.books
     respond_with(@books)

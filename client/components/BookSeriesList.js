@@ -11,7 +11,6 @@ class BookSeriesList extends React.Component {
 
   renderBookSeriesListItems() {
     const data = this.props.bookSeries;
-    console.log(data)
     return data.map((item, i)=> {return <BookSeriesListItem item={item} key={i}/>});
   }
 

@@ -6,6 +6,13 @@ const bookActions = restActionsGenerator({
   maxAge: 5000000,
 });
 
+const chapterActions = restActionsGenerator({
+  path: `/book_series/:id/chapter`,
+  extension: 'json',
+  maxAge: 5000000,
+});
+
 export {
-  bookActions
+  bookActions,
+  chapterActions
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013220121) do
+ActiveRecord::Schema.define(version: 20161014125054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161013220121) do
   create_table "chapters", force: :cascade do |t|
     t.string  "name"
     t.integer "book_id"
+    t.integer "number"
   end
 
   create_table "character_details", force: :cascade do |t|
@@ -39,7 +40,8 @@ ActiveRecord::Schema.define(version: 20161013220121) do
   end
 
   create_table "characters", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "book_id"
   end
 
 end

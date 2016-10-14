@@ -14,7 +14,6 @@ class BookList extends React.Component {
   }
 
   render() {
-    console.log(this.props.books)
     return(
       <div className="book list">
         {this.renderBooks() }
