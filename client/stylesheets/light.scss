@@ -1,0 +1,43 @@
+body.light {
+
+  .wizard-steps__dot {
+    background-color: #ccc;
+    &.wizard-steps__dot--highlighted {
+      background-color: $brand-color;
+    }
+  }
+
+  .wizard-steps__line {
+    background-color: #ccc;
+    &.wizard-steps__line--highlighted {
+      background-color: $brand-color;
+    }
+  }
+
+  div.toggle {
+    background-color: #e0e0e0;
+  }
+  div.toggle-switch {
+    background-color: #808080;
+  }
+  div.toggle--off {
+    background-color: #e0e0e0;
+  }
+  div.toggle--on {
+    background-color: $brand-color;
+  }
+  div.toggle--default-on {
+    background-color: $brand-color;
+  }
+
+  .tile__label {
+    .icon {
+      &.icon--clickable {
+        color: #38383a;
+        &:hover {
+          color: #48484a;
+        }
+      }
+    }
+  }
+}

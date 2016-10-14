@@ -10,7 +10,18 @@
         <%= render({:partial => "character/character", :locals => {:characters => @characters}}) %>
       </section>
       <section>
-        <%= react_component('FileUploadArea') %>
+        <div className="row row--spaced">
+          <div className="row__cell">
+            <label>Chapter</label>
+          </div>
+          <div className="row__cell">
+            <select className="select">
+              <option>chapter 1</option>
+              <option>chapter 2</option>
+            </select>
+            <div className="select"></div>
+          </div>
+        </div>
       </section>
     </main>
   </div>

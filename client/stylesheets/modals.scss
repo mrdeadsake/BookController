@@ -1,0 +1,39 @@
+.company-save-loader-modal {
+  .modal__content {
+    text-align: center;
+    width: 600px;
+  }
+
+  &__title {
+    font-size: 18px;
+  }
+
+  &__indicator {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+}
+
+.create-company-modal {
+  .modal__content {
+    width: 600px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: bolder;
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+
+  &__buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+  }
+}

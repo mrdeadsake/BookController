@@ -1,0 +1,14 @@
+development:
+  client_id: <%= ENV['ZUUL_APP_ID'] %>
+  client_secret: <%= ENV['ZUUL_APP_SECRET'] %>
+  zuul_url: <%= ENV['ZUUL_URL'] %>
+
+production:
+  client_id: <%= ENV['ZUUL_APP_ID'] %>
+  client_secret: <%= ENV['ZUUL_APP_SECRET'] %>
+  zuul_url: <%= ENV['ZUUL_URL'] %>
+
+test:
+  client_id: 1
+  client_secret: 2
+  zuul_url: http://example.com
