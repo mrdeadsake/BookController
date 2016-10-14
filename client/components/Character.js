@@ -48,12 +48,10 @@ class Character extends React.Component {
 
   renderCharacter() {
     if (this.props.character != undefined){
-
       const chapters = this.props.chapters;
       const details = this.props.details;
       const allowed = details.filter(this.filterByCurrentChapter);
       const next = allowed.filter(this.filterByCharacter);
-      //details.map((x)=>{if(x.character_id == this.props.character.id) console.log(x);})
 
       return(
         <div>
@@ -69,11 +67,10 @@ class Character extends React.Component {
 
   render() {
     return(<div>
-      <h2>name</h2>
       <div className="row">
         {this.renderCharacter()}
-
-      </div></div>
+      </div>
+      </div>
       )
   }
 }

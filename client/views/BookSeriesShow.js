@@ -1,22 +1,27 @@
 import {characterDetailsActions } from '../actions/characterDetailsActions'
 import { bookActions, chapterActions } from '../actions/bookActions';
 import { bookSeriesActions } from '../actions/bookSeriesActions';
-import { WaitFor, Dropdown, SliderInput } from 'transcend-react';
+import { WaitFor, NavDropdownSelect, SliderInput } from 'transcend-react';
 import Book from '../components/Book';
 import BookList from '../components/BookList';
 import { connect } from 'react-data-actions';
 import Select from '../components/Select';
 import React from 'react';
 import Character from '../components/Character';
+import Chapter from '../components/Chapter';
 import _ from 'lodash';
+
+const charOptions = [{id: 2, name: "Kaladin", book_id: 3}, {id: 1, name: "Szeth", book_id: 3}];
 
 class BookSeriesShow extends React.Component {
 
   constructor(...args){
     super(...args);
-    this.state={current_chapter: 1};
+    this.state={current_chapter: 1, characterObject: charOptions[1]};
     this.onSliderInputChange = ::this.onSliderInputChange;
+    this.onCharSelect = ::this.onCharSelect;
   }
+
 
   static connectedActions (props, state) {
     return {
@@ -31,9 +36,17 @@ class BookSeriesShow extends React.Component {
     });
   }
 
+  onCharSelect(filter) {
+    this.setState({ characterObject: filter});
+  }
+
   renderBooks() {
     const books = this.props.books;
     return books.map((book, i)=> {return <Book book={book} key={i}/>});
+  }
+
+  renderChapterName(){
+    return(<span>{this.props.show.data.chapters[this.state.current_chapter]}</span>)
   }
 
   render() {
@@ -47,8 +60,19 @@ class BookSeriesShow extends React.Component {
         <WaitFor data={this.props.show} >
         <div>
           <SliderInput ref="chapter_slider" min={1} minText="1" max={chapters.length} maxText={(chapters.length).toString()} value={this.state.current_chapter} step={1} onChange={this.onSliderInputChange} />
-          <Character character={characters[0]} details={details} chapters={chapters} chapter={this.state.current_chapter} />
-          <Character character={characters[1]} details={details} chapters={chapters} chapter={this.state.current_chapter} />
+          <div className="row">
+            <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
+          </div>
+          <NavDropdownSelect
+            label=""
+            onSelect={this.onCharSelect}
+            options={ charOptions }
+            textKey="name"
+            valueKey="id"
+            selectedText={this.state.characterObject.name}
+          />
+          <div className="row"><Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/></div>
+
         </div>
         </WaitFor>
 
