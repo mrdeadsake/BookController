@@ -20,11 +20,9 @@
 
 node_modules/
 
-/public/audiences
-!/public/audiences/
-/public/audiences/*
-!/public/audiences/favicon
-!/public/audiences/vendor
+/public/*
+!/public/*
+
 
 webpack.json
 

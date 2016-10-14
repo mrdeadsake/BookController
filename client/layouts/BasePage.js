@@ -19,5 +19,5 @@ export default class BasePage extends React.Component {
 }
 
 BasePage.propTypes = {
-  children: React.PropTypes.any,
+  children: React.PropTypes.node,
 };

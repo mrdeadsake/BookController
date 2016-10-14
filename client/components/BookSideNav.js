@@ -15,7 +15,6 @@ class BookSideNav extends React.Component {
 
   static connectedActions () {
     return {
-      chapters: chapterActions.indexAction(),
       bookSeries: bookSeriesActions.indexAction(),
     };
   }
@@ -33,17 +32,13 @@ class BookSideNav extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.setPortfolios(this.props.bookSeries.data);
-  // }
-
   componentWillReceiveProps(props) {
     this.setPortfolios(props.bookSeries.data);
   }
 
   setPortfolios(portfolios) {
     if (portfolios && portfolios.length) {
-      let menuItems = this.state.items.slice(0);
+      let menuItems = this.state.items.slice(0,1);
       menuItems.splice(1, 0, {
         id: 'book_series',
         text: 'Book Series',
@@ -58,7 +53,8 @@ class BookSideNav extends React.Component {
 
   createPortfolioLinks(portfolios) {
     return portfolios.map((portfolio) => {
-      var url = Navigation.buildPath(`/book_series/${portfolio.name}`);
+      let link_name = portfolio.name.replace(/\W/g, '_');
+      var url = Navigation.buildPath(`/book_series/${portfolio.id}`);
       return {id: portfolio.id, url: url, text: portfolio.name };
     });
   }
