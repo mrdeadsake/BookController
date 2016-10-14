@@ -5,12 +5,13 @@ import _ from 'lodash';
 
 class Chapter extends React.Component {
   static propTypes = {
-    chapter: React.PropTypes.object.isRequired,
+    chapter: React.PropTypes.object,
   };
   render() {
+    console.log(this.props.chapter)
     return(
-      <div>
-          {this.props.chapter.id}
+      <div className="some class">
+        {this.props.chapter.name}
       </div>
       )
   }
