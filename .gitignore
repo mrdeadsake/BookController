@@ -16,7 +16,7 @@
 
 .env
 
-.idea/
+.idea/*
 
 node_modules/
 
