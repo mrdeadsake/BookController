@@ -22,10 +22,10 @@ class BookSeriesShow extends React.Component {
     this.onCharSelect = ::this.onCharSelect;
   }
 
-
   static connectedActions (props, state) {
     return {
       show: bookSeriesActions.showAction({id: props.params.id}),
+      invalidate: bookSeriesActions.invalidateShowAction(),
     }
   }
 
@@ -66,7 +66,7 @@ class BookSeriesShow extends React.Component {
           <NavDropdownSelect
             label=""
             onSelect={this.onCharSelect}
-            options={ charOptions }
+            options={ characters }
             textKey="name"
             valueKey="id"
             selectedText={this.state.characterObject.name}

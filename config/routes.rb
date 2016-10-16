@@ -2,7 +2,7 @@ require Rails.root.join("lib/json_constraints")
 json_defaults = { :defaults => { :format => :json } }
 
 Rails.application.routes.draw do
-  get "overview", {:to =>"chapter#index"}
+  get "overview", {:to =>"book_series#index"}
 
   resources :book_series, {:param => :id} do
     get "book", {:to => "book#index"}

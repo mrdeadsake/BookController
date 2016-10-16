@@ -15,13 +15,10 @@ class BookSeriesIndex extends React.Component {
   static connectedActions () {
     return {
       series: bookSeriesActions.indexAction(),
-      chapters: chapterActions.indexAction(),
     }
   }
   render() {
     const books = this.props.series.data || [{}];
-    const chapters = this.props.chapters.data || [{}];
-    const chapter = {};
     return(
       <section className="breathe">
         <WaitFor data={this.props.series}> 
