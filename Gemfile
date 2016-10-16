@@ -10,10 +10,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'responders'
 gem 'dotenv-rails'
 
-
-source "https://xvYsU8J_ySFNyjXaBUyM@gem.fury.io/nuvi/" do
-  gem "nuvify", "~> 0.2.2"
-end
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
