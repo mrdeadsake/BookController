@@ -1,0 +1,2 @@
+#!/bin/sh
+HEROKU_APP=spoilerfreebooks HKAPP=spoilerfreebooks exec "${HEROKU_COMMAND:-heroku}" "$@"
