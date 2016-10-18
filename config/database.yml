@@ -17,11 +17,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: ec2-54-243-202-174.compute-1.amazonaws.com
-  port: 5432
-  database: d626iuoi4g37b7
-  username: cjyxurureiseye
-  password: FC27tLROsrGEzTWV5ImsLUSuf2
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -85,8 +80,6 @@ test:
 #
 production:
   <<: *default
-  host: ec2-54-243-202-174.compute-1.amazonaws.com
-  port: 5432
-  database: d626iuoi4g37b7
-  username: cjyxurureiseye
-  password: FC27tLROsrGEzTWV5ImsLUSuf2
+  database: BookControl_production
+  username: BookControl
+  password: <%= ENV['BOOKCONTROL_DATABASE_PASSWORD'] %>

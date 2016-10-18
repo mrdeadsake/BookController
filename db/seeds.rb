@@ -17,25 +17,23 @@ potter.books.create([{name: "Harry Potter and the Philosopher's Stone", order:0}
 
 # Book.first.chapters.create({name: "Gardens of the Moon - Chapter 2"})
 
-szeth = Character.create({name: "Szeth"}).save
-kaladin = Character.create({name: 'Kaladin'}).save
 
-szeth.character_details.create({
-    chapter_id: 0,
-    location: 'Kholinar',
-    details: 'Szeth assassinates King Gavilar'
-                               })
-kaladin.character_details.create([{
-    chapter_id: 1,
-    location: 'Killing Fields',
-    details: 'Kaladin is the squad leader over a contingent that aqcuires Cenn, a new recruit'
-                                 },
-                                  {
-                                      chapter_id: 2,
-                                      location: 'Caravan Squad',
-                                      details: 'Kaladin, now a slave is escorted to the shattered plains'
-                                  }
-                                 ])
+# szeth.character_details.create({
+#     chapter_id: 0,
+#     location: 'Kholinar',
+#     details: 'Szeth assassinates King Gavilar'
+#                                })
+# kaladin.character_details.create([{
+#     chapter_id: 1,
+#     location: 'Killing Fields',
+#     details: 'Kaladin is the squad leader over a contingent that aqcuires Cenn, a new recruit'
+#                                  },
+#                                   {
+#                                       chapter_id: 2,
+#                                       location: 'Caravan Squad',
+#                                       details: 'Kaladin, now a slave is escorted to the shattered plains'
+#                                   }
+#                                  ])
 
 
 

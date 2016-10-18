@@ -48,6 +48,7 @@ function renderAction () {
 window.addEventListener('load', () => {
   configureFetch({
     headers: {
+      'X-CSRF-Token': window.env.csrfToken,
     },
   });
   //window.env.theme = Themes[window.env.preferredTheme];

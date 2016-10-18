@@ -13,7 +13,15 @@ Rails.application.routes.draw do
   end
 
   resources :chapter, {:param => :id} do
-    get "character_details", {:to => "character_detail#index"}
+  end
+
+  resources :character do
+    post "/character", { :to =>"character_details#create", :as => :create }
+  end
+
+  resources :character_details, { :path => :character_details } do
+    post "/character_details", { :to =>"character_details#create", :as => :create }
+    get "/character_details", {:to => "character_details#index"}
   end
 
   resources :book, {:param => :book_id } do
@@ -21,6 +29,7 @@ Rails.application.routes.draw do
   end
 
   get '/chapter', {:to => "chapter#index"}
+
   root({ :to => redirect("/overview") })
 end
 

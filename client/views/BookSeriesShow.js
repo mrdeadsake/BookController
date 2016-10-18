@@ -22,7 +22,7 @@ class BookSeriesShow extends React.Component {
     this.onCharSelect = ::this.onCharSelect;
   }
 
-  static connectedActions (props, state) {
+  static connectedActions (props) {
     return {
       show: bookSeriesActions.showAction({id: props.params.id}),
       invalidate: bookSeriesActions.invalidateShowAction(),
@@ -71,7 +71,7 @@ class BookSeriesShow extends React.Component {
             valueKey="id"
             selectedText={this.state.characterObject.name}
           />
-          <div className="row"><Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/></div>
+          <Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/>
 
         </div>
         </WaitFor>
