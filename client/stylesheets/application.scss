@@ -4,14 +4,17 @@ $transcend-image-path: '~transcend-css/images/';
 
 .top {
   border-bottom-style: solid;
+  border-width: 1px;
 }
 
 .bottom {
   border-bottom-style: solid;
+  border-width: 1px;
 }
 
 div.row__cell.details {
   border-left-style: solid;
+  border-width: 1px;
   padding: 5px;
 }
 
@@ -24,4 +27,5 @@ div.row__cell--fixed.chapter_id {
 
 div.table-outline {
   border-style: solid;
+  border-width: 1px;
 }

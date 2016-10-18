@@ -1,11 +1,12 @@
 import {characterDetailsActions } from '../actions/characterDetailsActions'
 import { bookActions, chapterActions } from '../actions/bookActions';
 import { bookSeriesActions } from '../actions/bookSeriesActions';
-import { WaitFor, NavDropdownSelect, SliderInput } from 'transcend-react';
+import WaitFor from '../components/WaitFor';
+import NavDropdownSelect from '../components/NavDropdownSelect';
+import SliderInput from '../components/SliderInput';
 import Book from '../components/Book';
 import BookList from '../components/BookList';
 import { connect } from 'react-data-actions';
-import Select from '../components/Select';
 import React from 'react';
 import Character from '../components/Character';
 import Chapter from '../components/Chapter';

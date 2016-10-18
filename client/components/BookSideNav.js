@@ -1,4 +1,5 @@
-import { Navigation, SideNav } from 'transcend-react';
+import Navigation from './Navigation';
+import SideNav from './SideNav';
 import { connect } from 'react-data-actions';
 import {chapterActions } from '../actions/chapterActions';
 import {bookSeriesActions} from '../actions/bookSeriesActions';
