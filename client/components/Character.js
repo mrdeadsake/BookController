@@ -45,7 +45,6 @@ class Character extends React.Component {
   };
 
   renderDetails(next) {
-    console.log(next.length);
     return next.map((item, i)=> {
       return (
         <div className={"row"} key={i}>
