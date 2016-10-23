@@ -1,4 +1,5 @@
 class CharacterDetailsController < ApplicationController
+  require 'csv'
   respond_to :json
   def create
     puts "hello!"

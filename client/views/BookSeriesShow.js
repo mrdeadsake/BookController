@@ -1,4 +1,4 @@
-import {characterDetailsActions } from '../actions/characterDetailsActions'
+import {characterDetailsActions } from '../actions/characterDetailsActions';
 import { bookActions, chapterActions } from '../actions/bookActions';
 import { bookSeriesActions } from '../actions/bookSeriesActions';
 import WaitFor from '../components/WaitFor';
