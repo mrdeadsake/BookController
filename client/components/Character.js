@@ -57,9 +57,9 @@ class Character extends React.Component {
   }
 
   renderButton() {
-    return (
-      <button onClick={this.updateStuff}>Update info</button>
-    )
+    // return (
+    //   <button onClick={this.updateStuff}>Update info</button>
+    // )
   }
 
   filterByCurrentChapter(detail){
