@@ -21,7 +21,7 @@ export default class SideNavChildren extends React.Component {
     this.onHasSelectedChild = ::this.onHasSelectedChild;
 
     this.state = {
-      showChildren: this.shouldShowChildrenFromProps(props),
+      showChildren: true,
     };
   }
 

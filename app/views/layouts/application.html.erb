@@ -8,7 +8,7 @@
   <%= javascript_env_script_tag %>
   <%= javascript_include_tag "/bookcontrol/bundle.js" %>
 </head>
-<body class="graphite" data-controller="<%= controller_path %>" data-action="<%= action_name %>" data-resource-id="<%= params[:id] %>">
+<body class="graphite" data-controller="<%= controller_path %>" data-action="<%= action_name %>" >
 <div id="react-container"></div>
 <%= render({ :partial => "layouts/javascript_globals" }) %>
 </body>

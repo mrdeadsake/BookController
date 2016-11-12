@@ -3,32 +3,9 @@ json_defaults = { :defaults => { :format => :json } }
 
 Rails.application.routes.draw do
   get "overview", {:to =>"book_series#index"}
-
-  resources :book_series, {:param => :id} do
-    get "book", {:to => "book#index"}
-    get "chapter", {:to => "chapter#index"}
-    resources :chapter, {:param => :id} do
-
-    end
-  end
-
-  resources :chapter, {:param => :id} do
-  end
-
-  resources :character do
-    post "/character", { :to =>"character_details#create", :as => :create }
-  end
-
-  resources :character_details, { :path => :character_details } do
-    post "/character_details", { :to =>"character_details#create", :as => :create }
-    get "/character_details", {:to => "character_details#index"}
-  end
-
-  resources :book, {:param => :book_id } do
-    get "chapter", {:to => "chapter#show"}
-  end
-
-  get '/chapter', {:to => "chapter#index"}
+  get "/books/", to: 'book_series#index', constraints: {:format => :json}
+  get "book_series/:id", to: 'book_series#show', constraints: {:format => :json}
+  get "character", to: 'character#index'
 
   root({ :to => redirect("/overview") })
 end

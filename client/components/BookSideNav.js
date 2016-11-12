@@ -2,7 +2,7 @@ import Navigation from './Navigation';
 import SideNav from './SideNav';
 import { connect } from 'react-data-actions';
 import {chapterActions } from '../actions/chapterActions';
-import {bookSeriesActions} from '../actions/bookSeriesActions';
+import {bookSeriesBookActions} from '../actions/bookSeriesActions';
 import React from 'react';
 import _ from 'lodash';
 
@@ -16,7 +16,7 @@ class BookSideNav extends React.Component {
 
   static connectedActions () {
     return {
-      bookSeries: bookSeriesActions.indexAction(),
+      bookSeries: bookSeriesBookActions.indexAction(),
     };
   }
 
@@ -34,29 +34,35 @@ class BookSideNav extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setPortfolios(props.bookSeries.data);
+    this.setSeries(props.bookSeries.data);
   }
 
-  setPortfolios(portfolios) {
-    if (portfolios && portfolios.length) {
+  setSeries(series) {
+    if (series && series.length) {
       let menuItems = this.state.items.slice(0,1);
       menuItems.splice(1, 0, {
         id: 'book_series',
         text: 'Book Series',
         icon: 'bar-graph',
-        children: this.createPortfolioLinks(portfolios)
+        children: this.createSeriesItemLinks(series)
       });
+      menuItems.push({
+        id: "about_me",
+        text: "About Me",
+        icon: "search",
+        url: "/about"
+      })
       this.setState({
         items: menuItems
       });
     }
   }
 
-  createPortfolioLinks(portfolios) {
-    return portfolios.map((portfolio) => {
-      let link_name = portfolio.name.replace(/\W/g, '_');
-      var url = Navigation.buildPath(`/book_series/${portfolio.id}`);
-      return {id: portfolio.id, url: url, text: portfolio.name };
+  createSeriesItemLinks(series) {
+    return series.map((seriesItem) => {
+      let link_name = seriesItem.name.replace(/\W/g, '_');
+      var url = Navigation.buildPath(`/book_series/${seriesItem.id}`);
+      return {id: seriesItem.id, url: url, text: seriesItem.name };
     });
   }
 
