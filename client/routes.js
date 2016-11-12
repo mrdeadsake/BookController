@@ -12,8 +12,8 @@ export default function routes (history) {
       <Router history={ history }>
         <Route path="/" component={ BookControlApp }>
           <Route path="/" component={BasePage}>
-            <Route path="overview" component={ BookSeriesNew } />
-            <Route path="book_series/:id" component={BookSeriesShow} />
+            <Route path="overview" component={ Landing } />
+            <Route path="book_series/:id" component={ BookSeriesShow } />
           </Route>
         </Route>
       </Router>

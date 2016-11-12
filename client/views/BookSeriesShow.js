@@ -6,6 +6,7 @@ import NavDropdownSelect from '../components/NavDropdownSelect';
 import SliderInput from '../components/SliderInput';
 import Book from '../components/Book';
 import BookList from '../components/BookList';
+import BookSeriesListItem from '../components/BookSeriesListItem';
 import { connect } from 'react-data-actions';
 import React from 'react';
 import Character from '../components/Character';
@@ -51,30 +52,12 @@ class BookSeriesShow extends React.Component {
   }
 
   render() {
-    const bookSeries = this.props.show.data || [];
-    const books = bookSeries.books || [];
-    const chapters = bookSeries.chapters || [];
-    const characters = bookSeries.characters || [];
-    const details = bookSeries.details || [];
+    const bookSeries = this.props.show.data || {};
+
     return(
       <section className="breathe">
         <WaitFor data={this.props.show} >
-        <div>
-          <SliderInput ref="chapter_slider" min={1} minText="1" max={chapters.length} maxText={(chapters.length).toString()} value={this.state.current_chapter} step={1} onChange={this.onSliderInputChange} />
-          <div className="row">
-            <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
-          </div>
-          <NavDropdownSelect
-            label=""
-            onSelect={this.onCharSelect}
-            options={ characters }
-            textKey="name"
-            valueKey="id"
-            selectedText={this.state.characterObject.name}
-          />
-          <Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/>
-
-        </div>
+          <BookSeriesListItem item ={bookSeries} />
         </WaitFor>
 
       </section>
