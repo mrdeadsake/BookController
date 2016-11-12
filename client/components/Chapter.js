@@ -1,6 +1,5 @@
 import { connect } from 'react-data-actions';
 import React from 'react';
-import _ from 'lodash';
 
 class Chapter extends React.Component {
   static propTypes = {

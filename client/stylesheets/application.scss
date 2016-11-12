@@ -1,4 +1,31 @@
 $transcend-font-path: '~transcend-css/fonts/';
 $transcend-image-path: '~transcend-css/images/';
 @import "~transcend-css/stylesheets/transcend";
-@import "./light.scss";
+
+.top {
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+.bottom {
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+div.row__cell.details {
+  border-left-style: solid;
+  border-width: 1px;
+  padding: 5px;
+}
+
+div.row__cell--fixed.chapter_id {
+  padding: 5px;
+  align-self: center;
+  text-align: center;
+  min-width: 25px;
+}
+
+div.table-outline {
+  border-style: solid;
+  border-width: 1px;
+}

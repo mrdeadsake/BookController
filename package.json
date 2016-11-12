@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Spoiler Free Book Controller",
   "engines": {
-    "node": "4.4.0"
+    "node": "6.2.0"
   },
   "main": "index.js",
   "directories": {
@@ -12,8 +12,7 @@
   "scripts": {
     "clean": "rm -f public/bookcontrol/**/*.js*",
     "build": "webpack -p --devtool sourcemap --bail",
-    "watch": "webpack -w -d",
-    "rubocop": "bundle exec rubocop"
+    "watch": "webpack -w -d"
   },
   "repository": {
     "type": "git",
@@ -26,7 +25,6 @@
   },
   "homepage": "https://github.com/mrdeadsake/BookController#readme",
   "dependencies": {
-    "airbrake-js": "^0.5.9",
     "babel": "^6.5.2",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
@@ -39,40 +37,25 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": ">=6.9.2",
     "babelify": "^7.3.0",
-    "blob-stream": "^0.1.3",
-    "brfs": "^1.4.3",
-    "browserify": "^13.1.0",
-    "browserify-incremental": "^3.1.1",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.25.0",
     "expose-loader": "^0.7.1",
-    "file-loader": "^0.8.5",
-    "formaldehyde": "^0.2.4",
-    "history": "^2.1.2",
     "jquery": "^2.2.4",
     "jquery-ujs": "^1.2.2",
-    "json-loader": "^0.5.4",
-    "lodash": "^3.10.1",
     "moment": "~2.14.0",
-    "node-sass": "^3.7.0",
-    "pdfkit": "^0.7.2",
-    "rasterizehtml": "^1.2.2",
-    "react": "^15.3.2",
+    "node-sass": "^3.10.1",
+    "react": "15.3.2",
     "react-data-actions": "^0.5.0",
-    "react-dom": "^15.3.2",
-    "react-dropzone": "3.6.0",
+    "react-dom": "^15.1.0",
+    "react-dropzone": "^3.7.0",
     "react-router": "^2.4.1",
-    "react-server": "^0.4.8",
-    "sass-loader": "^3.2.0",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "superagent": "^1.8.4",
     "transcend-charts": "1.1.6",
     "transcend-css": "1.1.15",
-    "transcend-react": "1.4.10",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
-    "whatwg-fetch": "^1.0.0"
+    "webpack": "^1.13.1"
   },
-  "peerDependencies": {},
   "devDependencies": {}
 }

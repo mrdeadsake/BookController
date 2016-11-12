@@ -1,8 +1,12 @@
 class BookSeriesController < ApplicationController
-  respond_to :html, :json
+
   def index
     @bookseries = BookSeries.all
-    respond_with(@bookseries)
+    puts @bookseries
+    respond_to do |format|
+      format.html
+      format.json {render json: @bookseries}
+    end
   end
 
   def show
@@ -13,7 +17,16 @@ class BookSeriesController < ApplicationController
     character_details = current.character_details
     details = character_details.map{|c| c.as_json.merge({number: Chapter.find(c[:chapter_id])[:number]})}
 
+    @response = {books: books, chapters: chapters, characters: characters, details: details}
     response = {books: books, chapters: chapters, characters: characters, details: details}
-    respond_with(response)
+    respond_to do |format|
+      format.html
+      format.json {render json: @response}
+    end
+
+  end
+
+  def current_series
+    @current_series ||= BookSeries.find(params[:id])
   end
 end

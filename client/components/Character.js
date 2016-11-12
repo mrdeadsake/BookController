@@ -1,4 +1,6 @@
 import { connect } from 'react-data-actions';
+import {characterDetailsActions} from '../actions/characterDetailsActions';
+import {characterActions} from '../actions/characterActions';
 import React from 'react';
 import _ from 'lodash';
 
@@ -11,6 +13,7 @@ class Character extends React.Component {
     this.filterByCurrentChapter = ::this.filterByCurrentChapter;
     this.filterByCharacter = ::this.filterByCharacter;
     this.renderDetails = ::this.renderDetails;
+    this.updateStuff = ::this.updateStuff;
   }
 
   calculate() {
@@ -27,6 +30,13 @@ class Character extends React.Component {
 
   }
 
+  static connectedActions (props) {
+    return {
+      update: characterActions.createAction(),
+      show: characterActions.indexAction()
+    }
+  }
+
   static propTypes = {
     character: React.PropTypes.object,
     details: React.PropTypes.array,
@@ -35,7 +45,20 @@ class Character extends React.Component {
   };
 
   renderDetails(next) {
-    return next.map((item, i)=> {return <div key={i}>{item.details}</div>});
+    return next.map((item, i)=> {
+      return (
+        <div className={"row"} key={i}>
+          <div className={"row__cell--fixed chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.chapter_id}</div>
+          <div className={"row__cell details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
+        </div>
+        )
+    });
+  }
+
+  renderButton() {
+    // return (
+    //   <button onClick={this.updateStuff}>Update info</button>
+    // )
   }
 
   filterByCurrentChapter(detail){
@@ -44,6 +67,12 @@ class Character extends React.Component {
 
   filterByCharacter(detail){
     if (detail.character_id == this.props.character.id) return true;
+  }
+
+  updateStuff(){
+    let details = {character_id: 2, chapter_id: 8, details:'Kaladin does stuff', location: 'some place'};
+    this.props.update(details);
+    //this.props.show);
   }
 
   renderCharacter() {
@@ -55,8 +84,10 @@ class Character extends React.Component {
 
       return(
         <div>
-          <h2>{this.props.character.name}</h2>
+        <div className={"table-outline"}>
           {this.renderDetails(next)}
+        </div>
+        {this.renderButton()}
         </div>
         )
     }
@@ -67,9 +98,7 @@ class Character extends React.Component {
 
   render() {
     return(<div>
-      <div className="row">
         {this.renderCharacter()}
-      </div>
       </div>
       )
   }

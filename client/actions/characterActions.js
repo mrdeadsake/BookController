@@ -6,6 +6,12 @@ const characterActions = restActionsGenerator({
   maxAge: 5000000,
 });
 
+const characterDetailsActions = restActionsGenerator({
+  path: `/character_details`,
+  extension: 'json',
+});
+
 export {
-  characterActions
+  characterActions,
+  characterDetailsActions
 }

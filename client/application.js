@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { useRouterHistory } from 'react-router';
-import { Analytics, Navigation } from 'transcend-react';
+import Navigation from './components/Navigation';
 import { Themes } from 'transcend-css';
 import { configureFetch, DataManager, DataProvider } from 'react-data-actions';
 
@@ -48,6 +48,7 @@ function renderAction () {
 window.addEventListener('load', () => {
   configureFetch({
     headers: {
+      'X-CSRF-Token': window.env.csrfToken,
     },
   });
   //window.env.theme = Themes[window.env.preferredTheme];
