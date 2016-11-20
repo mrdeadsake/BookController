@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my current project for ruby on rails / reactjs.
 
-Things you may want to cover:
+The purpose of the application is to provide a spoiler controlled environment for reading up on book series. For example, you started reading a long epic fantasy books series, but took some time between books and forgot some information about a character. You don't want to just search google because you might read about events that haven't happened yet. This site provides a way to limit information that to see to only show up to a certain chapter. 
 
-* Ruby version
+The goal is to get a functional .csv uploading system so that readers of series can update and record new information for others to use.
 
-* System dependencies
+It is far from being finished, and the code is definitely in a "in progess" state. I'm currently trying to get everything function before going back through and refactoring everything.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* !!!
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
