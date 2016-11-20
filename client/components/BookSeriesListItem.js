@@ -5,6 +5,7 @@ import WaitFor from '../components/WaitFor';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import SliderInput from '../components/SliderInput';
 import Book from '../components/Book';
+import BookSelect from '../components/BookSelect';
 import BookList from '../components/BookList';
 import { connect } from 'react-data-actions';
 import React from 'react';
@@ -18,9 +19,17 @@ export default class BookSeriesListItem extends React.Component {
 
   constructor(...args){
     super(...args);
-    this.state={current_chapter: 1, characterObject: {}};
+    this.state={current_chapter: 1, selectedBook: null};
     this.onSliderInputChange = ::this.onSliderInputChange;
     this.onCharSelect = ::this.onCharSelect;
+    this.onChapterSelect = ::this.onChapterSelect;
+    this.onSelectBook = ::this.onSelectBook;
+  }
+
+  componentDidMount() {
+    if (this.props.item.characters && this.props.item.characters.length != 0) {
+      this.setState({characterObject: this.props.item.characters[0]})
+    }
   }
 
   onSliderInputChange(newValue) {
@@ -30,12 +39,39 @@ export default class BookSeriesListItem extends React.Component {
     });
   }
 
+  onSelectBook(book){
+    this.setState({selectedBook: book});
+  }
+
+  renderBooks(){
+    const books = this.props.item.books;
+    return books.map((book, i)=> {return <div onClick={this.onSelectBook} className="row__cell--fixed" key={i}>{book.name}</div>});
+  }
+
+  renderBook(){
+    if (this.state.selectedBook != null){
+      return <BookSelect book={this.state.selectedBook} />
+    }
+  }
+
+  renderSelectedBook() {
+    if (this.state.selectedBook != null){
+      return <Book book={this.state.selectedBook} item={this.props.item}/>
+    }
+  }
+
   onCharSelect(filter) {
     this.setState({ characterObject: filter});
   }
 
+  onChapterSelect(chapter) {
+    console.log(chapter);
+    this.setState({
+      current_chapter: chapter
+    })
+  }
+
   render() {
-    console.log(this.props)
     const bookSeries = this.props.item;
     const books = bookSeries.books;
     const chapters = bookSeries.chapters;
@@ -43,20 +79,9 @@ export default class BookSeriesListItem extends React.Component {
     const details = bookSeries.details;
     return(
         <div>
-          <SliderInput ref="chapter_slider" min={1} minText="1" max={chapters.length} maxText={(chapters.length).toString()} value={this.state.current_chapter} step={1} onChange={this.onSliderInputChange} />
-          <div className="row">
-            <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
-          </div>
-          <NavDropdownSelect
-            label=""
-            onSelect={this.onCharSelect}
-            options={ characters }
-            textKey="name"
-            valueKey="id"
-            selectedText={this.state.characterObject.name}
-          />
-          <Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/>
-
+          <h1>{bookSeries.name}</h1>
+          <BookSelect books={books} onSelect={this.onSelectBook} item={this.props.item}/>
+          {this.renderSelectedBook()}
         </div>
       )
   }
