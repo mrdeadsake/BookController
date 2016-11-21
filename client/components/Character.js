@@ -81,7 +81,6 @@ class Character extends React.Component {
       const details = this.props.details;
       const allowed = details.filter(this.filterByCurrentChapter);
       const next = allowed.filter(this.filterByCharacter);
-
       return(
         <div>
         <div className={"table-outline"}>

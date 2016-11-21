@@ -79,13 +79,16 @@ export default class NavDropdownSelect extends React.Component {
 
   onOptionClick (selectedOption) {
     // if a javascript callback was provided for this selectedOption, do it now!
+
     if (selectedOption.callback) {
       selectedOption.callback(selectedOption[this.props.valueKey]);
     }
+    const selectedV = selectedOption[this.props.valueKey]
+    const selectedT = selectedOption[this.props.textKey];
     this.setState({
       showOptions: false,
-      selectedValue: selectedOption[this.props.valueKey],
-      selectedText: selectedOption[this.props.textKey],
+      selectedValue: selectedV,
+      selectedText: selectedT,
     });
     if (this.props.onSelect) {
       this.props.onSelect(selectedOption);
@@ -160,7 +163,7 @@ export default class NavDropdownSelect extends React.Component {
         <div className="select__content" onClick={ ::this.onDropDownClick }>
           <div className="select__label">{this.props.label}</div>
           <div className="select__selected-text">
-            { this.state.selectedText } <span className="icon icon--sm icon--dropdown-arrow"></span>
+            <h1>{ this.state.selectedText }<span className="icon icon--sm icon--dropdown-arrow"></span></h1> 
           </div>
         </div>
         { this.renderOptions() }

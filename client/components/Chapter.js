@@ -1,20 +1,39 @@
 import { connect } from 'react-data-actions';
 import React from 'react';
+import NavDropdownSelect from './NavDropdownSelect';
 
 class Chapter extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.onCharSelect = ::this.onCharSelect;
+  }
+
   static propTypes = {
+    onChapterSelect: React.PropTypes.func,
     chapters: React.PropTypes.array,
-    chapter: React.PropTypes.number,
+    chapter: React.PropTypes.object,
   };
 
+  onCharSelect(filter) {
+    this.setState({ characterObject: filter});
+  }
+
   render() {
-    const chapter = this.props.chapter;
+    let chapter = this.props.chapter;
     const chapters = this.props.chapters;
-    let name = '';
-    if (chapters.length != 0){
-      name = chapters[chapter-1].name;
+    if (chapter == null ){
+      chapter = chapters[0];
     }
-    return(<h1 className="chapter">{name}</h1>)
+    return(<NavDropdownSelect
+             label=""
+             onSelect={this.props.onChapterSelect}
+             options={ chapters }
+             textKey="name"
+             valueKey="id"
+             selectedValue={chapter.id}
+             selectedText={chapter.name}
+           />)
   }
 }
 

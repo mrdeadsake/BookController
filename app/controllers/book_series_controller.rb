@@ -2,7 +2,6 @@ class BookSeriesController < ApplicationController
 
   def index
     @bookseries = BookSeries.all
-    puts @bookseries
     respond_to do |format|
       format.html
       format.json {render json: @bookseries}
@@ -17,7 +16,7 @@ class BookSeriesController < ApplicationController
     character_details = current.character_details
     details = character_details.map{|c| c.as_json.merge({number: Chapter.find(c[:chapter_id])[:number]})}
 
-    @response = {books: books, chapters: chapters, characters: characters, details: details}
+    @response = {name: current.name, books: books, chapters: chapters, characters: characters, details: details}
     response = {books: books, chapters: chapters, characters: characters, details: details}
     respond_to do |format|
       format.html

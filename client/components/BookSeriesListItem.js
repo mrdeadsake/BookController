@@ -5,6 +5,7 @@ import WaitFor from '../components/WaitFor';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import SliderInput from '../components/SliderInput';
 import Book from '../components/Book';
+import BookSelect from '../components/BookSelect';
 import BookList from '../components/BookList';
 import { connect } from 'react-data-actions';
 import React from 'react';
@@ -16,47 +17,36 @@ export default class BookSeriesListItem extends React.Component {
     item: React.PropTypes.object,
   };
 
-  constructor(...args){
-    super(...args);
-    this.state={current_chapter: 1, characterObject: {}};
-    this.onSliderInputChange = ::this.onSliderInputChange;
-    this.onCharSelect = ::this.onCharSelect;
+  constructor(props){
+    super(props);
+    this.state={current_chapter: 0, selectedBook: props.item.books[0]};
+    this.onSelectBook = ::this.onSelectBook;
   }
 
-  onSliderInputChange(newValue) {
-    const value = this.refs.chapter_slider.getValue();
-    this.setState({
-      current_chapter: value
-    });
+  componentDidMount() {
+    if (this.props.item.characters && this.props.item.characters.length != 0) {
+      this.setState({characterObject: this.props.item.characters[0]})
+    }
   }
 
-  onCharSelect(filter) {
-    this.setState({ characterObject: filter});
+  onSelectBook(book){
+    this.setState({selectedBook: book});
+  }
+
+  renderSelectedBook() {
+    if (this.state.selectedBook != null){
+      return <Book book={this.state.selectedBook} item={this.props.item} chapter={this.state.current_chapter}/>
+    }
   }
 
   render() {
-    console.log(this.props)
     const bookSeries = this.props.item;
     const books = bookSeries.books;
-    const chapters = bookSeries.chapters;
-    const characters = bookSeries.characters;
-    const details = bookSeries.details;
     return(
         <div>
-          <SliderInput ref="chapter_slider" min={1} minText="1" max={chapters.length} maxText={(chapters.length).toString()} value={this.state.current_chapter} step={1} onChange={this.onSliderInputChange} />
-          <div className="row">
-            <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
-          </div>
-          <NavDropdownSelect
-            label=""
-            onSelect={this.onCharSelect}
-            options={ characters }
-            textKey="name"
-            valueKey="id"
-            selectedText={this.state.characterObject.name}
-          />
-          <Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/>
-
+          <h1>{bookSeries.name}</h1>
+          <BookSelect books={books} onSelect={this.onSelectBook} item={this.props.item} selectedValue={this.state.selectedBook} />
+          {this.renderSelectedBook()}
         </div>
       )
   }

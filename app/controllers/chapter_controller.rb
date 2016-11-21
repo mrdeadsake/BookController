@@ -1,8 +1,11 @@
 class ChapterController < ApplicationController
   respond_to :html, :json
   def index
-    current_series = BookSeries.find(params[:book_series_id])
-    chapters = current_series.chapters
+    puts params
+    #current_series = BookSeries.find(params[:book_series_id])
+    current_book = Book.find(params[:id])
+    puts current_book
+    chapters = current_book.chapters
     respond_with(chapters)
   end
 

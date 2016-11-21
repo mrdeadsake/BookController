@@ -13,15 +13,10 @@ import Character from '../components/Character';
 import Chapter from '../components/Chapter';
 import _ from 'lodash';
 
-const charOptions = [{id: 2, name: "Kaladin", book_id: 3}, {id: 1, name: "Szeth", book_id: 3}];
-
 class BookSeriesShow extends React.Component {
 
   constructor(...args){
     super(...args);
-    this.state={current_chapter: 1, characterObject: charOptions[1]};
-    this.onSliderInputChange = ::this.onSliderInputChange;
-    this.onCharSelect = ::this.onCharSelect;
   }
 
   static connectedActions (props) {
@@ -31,35 +26,18 @@ class BookSeriesShow extends React.Component {
     }
   }
 
-  onSliderInputChange(newValue) {
-    const value = this.refs.chapter_slider.getValue();
-    this.setState({
-      current_chapter: value
-    });
-  }
-
-  onCharSelect(filter) {
-    this.setState({ characterObject: filter});
-  }
-
   renderBooks() {
-    const books = this.props.books;
+    const books = this.props.show.books;
     return books.map((book, i)=> {return <Book book={book} key={i}/>});
-  }
-
-  renderChapterName(){
-    return(<span>{this.props.show.data.chapters[this.state.current_chapter]}</span>)
   }
 
   render() {
     const bookSeries = this.props.show.data || {};
-
     return(
       <section className="breathe">
         <WaitFor data={this.props.show} >
           <BookSeriesListItem item ={bookSeries} />
         </WaitFor>
-
       </section>
       )
   }
