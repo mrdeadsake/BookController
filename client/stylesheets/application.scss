@@ -33,3 +33,181 @@ div.table-outline {
 div.book {
   padding: 5px;
 }
+
+
+.bookselect {
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0;
+
+  background-color: transparent;
+  border: 1px solid #444444;
+
+  padding: 6px 2px 6px 2px;
+  border-radius: $border-radius;
+
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+  position: relative;
+  cursor: default;
+  
+  &:focus {
+    outline: none;
+    border-color: $brand-color;
+    color: $input-active-text-color;
+    box-shadow: 0 0 10px 0 darken($brand-color,15%);
+    -webkit-box-shadow: 0 0 10px 0 darken($brand-color,15%);
+    -moz-box-shadow: 0 0 10px 0 darken($brand-color,15%);
+    -ms-box-shadow: 0 0 10px 0 darken($brand-color,15%);
+  }
+
+  &--nav {
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    .bookselect__label {
+      font-family: $klavika;
+      font-weight: 300;
+      font-size: 12px;
+      color: $brand-color;
+    }
+    .bookselect__selected-text {
+      padding: 0;
+      font-family: $klavika;
+      font-weight: 400;
+      font-size: 16px;
+      color: $gray4;
+      cursor: pointer;
+      &:hover {
+        color: $gray2;
+      }
+    }
+    .bookselect__options-panel {
+      position: absolute;
+      z-index: 90;
+      left: 0;
+      top: 100%;
+      width: 200px;
+      max-height: 300px;
+      padding: 0;
+      border: 1px solid $brand-color;
+      background-color: $background-color;
+
+      .bookselect__options__search {
+        margin: 0;
+        padding: 4px;
+        background-color: #1b1b1b;
+      }
+      .bookselect__options-panel__options {
+        max-height: 280px;
+        overflow-y: scroll;
+
+        border: none;
+        background-color: $background-color;
+        .bookselect__options__option {
+          line-height: 1.2em;
+          cursor: pointer;
+          padding: 8px 8px;          
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          &:hover {
+            background-color: darken($background-color, 5%);
+          }
+        }
+      }
+      .bookselect__options__button {
+        margin: 0;
+        padding: 4px;
+        background-color: #1b1b1b;
+      }
+    }
+    .bookselect__options-panel--right {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__selected-text {
+    color: $input-text-color;
+    font-family: $proxima-nova;
+    font-size: 15px;
+    padding: 0 7px;
+    cursor: pointer;
+    max-width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__options {
+    position: absolute;
+    z-index: 90;
+    left: 0;
+    top: 100%;
+    min-width: 100%;
+    max-width: 210px;
+    max-height: 300px;
+    overflow-y: scroll;
+    padding: 4px;
+    border: 1px solid $brand-color;
+    background-color: $background-color;
+    text-align: left;
+
+    &.bookselect__options--right {
+      left: auto;
+      right: 0;
+    }
+
+    &__option {
+      padding: 5px 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      position: relative;
+      &--has-icon {
+        padding-right: 28px;
+      }
+      &__icon {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        padding: 6px 5px 0px 0;
+      }
+      &:hover {
+        background-color: #121212;
+      }
+      &--highlighted {
+        background-color: #151515;
+      }
+      &.selected {
+        border: 1px solid #444;
+        background-color: #121212;
+      }
+    }
+  }
+
+  &.no-outline {
+    border: none;
+    padding: 2px 13px 2px 2px;
+    background-position: right center;
+    .bookselect__options {
+      left: 7px;
+    }
+  }
+
+  span.icon {
+    padding: 0 0 0 4px;
+  }
+}
+.bookselect__options__option {
+
+}

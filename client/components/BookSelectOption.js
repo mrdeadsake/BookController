@@ -29,15 +29,16 @@ export default class BookSelectOption extends React.Component {
   }
 
   render () {
-    const icon = this.props.icon || this.props.option.icon;
-    let iconClassName = '';
-    if (icon) {
-      iconClassName = 'select__options__option--has-icon';
+    //const icon = this.props.icon || this.props.option.icon;
+    const isSelected = this.props.selected;
+    let selected = ''
+    if (isSelected) {
+      selected = 'selected';
     }
     return (
-      <div className={ `select__options__option ${iconClassName}` } onClick={ this.onClick }>
+      <div className={ `bookselect__options__option ${selected}` } onClick={ this.onClick }>
         { this.props.option[this.props.textKey] }
-        { this.renderIcon() }
+
       </div>
     );
   }
@@ -45,7 +46,7 @@ export default class BookSelectOption extends React.Component {
   renderIcon () {
     const icon = this.props.icon || this.props.option.icon;
     if (icon) {
-      return <i className={ `icon icon--${icon} select__options__option__icon`} onClick={ ::this.onIconClick }></i>;
+      return <i className={ `icon icon--${icon} bookselect__options__option__icon`} onClick={ ::this.onIconClick }></i>;
     }
   }
 }

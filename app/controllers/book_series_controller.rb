@@ -2,7 +2,6 @@ class BookSeriesController < ApplicationController
 
   def index
     @bookseries = BookSeries.all
-    puts @bookseries
     respond_to do |format|
       format.html
       format.json {render json: @bookseries}

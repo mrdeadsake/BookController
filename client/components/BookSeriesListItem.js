@@ -17,12 +17,9 @@ export default class BookSeriesListItem extends React.Component {
     item: React.PropTypes.object,
   };
 
-  constructor(...args){
-    super(...args);
-    this.state={current_chapter: 1, selectedBook: null};
-    this.onSliderInputChange = ::this.onSliderInputChange;
-    this.onCharSelect = ::this.onCharSelect;
-    this.onChapterSelect = ::this.onChapterSelect;
+  constructor(props){
+    super(props);
+    this.state={current_chapter: 0, selectedBook: props.item.books[0]};
     this.onSelectBook = ::this.onSelectBook;
   }
 
@@ -32,55 +29,23 @@ export default class BookSeriesListItem extends React.Component {
     }
   }
 
-  onSliderInputChange(newValue) {
-    const value = this.refs.chapter_slider.getValue();
-    this.setState({
-      current_chapter: value
-    });
-  }
-
   onSelectBook(book){
     this.setState({selectedBook: book});
   }
 
-  renderBooks(){
-    const books = this.props.item.books;
-    return books.map((book, i)=> {return <div onClick={this.onSelectBook} className="row__cell--fixed" key={i}>{book.name}</div>});
-  }
-
-  renderBook(){
-    if (this.state.selectedBook != null){
-      return <BookSelect book={this.state.selectedBook} />
-    }
-  }
-
   renderSelectedBook() {
     if (this.state.selectedBook != null){
-      return <Book book={this.state.selectedBook} item={this.props.item}/>
+      return <Book book={this.state.selectedBook} item={this.props.item} chapter={this.state.current_chapter}/>
     }
-  }
-
-  onCharSelect(filter) {
-    this.setState({ characterObject: filter});
-  }
-
-  onChapterSelect(chapter) {
-    console.log(chapter);
-    this.setState({
-      current_chapter: chapter
-    })
   }
 
   render() {
     const bookSeries = this.props.item;
     const books = bookSeries.books;
-    const chapters = bookSeries.chapters;
-    const characters = bookSeries.characters;
-    const details = bookSeries.details;
     return(
         <div>
           <h1>{bookSeries.name}</h1>
-          <BookSelect books={books} onSelect={this.onSelectBook} item={this.props.item}/>
+          <BookSelect books={books} onSelect={this.onSelectBook} item={this.props.item} selectedValue={this.state.selectedBook} />
           {this.renderSelectedBook()}
         </div>
       )

@@ -2,10 +2,12 @@ require Rails.root.join("lib/json_constraints")
 json_defaults = { :defaults => { :format => :json } }
 
 Rails.application.routes.draw do
-  get "overview", {:to =>"book_series#index"}
-  get "/books/", to: 'book_series#index', constraints: {:format => :json}
-  get "book_series/:id", to: 'book_series#show', constraints: {:format => :json}
-  get "character", to: 'character#index'
+  get 'overview', {:to =>"book_series#index"}
+  get '/books/', to: 'book_series#index', constraints: {:format => :json}
+  get 'book_series/:id', to: 'book_series#show', constraints: {:format => :json}
+  get 'character', to: 'character#index'
+  get 'book_series/book/:id/chapter/index', to: 'chapter#index'
+  #get 'chapter/:id', to: 'chapter#show'
 
   root({ :to => redirect("/overview") })
 end

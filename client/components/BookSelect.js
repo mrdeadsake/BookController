@@ -20,7 +20,7 @@ export default class BookSelect extends React.Component {
     }
   }
 
-    static defaultProps = {
+  static defaultProps = {
     valueKey: 'id',
     textKey: 'name',
   };
@@ -48,13 +48,15 @@ export default class BookSelect extends React.Component {
 
   onBookClick(selectedBook) {
     this.setState({selectedValue: selectedBook[this.props.valueKey], selectedText: selectedBook[this.props.textKey]})
-    this.props.onSelect(selectedBook);
+    if (this.props.onSelect) {
+      this.props.onSelect(selectedBook);
+    }
   }
 
   renderBooks(){
-    const books = this.props.books
+    const books = this.props.books;
     return books.map((book, i)=>{
-      return <BookSelectOption className={"book"} option={book} onClick={::this.onBookClick} key={i} textKey={this.props.textKey} >{book.name}</BookSelectOption>
+      return <BookSelectOption className={"book"} option={book} onClick={::this.onBookClick} key={i} textKey={this.props.textKey} selected={this.props.selectedValue.id == book.id}>{book.name}</BookSelectOption>
     })
 
   }
