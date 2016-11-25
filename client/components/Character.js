@@ -32,15 +32,15 @@ class Character extends React.Component {
 
   static connectedActions (props) {
     return {
-      update: characterActions.createAction(),
-      show: characterActions.indexAction()
+      //update: characterActions.createAction(),
+      //show: characterActions.indexAction()
     }
   }
 
   static propTypes = {
     character: React.PropTypes.object,
     details: React.PropTypes.array,
-    chapter: React.PropTypes.number,
+    chapter: React.PropTypes.object,
     chapters: React.PropTypes.array,
   };
 
@@ -48,7 +48,7 @@ class Character extends React.Component {
     return next.map((item, i)=> {
       return (
         <div className={"row"} key={i}>
-          <div className={"row__cell--fixed chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.chapter_id}</div>
+          <div className={"row__cell--fixed chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.number}</div>
           <div className={"row__cell details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
         </div>
         )
@@ -61,8 +61,8 @@ class Character extends React.Component {
     // )
   }
 
-  filterByCurrentChapter(detail){
-    if (detail.number <= this.props.chapter ) return true;
+  filterByCurrentChapter(chapter){
+    if (chapter.number <= this.props.chapter.number ) return true;
   }
 
   filterByCharacter(detail){
