@@ -17,7 +17,6 @@ class Book extends React.Component {
     this.onChapterSelect = ::this.onChapterSelect;
   }
   static propTypes = {
-    book: React.PropTypes.object,
     item: React.PropTypes.object
   };
 
@@ -29,8 +28,9 @@ class Book extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if (nextProps.book != this.props.book) {
-      this.setState({current_chapter: null})
+    if (nextProps.index.data != undefined) {
+      const default_chapter = nextProps.index.data[0]
+      this.setState({current_chapter: default_chapter})
     }
   }
 
@@ -38,13 +38,6 @@ class Book extends React.Component {
     if (this.props.item.characters && this.props.item.characters.length != 0) {
       this.setState({characterObject: this.props.item.characters[0]})
     }
-  }
-
-  onSliderInputChange(newValue) {
-    const value = this.refs.chapter_slider.getValue();
-    this.setState({
-      current_chapter: value
-    });
   }
 
   onCharSelect(filter) {
@@ -67,8 +60,8 @@ class Book extends React.Component {
     return(
       <div className="book">
         <div className="row">
-        <WaitFor data={this.props.index}>
-          <Chapter chapters={chapters} chapter={this.state.current_chapter} onChapterSelect={this.onChapterSelect}/>
+          <WaitFor data={this.props.index}>
+            <Chapter chapters={chapters} chapter={this.state.current_chapter} onChapterSelect={this.onChapterSelect} allData={this.props.item}/>
           </WaitFor>
         </div>
       </div>
@@ -77,20 +70,6 @@ class Book extends React.Component {
 }
 
 export default connect(Book)
-
-
-          // <div className="row">
-          //   <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
-          // </div>
-          // <NavDropdownSelect
-          //   label=""
-          //   onSelect={this.onCharSelect}
-          //   options={ characters }
-          //   textKey="name"
-          //   valueKey="id"
-          //   selectedText={this.state.characterObject.name}
-          // />
-          // <Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/>
 
 
 

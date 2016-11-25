@@ -19,7 +19,7 @@ export default class BookSeriesListItem extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={current_chapter: 0, selectedBook: props.item.books[0]};
+    this.state={selectedBook: props.item.books[0]};
     this.onSelectBook = ::this.onSelectBook;
   }
 
@@ -35,7 +35,7 @@ export default class BookSeriesListItem extends React.Component {
 
   renderSelectedBook() {
     if (this.state.selectedBook != null){
-      return <Book book={this.state.selectedBook} item={this.props.item} chapter={this.state.current_chapter}/>
+      return <Book book={this.state.selectedBook} item={this.props.item} />
     }
   }
 
