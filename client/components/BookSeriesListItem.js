@@ -3,7 +3,6 @@ import { bookActions, chapterActions } from '../actions/bookActions';
 import { bookSeriesActions } from '../actions/bookSeriesActions';
 import WaitFor from '../components/WaitFor';
 import NavDropdownSelect from '../components/NavDropdownSelect';
-import SliderInput from '../components/SliderInput';
 import Book from '../components/Book';
 import BookSelect from '../components/BookSelect';
 import BookList from '../components/BookList';
