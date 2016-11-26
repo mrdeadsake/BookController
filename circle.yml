@@ -1,6 +1,7 @@
 dependencies:
   override:
     - npm prune
+    - npm install
 
 test:
   post:
