@@ -5,7 +5,6 @@ import { characterActions } from '../actions/characterActions';
 import modalActions from '../actions/modalActions';
 import WaitFor from '../components/WaitFor';
 import NavDropdownSelect from '../components/NavDropdownSelect';
-import SliderInput from '../components/SliderInput';
 import Book from '../components/Book';
 import BookList from '../components/BookList';
 import BookSeriesListItem from '../components/BookSeriesListItem';

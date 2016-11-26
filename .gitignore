@@ -22,10 +22,10 @@ node_modules/
 
 /public/*
 !/public/*
+public/*
 
 bookcontrol.sublime-project
 bookcontrol.sublime-workspace
 webpack.json
-public/bookcontrol/*
 
 .byebug_history
