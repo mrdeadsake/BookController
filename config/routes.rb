@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'book_series/:id', to: 'book_series#show', constraints: {:format => :json}
   get 'character', to: 'character#index'
   get 'book_series/book/:id/chapter/index', to: 'chapter#index'
+  post 'book_series/:id/character', to: 'character#create'
   #get 'chapter/:id', to: 'chapter#show'
 
   root({ :to => redirect("/overview") })

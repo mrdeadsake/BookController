@@ -26,5 +26,6 @@ node_modules/
 bookcontrol.sublime-project
 bookcontrol.sublime-workspace
 webpack.json
+public/bookcontrol/*
 
 .byebug_history
