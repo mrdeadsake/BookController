@@ -1,7 +1,7 @@
 import {restActionsGenerator} from 'react-data-actions';
 
 const characterActions = restActionsGenerator({
-  path: `/character`,
+  path: `/book_series/:id/character`,
   extension: 'json',
   maxAge: 5000000,
 });

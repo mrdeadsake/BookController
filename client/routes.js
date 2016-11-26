@@ -5,6 +5,7 @@ import Landing from './views/Landing';
 import BookSeriesShow from './views/BookSeriesShow';
 import BookSeriesIndex from './views/BookSeriesIndex';
 import BookSeriesNew from './views/BookSeriesNew';
+import About from './views/About';
 import { Router, Route, IndexRoute, Redirect, IndexRedirect } from 'react-router';
 
 export default function routes (history) {
@@ -14,6 +15,7 @@ export default function routes (history) {
           <Route path="/" component={BasePage}>
             <Route path="overview" component={ Landing } />
             <Route path="book_series/:id" component={ BookSeriesShow } />
+            <Route path="about" component={ About } />
           </Route>
         </Route>
       </Router>

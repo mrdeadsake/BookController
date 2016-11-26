@@ -1,0 +1,7 @@
+dependencies:
+  override:
+    - npm prune
+
+test:
+  post:
+    - npm run build
