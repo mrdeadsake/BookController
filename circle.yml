@@ -4,9 +4,7 @@ dependencies:
     - npm config set registry https://npm-proxy.fury.io/nzxfQ67c31q6AGuxZRmx/nuvi/
     - npm config set ca ""
     - npm prune
-    - npm install
 
 test:
   post:
-    - npm run clean
     - npm run build
