@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "rm -f public/bookcontrol/**/*.js*",
-    "build": "webpack -p --devtool sourcemap",
+    "build": "webpack -p",
     "watch": "webpack -w -d"
   },
   "repository": {
