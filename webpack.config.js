@@ -1,4 +1,4 @@
-const productName = process.env.PRODUCT_NAME || 'bookcontrol';
+const productName = 'bookcontrol';
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
@@ -63,7 +63,7 @@ module.exports = {
   plugins: []
 };
 
-if (process.env.RAILS_ENV == 'production') {
+if (process.env.RAILS_ENV == 'production' || 1==1) {
   // Hashing of this kind happens only in prod.
   module.exports.output.filename = 'bundle-[hash].js';
   module.exports.plugins.push(function () {
