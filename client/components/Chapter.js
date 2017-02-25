@@ -71,7 +71,7 @@ class Chapter extends React.Component {
     }
   }
 
-export default connect(Chapter)
+export default Chapter
 
           // <div className="row">
           //   <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
