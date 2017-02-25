@@ -22,7 +22,7 @@ node_modules/
 
 /public/*
 !/public/*
-
+vendor/bundle*
 bookcontrol.sublime-project
 bookcontrol.sublime-workspace
 webpack.json
