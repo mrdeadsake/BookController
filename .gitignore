@@ -21,9 +21,8 @@
 
 node_modules/
 
-public/bookcontrol/*
+/public/bookcontrol/**
 /public/*
-!/public/*
 vendor/bundle*
 
 bookcontrol.sublime-project

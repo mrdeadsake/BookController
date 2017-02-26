@@ -54,6 +54,11 @@ class Chapter extends React.Component {
     if (chapter == null ){
       chapter = chapters[0];
     }
+    if (chapters.length == 0){
+      return (
+        <div>No Chapters</div>
+        )
+    }
     return(
       <div>
         <NavDropdownSelect
