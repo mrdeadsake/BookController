@@ -58,18 +58,6 @@ module ApplicationHelper
   end
 
 
-  def webpack_asset_path(asset_name)
-    assets = if Rails.env.production?
-               Rails.application.config.assets.webpack
-             else
-               webpack_asset_config
-             end
-    unless assets.key?(asset_name)
-      raise "There isn't a webpack asset in the config called #{asset_name}"
-    end
-    assets[asset_name]
-  end
-
   def webpack_asset_config
     asset_config = {}
     webpack_config = JSON.parse(File.read("config/webpack.json"))
