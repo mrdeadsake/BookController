@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, minimal-ui">
   <%= csrf_meta_tags %>
   <%= javascript_env_script_tag %>
-  <%= javascript_include_tag "/bookcontrol/bundle.js" %>
+  <% if Rails.env =~ /production/ %>
+      <%= javascript_include_tag webpack_asset_path("main") %>
+  <% else %>
+      <%= javascript_include_tag "/bookcontrol/bundle.js" %>
+  <% end %>
 </head>
 <body class="graphite" data-controller="<%= controller_path %>" data-action="<%= action_name %>" >
 <div id="react-container"></div>

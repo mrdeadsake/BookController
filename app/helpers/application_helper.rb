@@ -57,4 +57,31 @@ module ApplicationHelper
     end
   end
 
+
+  def webpack_asset_path(asset_name)
+    assets = if Rails.env.production?
+               Rails.application.config.assets.webpack
+             else
+               webpack_asset_config
+             end
+    unless assets.key?(asset_name)
+      raise "There isn't a webpack asset in the config called #{asset_name}"
+    end
+    assets[asset_name]
+  end
+
+  def webpack_asset_config
+    asset_config = {}
+    webpack_config = JSON.parse(File.read("config/webpack.json"))
+    public_path = webpack_config["publicPath"]
+    webpack_builds = webpack_config["assetsByChunkName"]
+    webpack_builds.each do |asset_name, asset_files|
+      asset_files = asset_files.reject { |p| p =~ /.*\.map$/ }
+      asset_config[asset_name] = asset_files.map { |p| "#{public_path}#{p}" }
+    end
+    asset_config.with_indifferent_access
+  end
+
+
+
 end
