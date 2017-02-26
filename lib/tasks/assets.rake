@@ -5,6 +5,6 @@
 namespace :assets do
   desc "Compile assets with webpack"
   task :webpack do
-    sh "npm run build"
+    exec "npm run build"
   end
 end
