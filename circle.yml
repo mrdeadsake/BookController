@@ -10,11 +10,12 @@ dependencies:
     - npm config set ca ""
     - npm prune
     - npm install
-
-prod:
-  branch: prod
-  commands:
-    - git push git@heroku.com:spoilerfreebooks.git $CIRCLE_SHA1:refs/heads/master
+    
+deployment:
+  prod:
+    branch: prod
+    commands:
+      - git push git@heroku.com:spoilerfreebooks.git $CIRCLE_SHA1:refs/heads/master
 
 test:
   post:
