@@ -1,27 +1,36 @@
 import { connect } from 'react-data-actions';
 import React from 'react';
 import NavDropdownSelect from './NavDropdownSelect';
-import BookSelect from './BookSelect';
+import CharacterSelect from './CharacterSelect';
 import Character from './Character';
 
 class Chapter extends React.Component {
   
   constructor(props){
     super(props);
-    this.state = {selectedCharacter: props.allData.characters[0]}
-    this.onCharSelect = ::this.onCharSelect;
     this.filterCharactersByChapter = ::this.filterCharactersByChapter;
+  }
+
+  componentWillReceiveProps(nextProps){
+        if (nextProps.characters && nextProps.characters.indexOf(nextProps.selectedValue) == -1){
+          if (this.state.character != nextProps.characters[0]){
+              this.state.character == nextProps.characters[0]
+          }
+        }
+      
   }
 
   static propTypes = {
     onChapterSelect: React.PropTypes.func,
+    onCharSelect: React.PropTypes.func,
     chapters: React.PropTypes.array,
     chapter: React.PropTypes.object,
+    character: React.PropTypes.object,
   };
 
-  onCharSelect(character) {
-    this.setState({ selectedCharacter: character});
-  }
+  // onCharSelect(character) {
+  //   this.setState({ character: character});
+  // }
 
   onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
@@ -44,7 +53,12 @@ class Chapter extends React.Component {
   renderCharacterSelectList() {
     if (this.props.chapter != null && this.props.allData.characters != null) {
       let charUse = this.filterCharactersByChapter();
-      return(<BookSelect books={charUse} onSelect={this.onCharSelect} selectedValue={this.state.selectedCharacter} />)
+      return(
+        <CharacterSelect 
+          characters={charUse} 
+          onSelect={this.props.onCharSelect} 
+          selectedValue={this.props.character} />
+        )
     } else return(null)
   }
 
@@ -61,17 +75,12 @@ class Chapter extends React.Component {
     }
     return(
       <div>
-        <NavDropdownSelect
-             label=""
-             onSelect={this.props.onChapterSelect}
-             options={ chapters }
-             textKey="name"
-             valueKey="id"
-             selectedValue={chapter.id}
-             selectedText={chapter.name}
-           />
           {this.renderCharacterSelectList()}
-          <Character character={this.state.selectedCharacter} details={this.props.allData.details} chapters={this.props.chapters} chapter={this.props.chapter}/>
+          {
+            this.props.character 
+            ? <Character character={this.props.character} details={this.props.allData.details} chapter={this.props.chapter}/>
+            : null
+          }
       </div>)
     }
   }

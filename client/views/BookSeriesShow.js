@@ -45,12 +45,21 @@ class BookSeriesShow extends React.Component {
     return(<button onClick={this.onSet}>Add More Details</button>)
   }
 
+  renderBookSeriesListItems() {
+    const books = this.props.show.data || {};
+    if (books != {}){
+      return (<BookSeriesListItem item ={books} />)
+    } else {
+      return (null)
+    }
+              
+  }
+
   render() {
-    const bookSeries = this.props.show.data || {};
     return(
       <section className="breathe">
         <WaitFor data={this.props.show} >
-          <BookSeriesListItem item ={bookSeries} />
+          { this.renderBookSeriesListItems()}
         </WaitFor>
         { this.renderButton() }
       </section>

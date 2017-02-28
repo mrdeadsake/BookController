@@ -17,7 +17,6 @@ class Character extends React.Component {
   }
 
   calculate() {
-      const chapters = this.props.chapters;
       const details = this.props.details;
       const allowed = details.filter(this.filterByCurrentChapter);
       const next = allowed.filter(this.filterByCharacter);
@@ -38,10 +37,9 @@ class Character extends React.Component {
   }
 
   static propTypes = {
-    character: React.PropTypes.object,
+    character: React.PropTypes.object.isRequired,
     details: React.PropTypes.array,
     chapter: React.PropTypes.object,
-    chapters: React.PropTypes.array,
   };
 
   renderDetails(next) {
@@ -77,7 +75,6 @@ class Character extends React.Component {
 
   renderCharacter() {
     if (this.props.character != undefined){
-      const chapters = this.props.chapters;
       const details = this.props.details;
       const allowed = details.filter(this.filterByCurrentChapter);
       const next = allowed.filter(this.filterByCharacter);
