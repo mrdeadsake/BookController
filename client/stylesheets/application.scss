@@ -1,6 +1,24 @@
 $transcend-font-path: '~transcend-css/fonts/';
 $transcend-image-path: '~transcend-css/images/';
 @import "~transcend-css/stylesheets/transcend";
+@import "~basicGrid/src/styles/main";
+
+
+$maxWidth : 1280px; // Maximum width of a row
+$columns  : 12; // Number of columns
+$gutter   : 1.8rem; // Gutter size between columns
+
+// Column-Breakpoints
+$sizes: (
+    'small'  : 0px,
+    'medium' : 640px,
+    'large'  : 1024px
+);
+
+
+.row {
+  margin-bottom: 2em;
+}
 
 .top {
   border-bottom-style: solid;

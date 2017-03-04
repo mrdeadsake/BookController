@@ -30,13 +30,16 @@ export default class Modal extends React.Component {
     }
   }
 
+
+              //{ this.props.children }
+
   render () {
     return (
       <div className={ `modal ${this.props.className || ''}` }>
         <div className="modal__shadow" onClick={ ::this.onModalShadowClick } ref="shadow"></div>
         <div className="modal__fill" onClick={ ::this.onModalShadowClick } ref="fill">
           <div className="modal__content">
-            { this.props.children }
+            { this.renderOptions() }
             { this.renderCloseButton() }
           </div>
         </div>
@@ -52,5 +55,35 @@ export default class Modal extends React.Component {
         </div>
       );
     }
+  }
+
+  renderOptions () {
+    return(
+      <div>
+        <div className="row center-on-small">
+          <div className="column">
+            <button>Upload via CSV</button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="column small-6">
+              <button>Add Book</button>
+          </div>
+          <div className="column small-6">
+              <button>Add Character</button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="column small-6">
+              <button>Add Detail</button>
+          </div>
+          <div className="column small-6">
+              <button>Add Chapter</button>
+          </div>
+        </div>
+      </div>
+      )
   }
 }
