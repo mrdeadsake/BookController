@@ -1,7 +1,7 @@
 $transcend-font-path: '~transcend-css/fonts/';
 $transcend-image-path: '~transcend-css/images/';
 @import "~transcend-css/stylesheets/transcend";
-@import "~basicGrid/src/styles/main";
+@import "~basicGrid/";
 
 
 $maxWidth : 1280px; // Maximum width of a row
