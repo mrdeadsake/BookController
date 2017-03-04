@@ -1,0 +1,47 @@
+        <div>
+           <div class="row">
+             <h1 class="column small-3">Name</h1>
+             <h1 class="column small-auto">Derek Adams</h1>
+           </div>
+           <div class="row">
+             <h2 class="column small-3">Current Company</h2>
+             <h2 class="column small-auto"><a href="https://www.nuvi.com">Nuvi</a></h2>
+           </div>
+           <div class="row">
+             <div class="column small-3">Current Title</div>
+             <div class="column small-auto">Software Engineer</div>
+           </div>
+        </div>
+
+          <div class="row">
+            <div class="column">
+              <div>I'm a software engineer living and working in Salt Lake City, Utah currently looking to relocate to San Diego.</div>
+              <div>I'm a full-stack engineer developing enterprise-level web applications for a year and a half now. Previous to that I worked for 3 years as in Quality Assurance doing manual user end testing</div>
+              <div>In the past year I have had 342 merged pull requests that have made it into live production applications.</div>
+              <div>Given approximately 236 (260 non-weekend days, 12 holiday days, 12 sick/PTO days) work days in a year, that averages out to around 1.44 *merged* PRs per day.</div>
+              <div> I am familiar with and have at least a year of solid expierence with the following technologies</div>
+              <ul>
+                <li>ReactJS: Specifically</li>
+                <ul>
+                  <li>Creating components for handling/displaying dynamic content that is returned via REST calls to the server</li>
+                </ul>
+                <li>Webpack</li>
+                <ul><li>Writing Sidekiq workers and cron jobs to make async API calls or other tasks.</li></ul>
+                <li>NPM</li>
+                <ul><li>Handling/dealing with packaage dependencies, particularly safely ensuring that .</li></ul>
+                <li>Ruby on Rails</li>
+                <ul>
+                  <li>Little Story: In April of 2015 I had been working on a project with just one other developer. He did the backend (ruby on rails) and I did the front end with ReactJS. One day after lunch, the backend engineer didn't come back. He emailed in to our boss saying that he was quitting. The next day my boss came to me and said "Derek we don't have any engineers to spare on your project, so you'll be in charge of the backend as well." I had never written a line of Ruby code at that point and suddenly was in charge of an app that was having critical issues in production. With little guidance at work. I eventually learned the ins-and-outs of Ruby and Rails to be fully trusted to refactor significant portions of that project. And then after a little time later I started working on the 4 other applications we have. The moral of the story is, I learn fast.</li>
+                </ul>
+                <li>Sidekiq</li>
+                <ul><li>Writing Sidekiq workers and cron jobs to make async API calls or other tasks.</li></ul>
+                <li>PostgreSQL</li>
+                <ul><li>Making backups of databases, restoring backups, ensuring general health.</li></ul>
+                <li>Git source control </li>
+                
+              </ul>
+
+              <div>and many others.</div>
+            </div>
+          </div>
+      </div>

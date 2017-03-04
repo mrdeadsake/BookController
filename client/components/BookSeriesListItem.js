@@ -22,10 +22,15 @@ export default class BookSeriesListItem extends React.Component {
     this.onSelectBook = ::this.onSelectBook;
   }
 
+  componentWillReceiveProps(nextProps) {
+    //console.log(nextProps);
+    this.setState({selectedBook: nextProps.item.books[0]})
+  }
+
   componentDidMount() {
-    if (this.props.item.characters && this.props.item.characters.length != 0) {
-      this.setState({characterObject: this.props.item.characters[0]})
-    }
+    // if (this.props.item.characters && this.props.item.characters.length != 0) {
+    //   this.setState({characterObject: this.props.item.characters[0]})
+    // }
   }
 
   onSelectBook(book){
@@ -33,6 +38,7 @@ export default class BookSeriesListItem extends React.Component {
   }
 
   renderSelectedBook() {
+    //console.log(this.state.selectedBook)
     if (this.state.selectedBook != null){
       return <Book book={this.state.selectedBook} item={this.props.item} />
     }

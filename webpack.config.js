@@ -63,7 +63,7 @@ module.exports = {
   plugins: []
 };
 
-if (process.env.RAILS_ENV == 'production' || 1==1) {
+if (process.env.RAILS_ENV == 'production') {
   // Hashing of this kind happens only in prod.
   module.exports.output.filename = 'bundle-[hash].js';
   module.exports.plugins.push(function () {

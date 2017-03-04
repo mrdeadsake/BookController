@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rm -f public/bookcontrol/**/*.js*",
     "build": "webpack -p --devtool sourcemap --bail",
-    "watch": "webpack -w -d"
+    "watch": "webpack -w -d --progress"
   },
   "repository": {
     "type": "git",
