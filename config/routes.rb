@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'book_series/book/:id/chapter/index', to: 'chapter#index'
   post 'book_series/:id/character', to: 'character#create'
   get 'about', {:to =>"book_series#index"}
+  get 'dnd', {:to => "dnd_character#index"}
   root({ :to => redirect("/overview") })
 end
 
