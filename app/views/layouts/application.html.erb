@@ -12,7 +12,7 @@
       <%= javascript_include_tag "/bookcontrol/bundle.js" %>
   <% end %>
 </head>
-<body class="graphite" data-controller="<%= controller_path %>" data-action="<%= action_name %>" >
+<body data-controller="<%= controller_path %>" data-action="<%= action_name %>" >
 <div id="react-container"></div>
 <%= render({ :partial => "layouts/javascript_globals" }) %>
 </body>

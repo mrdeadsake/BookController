@@ -37,6 +37,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": ">=6.9.2",
     "babelify": "^7.3.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.25.0",
     "expose-loader": "^0.7.1",
     "history": "^2.1.2",
@@ -53,8 +55,6 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "superagent": "^1.8.4",
-    "transcend-charts": "1.1.6",
-    "transcend-css": "1.1.15",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"

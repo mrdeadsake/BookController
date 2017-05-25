@@ -81,7 +81,7 @@ class Book extends React.Component {
     const details = bookSeries.details;
     return(
       <div className="book">
-        <div className="row">
+        <div className="flex">
           <WaitFor data={this.props.index}>
             <div>
               {
