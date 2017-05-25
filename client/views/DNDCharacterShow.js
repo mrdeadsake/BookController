@@ -7,7 +7,7 @@ import SkillList from '../components/SkillList';
 import React from 'react';
 import _ from 'lodash';
 
-class DndCharacterShow extends React.Component {
+class DNDCharacterShow extends React.Component {
 
   constructor(...args){
     super(...args);
@@ -115,4 +115,4 @@ class DndCharacterShow extends React.Component {
   }
 }
 
-export default connect(DndCharacterShow);
+export default connect(DNDCharacterShow);

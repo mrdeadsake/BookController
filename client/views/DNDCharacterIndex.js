@@ -9,7 +9,7 @@ import Navigation from '../components/Navigation';
 import React from 'react';
 import _ from 'lodash';
 
-class DndCharacterIndex extends React.Component {
+class DNDCharacterIndex extends React.Component {
 
   constructor(...args){
     super(...args);
@@ -60,4 +60,4 @@ class DndCharacterIndex extends React.Component {
 
 }
 
-export default connect(DndCharacterIndex);
+export default connect(DNDCharacterIndex);
