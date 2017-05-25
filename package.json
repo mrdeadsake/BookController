@@ -55,8 +55,6 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "superagent": "^1.8.4",
-    "transcend-charts": "1.1.6",
-    "transcend-css": "1.1.15",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"

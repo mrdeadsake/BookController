@@ -21,7 +21,9 @@ module ApplicationHelper
   end
 
   def javascript_env_script_tag
-    nuvify_javascript_env_script_tag(javascript_envs)
+    javascript_tag do
+      "window.env = #{default_javascript_env(javascript_envs).to_json};".html_safe
+    end
   end
 
   def javascript_envs
@@ -50,13 +52,6 @@ module ApplicationHelper
         preferredTheme: "graphite",
     }
   end
-
-  def nuvify_javascript_env_script_tag(env_variables = {})
-    javascript_tag do
-      "window.env = #{default_javascript_env(env_variables).to_json};".html_safe
-    end
-  end
-
 
   def webpack_asset_config
     asset_config = {}

@@ -1,5 +1,4 @@
 import React from 'react';
-import SideUserDropdown from './SideUserDropdown';
 import Navigation from './Navigation';
 import SideNavChildren from './SideNavChildren';
 
