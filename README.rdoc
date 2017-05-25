@@ -1,5 +1,13 @@
 == README
 
+This project was initialized when my current work had a hackathon, I started with `rails new` and started to patch all the pieces together to get a Rails and Reactjs project setup with webpack. As it is a work in progress i'm continually going back through the remove code that was related or proprietary to my old job. 
+
+In the process of getting the app up and running I learned how to 
+* Start from scratch and get a rails project working. 
+* Use ReactJS to render the frontend of the rails project instead of the default rails views. 
+* Use webpack to bundle and serve up the assets.
+* 
+
 This is my current project for ruby on rails / reactjs.
 
 The purpose of the application is to provide a spoiler controlled environment for reading up on book series. For example, you started reading a long epic fantasy books series, but took some time between books and forgot some information about a character. You don't want to just search google because you might read about events that haven't happened yet. This site provides a way to limit information that to see to only show up to a certain chapter. 
