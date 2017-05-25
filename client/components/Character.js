@@ -70,7 +70,6 @@ class Character extends React.Component {
   updateStuff(){
     let details = {character_id: 2, chapter_id: 8, details:'Kaladin does stuff', location: 'some place'};
     this.props.update(details);
-    //this.props.show);
   }
 
   renderCharacter() {
