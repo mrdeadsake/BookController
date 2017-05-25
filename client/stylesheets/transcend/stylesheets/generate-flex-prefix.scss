@@ -1,7 +1,0 @@
-@mixin generate-flex-prefix($grow, $shrink, $basis) {
-  -webkit-flex: $grow $shrink $basis;
-  -ms-flex: $grow $shrink $basis;
-  -moz-flex: $grow $shrink $basis;
-  flex: $grow $shrink $basis;
-  min-width: $basis;
-}

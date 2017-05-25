@@ -45,9 +45,9 @@ class Character extends React.Component {
   renderDetails(next) {
     return next.map((item, i)=> {
       return (
-        <div className={"row"} key={i}>
-          <div className={"row__cell--fixed chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.number}</div>
-          <div className={"row__cell details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
+        <div className={"flex"} key={i}>
+          <div className={"chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.number}</div>
+          <div className={"details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
         </div>
         )
     });
@@ -86,7 +86,7 @@ class Character extends React.Component {
         </div>
         )
     }
-    return(<div className="row__cell">
+    return(<div className="">
       details
     </div>)
   }

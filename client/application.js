@@ -7,7 +7,6 @@ import ReactDOM from 'react-dom';
 
 import { useRouterHistory } from 'react-router';
 import Navigation from './components/Navigation';
-import { Themes } from 'transcend-css';
 import { configureFetch, DataManager, DataProvider } from 'react-data-actions';
 
 import createBrowserHistory from 'history/lib/createBrowserHistory';
@@ -51,6 +50,5 @@ window.addEventListener('load', () => {
       'X-CSRF-Token': window.env.csrfToken,
     },
   });
-  //window.env.theme = Themes[window.env.preferredTheme];
   renderAction();
 });

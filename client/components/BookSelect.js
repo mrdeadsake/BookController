@@ -64,7 +64,7 @@ export default class BookSelect extends React.Component {
   render() {
     return(
         <div>
-          <div className="row">{this.renderBooks()}</div>
+          <div className="flex">{this.renderBooks()}</div>
         </div>
       )
   }

@@ -48,7 +48,7 @@ export default class Modal extends React.Component {
     if (this.props.onCloseClick) {
       return (
         <div className="modal__close" onClick={ this.props.onCloseClick }>
-          <i className="icon icon--close"></i>
+          <span className="glyphicon glyphicon-remove"></span>
         </div>
       );
     }
