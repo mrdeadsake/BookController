@@ -1,5 +1,7 @@
 import { connect } from 'react-data-actions';
-import { dndCharacterActions } from '../actions/dndCharacterActions';
+import { dndCharacterActions, dndActions } from '../actions/dndCharacterActions';
+import Abilities from '../helpers/Abilities';
+import Skills from '../helpers/Skills';
 import AbilityList from '../components/AbilityList';
 import SkillList from '../components/SkillList';
 import React from 'react';
@@ -12,13 +14,15 @@ class DndCharacterShow extends React.Component {
     this.state = {
       name: "Hoid",
       playerName: "Derek",
-      abilities:
-      [{strength: 10},
-      {intelligence: 16},
-      {dexterity: 16},
-      {constitution: 14},
-      {charisma: 19},
-      {wisdom: 6}],
+        abilities:
+        [
+          {Strength: 8},
+          {Intelligence: 16},
+          {Dexterity: 16},
+          {Constitution: 14},
+          {Charisma: 19},
+          {Wisdom: 6}
+        ],
       subrace: "none ",
       race: "half-elf",
       background: "criminal",
@@ -27,21 +31,22 @@ class DndCharacterShow extends React.Component {
       experience: 0,
       class: "Bard"
     }
+    this.renderAbilities
   }
 
-  // static connectedActions (props) {
-  //   return {
-  //     showCharactersAction: dndCharacterActions.indexAction("derek")
-  //   }
-  // }
+  static connectedActions (props) {
+    return {
+      dnd: dndActions.indexAction(),
+    }
+  }
 
   render() {
     return(
       <section className="breathe">
           { this.renderCharacter() }
           <div className="">
-            { this.renderAbilities() }
-            {this.renderSkills()}
+            { this.renderAbilities() }    
+            { this.renderSkills() }
           </div>
       </section>
       )
@@ -49,14 +54,20 @@ class DndCharacterShow extends React.Component {
 
   renderAbilities() {
     return(
-      <AbilityList character={this.state.abilities} />
+      <AbilityList character={this.state.abilities} onChange={this.onUpdateAbilityScore} />
     )
   }
 
   renderSkills() {
-    return(
-        <SkillList character={this.state.character} />
-      )
+    /*return(
+        <SkillList character={this.state.abilities} />
+      )*/
+  }
+
+  onUpdateAbilityScore(abilityScore) {
+    this.setState({
+      abilityScore
+    })
   }
 
   renderCharacter() {
@@ -104,4 +115,4 @@ class DndCharacterShow extends React.Component {
   }
 }
 
-export default DndCharacterShow
+export default connect(DndCharacterShow);

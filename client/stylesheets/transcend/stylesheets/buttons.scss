@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+
+/*** Buttons ***/
+.btn, button {
+	font-family: $klavika;
+	font-weight: 300;
+	font-size: 16px;
+	padding: 8px 12px;
+	border-radius: $border-radius;
+	-webkit-appearance: none;
+	cursor: pointer;
+	display: inline-block;
+
+	background-color: $brand-color;
+	color: #38383a;
+
+	font-weight: 400;
+	border: none;
+
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+
+	&.full-width {
+		width: 100%;
+	}
+
+	& + .btn, & + button {
+		margin-left: 8px;
+	}
+
+	&:hover {
+		background-color: darken($brand-color, 8%);
+	}
+
+	&.btn--sm {
+		font-size: 16px;
+		padding: 5px 12px;
+	}
+	&.btn--xs {
+		font-size: 14px;
+		padding: 4px 12px;
+	}
+	&.btn--header {
+		font-size: 13px;
+		padding: 4px 9px;
+		margin-left: 8px;
+		margin-bottom: 5px;
+	}
+	&.btn--lg {
+		font-size: 18px;
+		padding: 6px 12px;
+	}
+	&.btn--xl {
+		font-size: 20px;
+		padding: 7px 12px;
+	}
+
+	&.btn--delete {
+		color: $delete-color;
+		background-color: transparent;
+		border: 1px solid $btn-secondary-border-color;
+		&:hover {
+			border-color: $delete-color;
+		}
+		&--full {
+			background-color: $delete-color;
+			border: 1px solid $delete-color;
+			color: #222;
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.05);
+				color: $delete-color;
+			}
+		}
+	}
+	&.btn--cancel {
+		color: #fff;
+		background-color: transparent;
+		border: 1px solid $btn-secondary-border-color;
+		&:hover {
+			border-color: #fff;
+		}
+	}
+	&.btn--secondary {
+		color: $brand-color;
+		background-color: transparent;
+		border: 1px solid $brand-color;
+		&:hover {
+			background-color: rgba(255,255,255,0.05);
+		}
+	}
+	&:disabled {
+		color: #444;
+		border: 1px solid $btn-secondary-border-color;
+		cursor: default;
+	}
+
+	&.btn--dropdown {
+		color: $brand-color;
+		background-color: transparent;
+		border: 1px solid $btn-secondary-border-color;
+		&:hover {
+			border-color: $brand-color;
+		}
+		position: relative;
+
+		&.open {
+		}
+
+		ul {
+			border: none;
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			left: 0;
+			top: calc(100% + 1px);
+			background-color: #434343;
+			min-width: 100%;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+
+			li {
+				list-style: none;
+				cursor: pointer;
+				padding: 10px 12px;
+				margin: 0;
+				color: #fff;
+				text-align: left;
+				font-weight: 300;
+				background-color: #434343;
+
+				&:hover {
+					background-color: #525252;
+				}
+			}
+		}
+
+		span.icon {
+			margin: 0 0 0 4px;
+		}
+	}
+
+	&.btn--click-and-hold {
+		position: relative;
+		& > .btn--click-and-hold__progress-bar {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			bottom: 0;
+			height: 4px;
+			background-color: $brand-color;
+		}
+		& > .btn--click-and--hold__instruction {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			bottom: -9px;
+			height: 8px;
+			font-size: 8px;
+			font-family: $proxima-nova;
+			font-weight: 300;
+			width: 100%;
+			text-align: center;
+			color: #999;
+			background-color: transparent;
+		}
+
+		&.btn--delete {
+			& > .btn--click-and-hold__progress-bar {
+				background-color: $delete-color;
+			}
+		}
+		&.btn--add {
+			& > .btn--click-and-hold__progress-bar {
+				background-color: rgba(255,255,255,0.3);
+			}
+		}
+		&.btn--delete {
+			& > .btn--click-and-hold__progress-bar {
+				background-color: $delete-color;
+			}
+		}
+		&.btn--cancel, &.btn--secondary {
+			& > .btn--click-and-hold__progress-bar {
+				background-color: rgba(255,255,255,0.3);
+			}
+		}
+	}
+
+	&,
+	&:active,
+	&.active {
+		&:focus,
+		&.focus {
+			outline: none !important;
+			box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+	}
+}
+
+.btn-group {
+	.btn {
+		color: $brand-color;
+		background-color: transparent;
+		border: 1px solid $btn-secondary-border-color;
+		&:hover {
+			border-color: $brand-color;
+		}
+		&:first-child {
+			border-top-left-radius: $border-radius;
+			border-bottom-left-radius: $border-radius;
+		}
+		&:last-child {
+			border-top-right-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+		}
+	}
+}
+.btn-group--vertical {
+	.btn {
+		color: $brand-color;
+		background-color: transparent;
+		border: 1px solid $btn-secondary-border-color;
+		&:hover {
+			border-color: $brand-color;
+		}
+		&:first-child {
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+		}
+		&:last-child {
+			border-bottom-left-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+		}
+	}
+}

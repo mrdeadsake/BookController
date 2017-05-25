@@ -1,0 +1,29 @@
+
+.underlay-image,.underlay-image__scrim {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+}
+
+.underlay-image {
+  background-position: center center;
+  background-size: cover;
+}
+.underlay-image__scrim {
+  background-color: rgba(0,0,0,0.5);
+}
+.underlay-image--hover-effect {
+  .underlay-image__scrim,.underlay-image {
+    @include transition(200ms);
+  }
+  &:hover {
+    .underlay-image {
+      @include blur(10px)
+    }
+    .underlay-image__scrim {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+}

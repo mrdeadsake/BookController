@@ -1,6 +1,109 @@
-$transcend-font-path: '~transcend-css/fonts/';
-$transcend-image-path: '~transcend-css/images/';
-@import "~transcend-css/stylesheets/transcend";
+$font-path: './fonts/';
+$transcend-image-path: './transcend/images/';
+@import  "./nav.scss";
+
+// @import "./transcend/stylesheets/variables.scss";
+// @import "./transcend/stylesheets/generate-responsive-rows.scss";
+// @import "./transcend/stylesheets/generate-flex-prefix.scss";
+// @import "./transcend/stylesheets/fonts.scss";
+// @import "./transcend/stylesheets/mixins.scss";
+// @import "./transcend/stylesheets/buttons.scss";
+// @import "./transcend/stylesheets/components.scss";
+// @import "./transcend/stylesheets/company-selector.scss";
+// @import "./transcend/stylesheets/date_range_picker.scss";
+// @import "./transcend/stylesheets/datepicker.scss";
+// @import "./transcend/stylesheets/flexlayout.scss";
+@import "./transcend/stylesheets/icons.scss";
+@import "./transcend/stylesheets/inputs.scss";
+// @import "./transcend/stylesheets/modal.scss";
+// @import "./transcend/stylesheets/nav_tabs.scss";
+// @import "./transcend/stylesheets/nuvi_datepicker.scss";
+// @import "./transcend/stylesheets/tables.scss";
+// @import "./transcend/stylesheets/tabs.scss";
+// @import "./transcend/stylesheets/underlay_image.scss";
+// @import "./transcend/stylesheets/wait_indicator.scss";
+
+// @import "./transcend/stylesheets/transcend";
+
+// $transcend-font-path: '~transcend-css/fonts/';
+// $transcend-image-path: '~transcend-css/images/';
+// @import "~transcend-css/stylesheets/transcend";
+body {
+  background-color: #292929;
+
+  text-align: left;
+  font-weight: 300;
+  font-size: 14px;
+  color: #e6e6e6;
+  padding: 0 0 50px 0;
+  margin: 0;
+  line-height: normal;
+}
+
+/*** Main page container ***/
+.container {
+  padding: 0;
+  margin: auto;
+  position: relative;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  width: auto;
+
+  header {
+    padding: 0;
+    margin: 0;
+    padding-left: 15px;
+
+    &.no-sidebar {
+      padding-left: 0;
+    }
+  }
+
+  .container__content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+
+    .container__content__side-nav {
+      -webkit-flex: 0 0 215px;
+      -ms-flex: 0 0 215px;
+      -moz-flex: 0 0 215px;
+      flex: 0 0 215px;
+      min-width: 215px;
+    }
+
+    main {
+      margin: 0;
+      -webkit-flex: 1 1 200px;
+      -ms-flex: 1 1 200px;
+      -moz-flex: 1 1 200px;
+      flex: 1 1 200px;
+      min-width: 200px;
+      background-color: #38383a;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      padding: 30px;
+
+      &.form-content {
+        padding: 30px;
+      }
+    }
+  }
+}
+
+.input[type=checkbox] {
+  display: inherit;
+}
 
 .top {
   border-bottom-style: solid;
@@ -44,7 +147,7 @@ div.book {
   border: 1px solid #444444;
 
   padding: 6px 2px 6px 2px;
-  border-radius: $border-radius;
+  border-radius: 5px;
 
   max-width: 100%;
   box-sizing: border-box;
@@ -56,12 +159,12 @@ div.book {
   
   &:focus {
     outline: none;
-    border-color: $brand-color;
-    color: $input-active-text-color;
-    box-shadow: 0 0 10px 0 darken($brand-color,15%);
-    -webkit-box-shadow: 0 0 10px 0 darken($brand-color,15%);
-    -moz-box-shadow: 0 0 10px 0 darken($brand-color,15%);
-    -ms-box-shadow: 0 0 10px 0 darken($brand-color,15%);
+    border-color: #54c7dd;
+    color: #cccccc;
+    box-shadow: 0 0 10px 0 darken(#54c7dd,15%);
+    -webkit-box-shadow: 0 0 10px 0 darken(#54c7dd,15%);
+    -moz-box-shadow: 0 0 10px 0 darken(#54c7dd,15%);
+    -ms-box-shadow: 0 0 10px 0 darken(#54c7dd,15%);
   }
 
   &--nav {
@@ -69,20 +172,18 @@ div.book {
     border: none;
     cursor: pointer;
     .bookselect__label {
-      font-family: $klavika;
       font-weight: 300;
       font-size: 12px;
-      color: $brand-color;
+      color: #54c7dd;
     }
     .bookselect__selected-text {
       padding: 0;
-      font-family: $klavika;
       font-weight: 400;
       font-size: 16px;
-      color: $gray4;
+      color: #999999;
       cursor: pointer;
       &:hover {
-        color: $gray2;
+        color: #CCCCCC;
       }
     }
     .bookselect__options-panel {
@@ -93,8 +194,8 @@ div.book {
       width: 200px;
       max-height: 300px;
       padding: 0;
-      border: 1px solid $brand-color;
-      background-color: $background-color;
+      border: 1px solid #54c7dd;
+      background-color: #292929;
 
       .bookselect__options__search {
         margin: 0;
@@ -106,7 +207,7 @@ div.book {
         overflow-y: scroll;
 
         border: none;
-        background-color: $background-color;
+        background-color: #292929;
         .bookselect__options__option {
           line-height: 1.2em;
           cursor: pointer;
@@ -115,7 +216,7 @@ div.book {
           text-overflow: ellipsis;
           white-space: nowrap;
           &:hover {
-            background-color: darken($background-color, 5%);
+            background-color: darken(#292929, 5%);
           }
         }
       }
@@ -132,8 +233,7 @@ div.book {
   }
 
   &__selected-text {
-    color: $input-text-color;
-    font-family: $proxima-nova;
+    color: #999999;
     font-size: 15px;
     padding: 0 7px;
     cursor: pointer;
@@ -156,8 +256,8 @@ div.book {
     max-height: 300px;
     overflow-y: scroll;
     padding: 4px;
-    border: 1px solid $brand-color;
-    background-color: $background-color;
+    border: 1px solid #54c7dd;
+    background-color: #292929;
     text-align: left;
 
     &.bookselect__options--right {
@@ -209,6 +309,10 @@ div.book {
   }
 }
 
+.center {
+  justify-content: center;
+  text-align: center;
+}
 
 .stats {
   padding: 2px;
@@ -216,10 +320,40 @@ div.book {
 
 .abilities {
   border: solid;
+  border-width: 0.5px;
   border-color: yellow;
 }
 
 .statblocks {
   border: solid;
   border-color: red;
+}
+
+.input__manual {
+  max-width: 60px;
+  min-width: 40px;
+  border-color: rgb(84, 199, 221);
+}
+
+.p-small {
+  min-width: 75px;
+  padding: 8px 5px;
+}
+
+.checkbox {
+  display: inline;
+}
+
+.mx {
+  margin: 0px 5px;
+}
+
+.bonus {
+  padding: 8px 0px;
+}
+
+.ability-bonus {
+  margin: 0px 5px;
+  padding: 8px 0px;
+  min-width: 15px;
 }

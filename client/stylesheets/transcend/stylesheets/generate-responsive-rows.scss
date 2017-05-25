@@ -1,0 +1,13 @@
+@mixin generate-responsive-rows($size, $name, $padding: 0) {
+  @media screen and (min-width: $size) {
+    @each $percent in $percentages {
+      &.fixed#{$percent}#{$name}, &.row__cell--fixed#{$percent}#{$name} {
+        @if $padding != 0 {
+          @include generate-flex-prefix(0, 0, calc(#{$percent * 1%} - #{$padding}));
+        } @else {
+          @include generate-flex-prefix(0, 0, #{$percent * 1%});
+        }
+      }
+    }
+  }
+}

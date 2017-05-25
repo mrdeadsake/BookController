@@ -1,0 +1,273 @@
+@charset "utf-8";
+
+.row {
+  & > .row__cell {
+    &.row__cell--account-manager-contact-form {
+      -webkit-flex: 0 0 400px;
+      -ms-flex: 0 0 400px;
+      -moz-flex: 0 0 400px;
+      flex: 0 0 400px;
+      min-width: 400px;
+    }
+    .account-manager {
+      .account-manager__photo {
+        width: 112px;
+        height: 112px;
+        border-radius: 100%;
+        background-color: rgba(0, 0, 0, 0.15);
+        img {
+          max-width: 100px;
+          max-height: 100px;
+          border-radius: 50px 50px;
+          margin: 4px;
+          border: 2px solid #121212;
+          padding: 0;
+        }
+      }
+      .account-manager__name {
+        font-family: $klavika;
+        font-size: 16px;
+        color: $brand-color;
+      }
+      .account-manager__title {
+        color: #999;
+        font-size: 12px;
+      }
+      .account-manager__message {
+        font-size: 13px;
+        color: #999;
+        padding: 10px 0;
+      }
+      .account-manager__phone {
+        font-size: 12px;
+        color: #999;
+      }
+      .account-manager__email {
+        font-size: 12px;
+      }
+      .account-manager__contact-form {
+        & > div {
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+.ranked-list {
+  &.mini {
+    font-size: 6px;
+  }
+  .ranked-list__ranked-item {
+    padding: 0 8px 0 0;
+    margin: 8px 0 12px 0;
+    width: 100%;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: left;
+
+    &.mini {
+      margin: 2px 0;
+    }
+
+    &.clickable {
+      cursor: pointer;
+      &:hover {
+        .ranked-list__ranked-item__container {
+          background-color: #2d5f5f;
+          .ranked-list__ranked-item__container__label {
+            color: #f2f2f2;
+            text-align: left;
+          }
+          .ranked-list__ranked-item__container__bar-group,
+          .ranked-list__ranked-item__container__bar {
+            background-color: #222627;
+          }
+        }
+      }
+    }
+
+    .ranked-list__ranked-item__rank, .ranked-list__ranked-item__value {
+      padding: 6px;
+      -webkit-flex: 0 0 30px;
+      -ms-flex: 0 0 30px;
+      -moz-flex: 0 0 30px;
+      flex: 0 0 30px;
+
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+
+      font-family: $klavika;
+      &.mini {
+        padding: 3px;
+        -webkit-flex: 0 0 15px;
+        -ms-flex: 0 0 15px;
+        -moz-flex: 0 0 15px;
+        flex: 0 0 15px;
+      }
+    }
+
+    .ranked-list__ranked-item__value {
+      text-align: right;
+      -webkit-flex: 0 0 50px;
+      -ms-flex: 0 0 50px;
+      -moz-flex: 0 0 50px;
+      flex: 0 0 50px;
+    }
+
+    .ranked-list__ranked-item__container {
+      padding: 0;
+      -webkit-flex: 1 1 100px;
+      -ms-flex: 1 1 100px;
+      -moz-flex: 1 1 100px;
+      flex: 1 1 100px;
+      min-width: 100px;
+      background-color: #484848;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+
+      .ranked-list__ranked-item__container__bar {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+
+        height: 11px;
+        padding: 0 8px 0 8px;
+        background-color: #38383a;
+        &.mini {
+          height: 6px;
+        }
+        &.no-padding {
+          padding: 0;
+        }
+        .ranked-list__ranked-item__container__bar__fill {
+          background-color: $brand-color;
+          padding: 0;
+          margin: 0;
+          height: 11px;
+          &.mini {
+            height: 6px;
+          }
+        }
+      }
+
+      .ranked-list__ranked-item__container__bar-group {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+
+        height: 80px;
+        padding: 0 8px 0 8px;
+        background-color: #38383a;
+        &.mini {
+          height: 30px;
+        }
+      }
+
+      .ranked-list__ranked-item__container__label {
+        padding: 6px;
+        height: 28px;
+        color: #c0c8c8;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        text-align: left;
+
+        &.mini {
+          padding: 3px;
+          height: auto;
+        }
+
+        .ranked-list__ranked-item__container__label__text {
+          -webkit-flex: 1 1 10px;
+          -ms-flex: 1 1 10px;
+          -moz-flex: 1 1 10px;
+          flex: 1 1 10px;
+          min-width: 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: left;
+        }
+
+        .ranked-list__ranked-item__container__label__href {
+          -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+          -moz-flex: 0 0 auto;
+          flex: 0 0 auto;
+
+          &.mini {
+            span.icon {
+              font-size: 9px;
+            }
+          }
+        }
+
+        a:link { color: #c0c8c8; }
+        a:visited { color: #c0c8c8; }
+        a:hover { color: $brand-color; }
+        a:active { color: $brand-color; }
+      }
+    }
+  }
+}
+.ranked-list::fullscreen {
+  height: 100%;
+}
+
+.container .container__content main.form-content {
+  background-color: transparent;
+}
+
+.error-page {
+  padding: 30px;
+  h1 {
+    margin-top: 0;
+    font-size: 5em;
+    color: $brand-color;
+  }
+  h3 {
+    font-size: 3em;
+  }
+  h5 {
+    margin-top: 30px;
+    font-size: 1.8em;
+  }
+  .error-page__links {
+    a {
+      display: block;
+      font-size: 1.5em;
+      padding: 5px 35px;
+    }
+  }
+  .not-found__image {
+    background-image: url("#{$transcend-image-path}not-found.png");
+    width: 400px;
+    height: 400px;
+  }
+  .unauthorized__image {
+    background-image: url("#{$transcend-image-path}unauthorized.png");
+    width: 450px;
+    height: 342px;
+  }
+}

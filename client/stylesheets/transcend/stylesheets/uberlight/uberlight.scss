@@ -1,0 +1,800 @@
+@charset "utf-8";
+@import "variables.scss";
+
+body.uberlight {
+  background-color: $uberlight-background-color;
+  color: #292929;
+  font-weight: 400;
+
+  h1,h2,h3,h4,h5,h6 {
+  	color: #999;
+  }
+	h2.underline {
+		border-bottom-color: $uberlight-brand-color;
+	}
+
+	a:link { color: $uberlight-brand-color; }
+	a:visited { color: $uberlight-brand-color; }
+	a:active { color: $uberlight-brand-color; }
+	a:hover { color: darken($uberlight-brand-color, 10%); }
+
+  nav.navbar {
+  	background-color: #444;
+  	border-bottom: 1px solid #303030;
+		.navbar__logo {
+			.navbar__logo__img {
+				background-image: url("#{$transcend-image-path}Logo-LightBG.png");
+			}
+		}
+		.navbar__links {
+			ul.navbar__links {
+				li, li.navbar__links__link {
+					& > a {
+						color: #999;
+						&:hover {
+							color: $uberlight-brand-color;
+						}
+					}
+					&.navbar__links__link--selected {
+						color: $uberlight-brand-color;
+						& > a {
+							color: $uberlight-brand-color;
+						}
+					}
+				}
+			}
+		}
+		.navbar__user {
+			.navbar__user--dropdown {
+			  &:hover {
+			    background-color: #f2f2f2;
+			  }
+			  .nav__user--dropdown--options {
+			    border-color: $light-brand-color;
+			    background-color: #f2f2f2;
+				  ul {
+					  li {
+					    border-top-color: #e6e6e6;
+					  }
+					}
+			  }
+			}
+		}		
+	}
+
+	.container {
+		.container__content {
+			main {
+				background-color: $uberlight-main-content-background-color;
+				border-top: 1px solid #d0d0d0;
+				box-shadow: 0 4px 20px 0 #e0e0e0;
+				-webkit-box-shadow: 0 4px 20px 0 #e0e0e0;
+				-moz-box-shadow: 0 4px 20px 0 #e0e0e0;
+				-ms-box-shadow: 0 4px 20px 0 #e0e0e0;
+			}
+		}
+	}
+
+	.panel {
+		background-color: $uberlight-background-color;
+		color: #292929;
+		& .panel__heading {
+			background-color: #c0c0c0;
+			color: #fff;
+		}
+		& .panel__footer {
+			background-color: #f2f2f2;
+			border-top: 1px solid #fff;
+		}
+		.panel__heading__tab-group {
+			.panel__heading__tab-group__tab {
+				color: #292929;
+				&:hover {
+					color: #666;
+				}
+				&.panel__heading__tab-group__tab--active {
+					border-bottom: 2px solid $uberlight-brand-color;
+					color: #666;
+				}
+			}
+		}
+		.panel__heading__icon-group {
+			& + .panel__heading__icon-group {
+				border-left: 1px solid #f2f2f2;
+			}
+		}
+		& .panel__body {
+			background-color: $uberlight-background-color;
+		}
+	}
+
+	table {
+		& > thead {
+			& > tr {
+				& > th {
+					background-color: #c0c0c0;
+				  color: #ffffff;
+				}
+			}
+		}
+		& > tbody {
+			& > tr {
+				& > td {
+					background-color: transparent;
+					color: #121212;
+				}
+				&:hover {
+					& > td {
+						background-color: #f8f8f8;
+					}
+				}
+			}
+		}
+		& > tfoot {
+			& > tr {
+				& > td {
+					border-top: 1px solid #d0d0d0;
+					background-color: transparent;
+				}
+			}
+		}
+
+		&.table-striped {
+			& > tbody {
+				& > tr:nth-of-type(odd) {
+					background-color: rgba(0,0,0,0.05);
+				}
+			}
+		}
+	}
+
+	table.outlined {
+		& > thead, & > tbody & > tfoot {
+			& > tr {
+				& > th, & td {
+					border: 1px solid #d0d0d0;
+				}
+			}
+		}
+		& > thead {
+			& > tr {
+				& > th {
+					font-family: $klavika;
+				}
+			}
+		}
+	}
+
+
+	.four-corners {
+		.four-corners__top-left {
+	    border-top: 1px solid $uberlight-brand-color;
+	    border-left: 1px solid $uberlight-brand-color;
+		}
+		.four-corners__top-right {
+		  border-top: 1px solid $uberlight-brand-color;
+		  border-right: 1px solid $uberlight-brand-color;
+		}
+		.four-corners__bottom-left {
+		  border-bottom: 1px solid $uberlight-brand-color;
+		  border-left: 1px solid $uberlight-brand-color;
+		}
+		.four-corners__bottom-right {
+		  border-bottom: 1px solid $uberlight-brand-color;
+		  border-right: 1px solid $uberlight-brand-color;
+		}
+	}
+
+	::-webkit-scrollbar {
+	  background: $uberlight-background-color;
+	  border-color: #e6e6e6;
+	}
+	::-webkit-scrollbar-thumb {
+	  background: $uberlight-brand-color;
+	}
+	::-webkit-scrollbar-corner {
+	  background: transparent;
+	}
+	section::-webkit-scrollbar {
+	  background: $uberlight-background-color;
+	  border-color: #e6e6e6;
+	}
+	section::-webkit-scrollbar-thumb {
+	  background: $uberlight-brand-color;
+	}
+	section::-webkit-scrollbar-corner {
+	  background: transparent;
+	}
+
+	.well {
+		background-color: $uberlight-background-color;
+	}
+
+	.icon {
+		&.icon--clickable {
+			color: #666;
+			&:hover {
+				color: $uberlight-brand-color;
+			}
+		}
+		&.icon--active {
+			color: $light-brand-color;
+		}
+		&.icon--delete {
+			&:hover {
+				color: $uberlight-delete-color;
+			}
+		}
+		&.icon--delete-hollow {
+			&:hover {
+				color: $uberlight-delete-color;
+			}
+		}
+		&.icon--warning, &.icon--flash-warning {
+			border-color: $uberlight-warning-color;
+			color: #444;
+		}
+		&.icon--error {
+			border-color: $uberlight-error-color;
+			color: #444;
+		}
+		&.icon--success {
+			border-color: $uberlight-success-color;
+			color: #444;
+		}
+	}
+
+	.warning {
+		border: 1px solid $uberlight-warning-color;
+		background-color: transparent;
+		color: $uberlight-warning-color;
+	}
+	.error {
+		border: 1px solid $uberlight-error-color;
+		background-color: transparent;
+		color: $uberlight-error-color;
+	}
+	.success {
+		border: 1px solid $uberlight-success-color;
+		background-color: transparent;
+		color: $uberlight-success-color;
+	}
+	.warning {
+		color: $uberlight-warning-color;
+	}
+	.error {
+		color: $uberlight-error-color;
+	}
+	.success {
+		color: $uberlight-success-color;
+	}
+
+	.flash {
+		&.flash--alert {
+			border: 1px solid $uberlight-error-color;
+			background-color: #F0DFDF;
+			color: $uberlight-error-color;
+			.flash__close {
+				.icon {
+					&.icon--close {
+						&:hover {
+							color: $uberlight-error-color;
+						}
+					}
+				}
+			}
+		}
+		&.flash--notice {
+			border: 1px solid $uberlight-success-color;
+			background-color: #CAE8D7;
+			color: $uberlight-success-color;
+			.flash__close {
+				.icon {
+					&.icon--close {
+						&:hover {
+							color: $uberlight-success-color;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.btn, button {
+		color: #fff;
+		background-color: $uberlight-brand-color;
+		border-color: transparent;
+		&:hover {
+			background-color: darken($uberlight-brand-color, 10%);
+			border-color: transparent;
+		}
+		&:disabled {
+			background-color: #e0e0e0;
+			color: #d0d0d0;
+		}
+
+		&.btn--add {
+			color: $btn-text-color;
+			background-color: $uberlight-brand-color;
+			font-weight: 400;
+			border: none;
+			&:hover {
+				background-color: darken($uberlight-brand-color, 5%);
+			}
+		}
+
+		&.btn--delete {
+			color: #fff;
+			background-color: $delete-color;
+			border: 1px solid transparent;
+			&:hover {
+				background-color: darken($delete-color, 10%);
+			}
+		}
+		&.btn--cancel, &.btn--secondary {
+			color: #444;
+			background-color: transparent;
+			border: 1px solid $uberlight-btn-secondary-border-color;
+			&:hover {
+				border-color: #292929;
+			}
+		}
+
+		&.btn--dropdown {
+			ul {
+				background-color: #d8d8d8;
+				li {
+					color: #292929;
+					background-color: transparent;
+					&:hover {
+						background-color: #ccc;
+					}
+				}
+			}
+		}
+		&.btn--click-and-hold {
+			& > .btn--click-and-hold__progress-bar {
+				background-color: rgba(255,255,255,0.5);
+			}
+			& > .btn--click-and--hold__instruction {
+				color: #999;
+			}
+
+			&.btn--delete {
+				& > .btn--click-and-hold__progress-bar {
+					background-color: rgba(255,255,255,0.5);
+				}
+			}
+			&.btn--add {
+				& > .btn--click-and-hold__progress-bar {
+					background-color: rgba(255,255,255,0.5);
+				}
+			}
+			&.btn--cancel, &.btn--secondary {
+				& > .btn--click-and-hold__progress-bar {
+					background-color: rgba(41,41,41,0.1);
+				}
+			}
+		}
+	}
+
+	.select {
+		background-color: transparent;
+		border-color: #e6e6e6;
+		&.select--nav {
+			.select__label {
+				color: $uberlight-brand-color;
+			}
+			.select__selected-text {
+				color: #666;
+			}
+			.select__options-panel {
+				border-color: transparent;
+				background-color: $uberlight-background-color;
+				.select__options__search {
+					background-color: #e6e6e6;
+				}
+				.select__options-panel__options {
+					border-color: #e6e6e6;
+					background-color: $uberlight-background-color;
+					.select__options__option {
+						border-bottom-color: #c0c0c0;
+						&:hover {
+							background-color: darken($uberlight-background-color, 5%);
+						}
+					}
+				}
+				.select__options__button {
+					background-color: #e6e6e6;
+				}
+			}
+		}
+
+		.select__selected-text {
+			color: $uberlight-input-text-color;
+		}
+
+		.select__options {
+			border-color: #e6e6e6;
+			background-color: $uberlight-background-color;
+			.select__options__option {
+				border-bottom-color: #c0c0c0;
+				&:hover {
+					background-color: #d8d8d8;
+				}
+			}
+		}
+	}
+
+	input[type=text],
+	input[type=password],
+	input[type=number],
+	input[type=date],
+	input[type=color],
+	input[type=range],
+	input[type=month],
+	input[type=week],
+	input[type=time],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=email],
+	input[type=search],
+	input[type=tel],
+	input[type=url],
+	textarea,
+	{
+		background-color: $uberlight-input-background-color;
+		color: $uberlight-input-text-color;
+		border-color: $uberlight-input-border-color;
+
+		&:focus {
+			border-color: $uberlight-brand-color;
+			color: $uberlight-input-active-text-color;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			-ms-box-shadow: none;
+		}
+
+		&::-webkit-input-placeholder {
+			color: $uberlight-placeholder-color;
+		}
+		&:-moz-placeholder {
+			color: $uberlight-placeholder-color;
+		}
+		&::-moz-placeholder {
+			color: $uberlight-placeholder-color;
+		}
+		&:-ms-input-placeholder {
+			color: $uberlight-placeholder-color;
+		}
+	}
+
+
+	input[type=checkbox] {
+		& + label {
+			& > div {
+				background-color: $uberlight-input-background-color;
+				border: 1px solid $uberlight-input-border-color;
+			}
+		}
+		&:checked {
+			& + label {
+				& > div {
+					background-image: url("#{$transcend-image-path}light-checkbox.png");
+				}
+				& > .checkbox--lg {
+					background-color: $uberlight-brand-color;
+					background-image: url("#{$transcend-image-path}light-checkbox-knockout.png");
+					border-color: transparent;
+				}
+			}
+		}
+	}
+
+	input[type=radio] {
+		& + label {
+			& > div {
+				background-color: $uberlight-input-background-color;
+				border: 1px solid $uberlight-input-border-color;
+			}
+		}
+		&:checked {
+			& + label {
+				& > div {
+					& > div {
+						background-color: $uberlight-brand-color;
+						box-shadow: 0 0 5px 0 darken($uberlight-brand-color, 15%);
+						-webkit-box-shadow: 0 0 5px 0 darken($uberlight-brand-color, 15%);
+						-moz-box-shadow: 0 0 5px 0 darken($uberlight-brand-color, 15%);
+						-ms-box-shadow: 0 0 5px 0 darken($uberlight-brand-color, 15%);
+					}
+				}
+			}
+		}
+	}
+
+	.wait-indicator {
+		.bubble-1,
+		.bubble-2,
+		.bubble-3 {
+	    background-color: $uberlight-brand-color;
+		}
+	}
+
+	.container__content__side-nav {
+		ul {
+			li.container__content__side-nav__item {
+				color: #999;
+			  a {
+					&:link { color: #999; }
+					&:visited { color: #999; }
+					&:active { color: $uberlight-brand-color; }
+					&:hover { color: $uberlight-brand-color; }
+				}
+
+				&.container__content__side-nav__item--selected {
+					border-top: 1px solid $uberlight-brand-color;
+					border-bottom: 1px solid $uberlight-brand-color;
+					background: linear-gradient(180deg, rgba(56, 198, 244, 0.2) 0%, rgba(56, 198, 244, 0.05) 100%);
+					background: -webkit-linear-gradient(180deg, rgba(56, 198, 244, 0.2) 0%, rgba(56, 198, 244, 0.05) 100%);
+					background: -moz-linear-gradient(180deg, rgba(56, 198, 244, 0.2) 0%, rgba(56, 198, 244, 0.05) 100%);
+					background: -ms-linear-gradient(180deg, rgba(56, 198, 244, 0.2) 0%, rgba(56, 198, 244, 0.05) 100%);
+
+					.container__content__side-nav__item__text {
+						color: $uberlight-brand-color;
+					}
+					.icon {
+					  color: $uberlight-brand-color;
+					  -webkit-filter: drop-shadow(0 0 2px $uberlight-brand-color);
+					}
+				}
+
+				.icon {
+					color: #999;
+				}
+				.container__content__side-nav__item__text {
+					color: #999;
+				}
+
+				&:hover {
+					.icon {
+						color: $uberlight-brand-color;
+					}
+					.container__content__side-nav__item__text {
+						color: $uberlight-brand-color;
+						a:link { color: $uberlight-brand-color; }
+						a:visited { color: $uberlight-brand-color; }
+						a:active { color: $uberlight-brand-color; }
+						a:hover { color: $uberlight-brand-color; }
+					}
+				}
+			}
+		}
+	}
+
+	.stat {
+		color: $uberlight-brand-color;
+		&.stat--secondary {
+			color: #999;
+		}
+		&.stat--positive {
+			color: $uberlight-positive-color;
+		}
+		&.stat--negative {
+			color: $uberlight-negative-color;
+		}
+		&.stat--neutral {
+			color: $uberlight-neutral-color;
+		}
+		&.stat--male {
+			color: $uberlight-male-color;
+		}
+		&.stat--female {
+			color: $uberlight-female-color;
+		}
+		&.stat--male--muted {
+			color: $uberlight-male-color-muted;
+		}
+		&.stat--female--muted {
+			color: $uberlight-female-color-muted;
+		}
+		&.stat--no-gender {
+			color: $uberlight-no-gender-color;
+		}
+	}
+	.inline-stat {
+		color: $uberlight-brand-color;
+	}
+
+	.positive {
+		color: $uberlight-positive-color;
+	}
+	.negative {
+		color: $uberlight-negative-color;
+	}
+	.neutral {
+		color: $uberlight-neutral-color;
+	}
+	.accent-color-1 {
+		color: $uberlight-accent-color-1;
+	}
+	.accent-color-2 {
+		color: $uberlight-accent-color-2;
+	}
+	.accent-color-3 {
+		color: $uberlight-accent-color-3;
+	}
+	.male {
+		color: $reports-male-color;
+	}
+	.male--muted {
+		color: $reports-male-color-muted;
+	}
+	.female {
+		color: $reports-female-color;
+	}
+	.female--muted {
+		color: $reports-female-color-muted;
+	}
+
+	.ranked-item {
+		.ranked-item__container {
+			.ranked-item__container__bar {
+				background-color: #cad9de;
+			}
+			.ranked-item__container__label {
+				color: $uberlight-brand-color;
+			}
+		}
+	}
+
+	label {
+		&.label--block {
+			background-color: #e8e8e8;
+			color: #999;
+
+			&.label--block--callout--left {
+				& > .label--block--callout--left__arrow {
+					border-right-color: #e8e8e8;
+				}
+			}
+			&.label--block--callout--right {
+				& > .label--block--callout--right__arrow {
+					border-left-color: #e8e8e8;
+				}
+			}
+			&.label--block--callout--top {
+				& > .label--block--callout--top__arrow {
+					border-bottom-color: #e8e8e8;
+				}
+			}
+			&.label--block--callout--bottom {
+				& > .label--block--callout--bottom__arrow {
+					border-top-color: #e8e8e8;
+				}
+			}
+		}
+	}
+
+	.accordion {
+		.accordion__heading {
+			background-color: #e6e6e6;
+			.accordion__heading__label {
+				color: #999;
+			}
+			.accordion__heading__arrow {
+				&:after {
+					color: #999;
+				}
+			}
+		}
+	}
+
+
+
+	.row {
+		& > .row__cell {
+			.account-manager {
+				.account-manager__photo {
+					background-color: rgba(0, 0, 0, 0.15);
+					img {
+						border-color: rgba(0,0,0,0.25);
+					}
+				}
+				.account-manager__name {
+					color: $uberlight-brand-color;
+				}
+				.account-manager__title {
+					color: #999;
+				}
+				.account-manager__message {
+					color: #999;
+				}
+				.account-manager__phone {
+					color: #999;
+				}
+			}
+		}
+	}
+
+	.tile {
+		background-color: $uberlight-background-color;
+		border-bottom-color: darken($uberlight-background-color, 10%);
+		&.tile--active {
+			border-bottom-color: $uberlight-brand-color;
+		}
+		&:hover {
+			background-color: darken($uberlight-background-color, 3%);
+		}
+	}
+
+	.row {
+		& > .row__cell {
+			&.row__cell--delimited {
+				border-right-color: #ccc;
+				border-left-color: #ccc;
+			}
+		}
+		&.row--delimited {
+	 		& > div, & > .row__cell {
+				border-right-color: #ccc;
+			}
+		}
+	}
+
+	.modal__shadow {
+		background-color: rgba(19,19,19,0.6);
+	}
+
+	.modal__content {
+		border-top-color: #ffffff;
+		background-color: #f0f0f0;
+	}
+
+  .modal__close {
+    color: #808080;
+  }
+	
+	.tag {
+		border-color: #e0e0e0;
+		color: lighten($uberlight-brand-color, 5%);
+	}
+
+	.progress-bar {
+		background-color: #e3e3e3;
+		.progress-bar__colored-bar {
+			background-color: $uberlight-brand-color;
+		}
+		.progress-bar__label {
+			color: rgba(255,255,255,0.75);
+			font-weight: 300;
+			.progress-bar__label__value {
+				color: #ccc;
+			}
+		}
+		.progress-bar__max {
+			color: #fff;
+			font-weight: 300;
+		}
+		&.progress-bar--warning {
+			.progress-bar__colored-bar {
+				background-color: $uberlight-warning-color;
+			}
+		}
+	}
+
+	.multi-select {
+		.multi-select__header {
+		  background-color: #f2f2f2;
+		}
+		.multi-select__items {
+			border-color: #f2f2f2;
+		}
+	}
+	
+	strong {
+		color: #444;
+	}
+
+}

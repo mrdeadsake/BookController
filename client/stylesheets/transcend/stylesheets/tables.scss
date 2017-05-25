@@ -1,0 +1,240 @@
+@import "variables.scss";
+
+/*** Tables ***/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	& > thead {
+		& > tr {
+			& > th {
+				border-bottom: none;
+				background-color: #202022;
+				text-align: left;
+
+			  padding: 5px 5px 5px 5px;
+			  color: #b7b7b7;
+			  font-family: $proxima-nova;
+			  font-size: 14px;
+
+			  &:last-child {
+			  	text-align: right;
+			  }
+			}
+		}
+	}
+	& > tbody {
+		& > tr {
+			& > td {
+				background-color: transparent;
+				text-align: left;
+				padding: 2px 10px;
+
+				color: #b7b7b7;
+				font-family: $proxima-nova;
+				font-size: 14px;
+				padding: 5px;
+				
+			  &:last-child {
+			  	text-align: right;
+			  }
+			}
+			&:hover {
+				& > td {
+					background-color: #28282a;
+				}
+			}
+		}
+	}
+	& > tfoot {
+		& > tr {
+			& > td {
+				border-top: 1px solid #48484a;
+				background-color: transparent;
+				text-align: left;
+				padding: 2px 10px;
+				font-family: 13px;
+				
+			  &:last-child {
+			  	text-align: right;
+			  }
+			}
+		}
+	}
+
+	&.table-striped {
+		& > tbody {
+			& > tr:nth-of-type(odd) {
+				background-color: rgba(0,0,0,0.05);
+			}
+		}
+	}
+}
+
+table > thead > tr > td.error,
+table > thead > tr > th.error,
+table > thead > tr.error > td,
+table > thead > tr.error > th,
+table > tbody > tr > td.error,
+table > tbody > tr > th.error,
+table > tbody > tr.error > td,
+table > tbody > tr.error > th,
+table > tfoot > tr > td.error,
+table > tfoot > tr > th.error,
+table > tfoot > tr.error > td,
+table > tfoot > tr.error > th
+{
+	background-color: $error-color;
+	color: #48484a;
+}
+table > thead > tr:hover > td.error,
+table > thead > tr:hover > th.error,
+table > thead > tr.error:hover > td,
+table > thead > tr.error:hover > th,
+table > tbody > tr:hover > td.error,
+table > tbody > tr:hover > th.error,
+table > tbody > tr.error:hover > td,
+table > tbody > tr.error:hover > th,
+table > tfoot > tr:hover > td.error,
+table > tfoot > tr:hover > th.error,
+table > tfoot > tr.error:hover > td,
+table > tfoot > tr.error:hover > th
+{
+		background-color: darken($error-color, 5%);
+}
+
+table > thead > tr > td.warning,
+table > thead > tr > th.warning,
+table > thead > tr.warning > td,
+table > thead > tr.warning > th,
+table > tbody > tr > td.warning,
+table > tbody > tr > th.warning,
+table > tbody > tr.warning > td,
+table > tbody > tr.warning > th,
+table > tfoot > tr > td.warning,
+table > tfoot > tr > th.warning,
+table > tfoot > tr.warning > td,
+table > tfoot > tr.warning > th
+{
+	background-color: $warning-color;
+	color: #48484a;
+}
+table > thead > tr:hover > td.warning,
+table > thead > tr:hover > th.warning,
+table > thead > tr.warning:hover > td,
+table > thead > tr.warning:hover > th,
+table > tbody > tr:hover > td.warning,
+table > tbody > tr:hover > th.warning,
+table > tbody > tr.warning:hover> td,
+table > tbody > tr.warning:hover > th,
+table > tfoot > tr:hover > td.warning,
+table > tfoot > tr:hover > th.warning,
+table > tfoot > tr.warning:hover > td,
+table > tfoot > tr.warning:hover > th
+{
+	background-color: darken($warning-color, 5%);
+}
+
+table > thead > tr > td.active,
+table > thead > tr > th.active,
+table > thead > tr.active > td,
+table > thead > tr.active > th,
+table > tbody > tr > td.active,
+table > tbody > tr > th.active,
+table > tbody > tr.active > td,
+table > tbody > tr.active > th,
+table > tfoot > tr > td.active,
+table > tfoot > tr > th.active,
+table > tfoot > tr.active > td,
+table > tfoot > tr.active > th
+{
+	background-color: inherit;
+	color: inherit;
+}
+table > thead > tr:hover > td.active,
+table > thead > tr:hover > th.active,
+table > thead > tr.active:hover > td,
+table > thead > tr.active:hover > th,
+table > tbody > tr:hover > td.active,
+table > tbody > tr:hover > th.active,
+table > tbody > tr.active:hover > td,
+table > tbody > tr.active:hover > th,
+table > tfoot > tr:hover > td.active,
+table > tfoot > tr:hover > th.active,
+table > tfoot > tr.active:hover > td,
+table > tfoot > tr.active:hover > th
+{
+	background-color: inherit;
+}
+
+
+
+/*** Tables ***/
+table.invisible {
+	& > thead {
+		& > tr {
+			& > th {
+				border: none;
+				background-color: transparent;
+			}
+		}
+	} 
+	& > tbody {
+		& > tr {
+			& > td {
+				border: none;
+				background-color: transparent;
+				padding: 0 5px;
+			}
+
+			&:hover {
+				& > td {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+	& > tfoot {
+		& > tr {
+			& > td {
+				border: none;
+				background-color: transparent;
+			}
+		}
+	}
+}
+td.stat-label {
+	font-family: $klavika;
+	font-size: 14px;
+	font-weight: 400;
+	color: #999;
+}
+td.stat {
+	font-family: $klavika;
+	font-weight: 400;
+	color: #fff;
+}
+
+table.outlined {
+	& > thead, & > tbody & > tfoot {
+		& > tr {
+			& > th, & td {
+				border: 1px solid #999;
+				padding: 5px;
+			}
+		}
+	}
+	& > thead {
+		& > tr {
+			& > th {
+				font-family: $klavika;
+			}
+		}
+	}
+}
+
+
+
+
+
+

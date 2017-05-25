@@ -1,5 +1,6 @@
 import React from 'react';
 import Ability from './Ability';
+import Abilities from '../helpers/Abilities';
 
 class AbilityList extends React.Component {
   
@@ -11,16 +12,14 @@ class AbilityList extends React.Component {
     super(props)
   }
 
-
   renderAbilities(){
     const abilities = this.props.character;
     return abilities.map((ability, i)=>{
-      return <Ability 
-      className={"characters"} 
-      name={Object.keys(ability)[0]} 
-      value={Object.values(ability)[0]} 
-      key={i} 
-      bonus={this.calcBonus(Object.values(ability)[0])}
+      return <Ability
+      className={"characters"}
+      name={Object.keys(ability)[0]}
+      value={Object.values(ability)[0]}
+      key={i}
       />
       })
   }
@@ -32,7 +31,7 @@ class AbilityList extends React.Component {
   render() {
     return(
         <div>
-          <div className="abilities column small-6">{this.renderAbilities()}</div>
+          <div className="abilities">{this.renderAbilities()}</div>
         </div>
       )
   }

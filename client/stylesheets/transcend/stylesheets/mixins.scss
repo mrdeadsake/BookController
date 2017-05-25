@@ -1,0 +1,64 @@
+@mixin box-shadow ($how) {
+  -webkit-box-shadow: $how;
+  -moz-box-shadow: $how;
+  -ms-box-shadow: $how;
+  -o-box-shadow: $how;
+  box-shadow: $how;
+}
+@mixin border-radius ($how) {
+  -webkit-border-radius: $how;
+  -moz-border-radius: $how;
+  -ms-border-radius: $how;
+  -o-border-radius: $how;
+  border-radius: $how;
+}
+
+@mixin flex($how) {
+  -webkit-flex: $how;
+  -ms-flex: $how;
+  -moz-flex: $how;
+  flex: $how;
+}
+@mixin box-sizing($how) {
+  -moz-box-sizing: $how;
+  -webkit-box-sizing: $how;
+  box-sizing: $how;
+}
+
+@mixin blur($size) {
+  -webkit-transform: translate3d(0, 0, 0); // tell the GPU to render it
+  -webkit-filter: blur($size);
+  -moz-transform: translate3d(0, 0, 0); // tell the GPU to render it
+  -moz-filter: blur($size);
+  transform: translate3d(0, 0, 0); // tell the GPU to render it
+  filter: blur($size);
+}
+
+@mixin transition($how) {
+  -webkit-transition: $how;
+  -moz-transition: $how;
+  -ie-transition: $how;
+  -o-transition: $how;
+  transition: $how;
+}
+
+@mixin animation($how) {
+  -webkit-animation: $how;
+  -moz-animation: $how;
+  -ie-animation: $how;
+  animation: $how;
+}
+
+@mixin animation-fill-mode($how) {
+  -webkit-animation-fill-mode: $how;
+  -moz-animation-fill-mode: $how;
+  -ie-animation-fill-mode: $how;
+  animation-fill-mode: $how;
+}
+
+@mixin user-select($how) {
+  -webkit-user-select: $how;
+  -moz-user-select: $how;
+  -ie-user-select: $how;
+  user-select: $how;
+}

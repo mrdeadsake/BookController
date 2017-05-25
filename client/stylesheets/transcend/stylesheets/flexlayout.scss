@@ -1,0 +1,247 @@
+@charset "utf-8";
+@import "variables.scss";
+
+/*** The row layout model ***/
+.row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  
+  align-items: space-around;
+  align-content: flex-start;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+
+  & > .row__cell {
+    -webkit-flex: 1 1 1px;
+    -ms-flex: 1 1 1px;
+    -moz-flex: 1 1 1px;
+    flex: 1 1 1px;
+    min-width: 1px;
+
+    &.row__cell--delimited {
+      border-right: 1px solid #363636;
+      border-left: 1px solid #363636;
+      padding: 0 30px;
+      &:first-child {
+        padding-left: 15px;
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+        padding-right: 15px;
+      }
+    }
+
+    &.row__cell--padded {
+      padding: 0 30px;
+    }
+
+    &.equal-width, &.row__cell--equal-width {
+      -webkit-flex: 1 1 100px;
+      -ms-flex: 1 1 100px;
+      -moz-flex: 1 1 100px;
+      flex: 1 1 100px;
+      min-width: 100px;
+    }
+
+    &.row__cell--shrink {
+      -webkit-flex: 1 1 1px;
+      -ms-flex: 1 1 1px;
+      -moz-flex: 1 1 1px;
+      flex: 1 1 1px;
+      min-width: 1px;
+    }
+
+    &.fixed, &.row__cell--fixed {
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      -moz-flex: 0 0 auto;
+      flex: 0 0 auto;
+    }
+
+    @include generate-responsive-rows(map-get($breakpoints, small), '');
+    @include generate-responsive-rows(map-get($breakpoints, medium), '-medium');
+    @include generate-responsive-rows(map-get($breakpoints, large), '-large');
+    @include generate-responsive-rows(map-get($breakpoints, xlarge), '-xlarge');
+
+    &.visualization, &.row__cell--visualization {
+      -webkit-flex: 1 1 450px;
+      -ms-flex: 1 1 450px;
+      -moz-flex: 1 1 450px;
+      flex: 1 1 450px;
+      min-width: 450px;
+
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      margin: 15px;
+
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      align-items: stretch;
+    }
+
+    &.row__cell--equal-height {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      align-items: stretch;
+
+      & > div {
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        -moz-flex: 1 1 auto;
+        flex: 1 1 auto;
+
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: stretch;
+      }
+    }
+
+    &.row__cell--vertical-center {
+      align-self: center;
+    }
+    &.row__cell--vertical-bottom {
+      align-self: flex-end;
+    }
+
+    &.row__cell--right-nav {
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      -moz-flex: 0 0 auto;
+      flex: 0 0 auto;
+
+      padding: 0 15px;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.row--delimited {
+    & > div, & > .row__cell {
+      border-right: 1px solid #363636;
+      padding: 0 30px;
+      &:first-child {
+        padding-left: 15px;
+      }
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &.row--wrap {
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+  }
+
+  &.row--spaced {
+    margin: -8px;
+    & > div, & > .row__cell {
+      margin: 8px;
+      @include generate-responsive-rows(map-get($breakpoints, small), '', 16px);
+      @include generate-responsive-rows(map-get($breakpoints, medium), '-medium', 16px);
+      @include generate-responsive-rows(map-get($breakpoints, large), '-large', 16px);
+      @include generate-responsive-rows(map-get($breakpoints, xlarge), '-xlarge', 16px);
+    }
+  }
+
+  &.row--visualization {
+    margin: -15px;
+  }
+
+  &.row--vertical-center {
+    align-items: center;
+  }
+  &.row--vertical-bottom {
+    align-items: flex-end;
+  }
+}
+div.column {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: stretch;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+
+  & > div.column__cell {
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      -moz-flex: 1 1 auto;
+      flex: 1 1 auto;
+
+    &.equal-width, &.column__cell--equal-height {
+      -webkit-flex: 1 1 100px;
+      -ms-flex: 1 1 100px;
+      -moz-flex: 1 1 100px;
+      flex: 1 1 100px;
+      min-height: 100px;
+    }
+
+    &.fixed, &.column__cell--fixed {
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      -moz-flex: 0 0 auto;
+      flex: 0 0 auto;
+    }
+  }
+
+  &.column--spaced {
+    margin: -8px;
+    & > div.column__cell {
+      margin: 8px;
+    }
+  }
+  &.column--vertical-center {
+    justify-content: center;
+    -webkit-justify-content: center;
+  }
+}
+
+div.content-fill-height, div.content-fill-width {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: stretch;
+
+  & > div {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+}

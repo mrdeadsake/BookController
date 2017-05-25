@@ -1,0 +1,257 @@
+//
+// 1. BLOCK: Date Picker
+//    ELEMENT: DatePicker
+//    ELEMENT: Clock
+//    ELEMENT: Error Handling 
+//
+
+// 1. BLOCK: Date Picker
+ 
+.date-time-picker-box {
+  margin-top: 10px;
+}
+
+.post-scheduler {
+  position: relative;
+  .warning {
+    position: absolute;
+    bottom: -40px;
+    left: 1px;
+    right: 1px;
+  }
+}
+
+.post-scheduler {
+  padding: 15px 0 30px;
+  background-color: $main-content-background-color;
+
+  hr {
+    width: 2px;
+    height: 150px;
+    border-left: 1px solid $brand-color;
+    border: none;
+    display: inline-block;
+  }
+
+  .validation-error {
+    padding-left: 30px;
+  }
+}
+
+// ELEMENT: DatePicker
+.date-time-picker-calendar {
+  > div {
+    margin: 0 auto;
+  }
+  th, td {
+      font-size: 1.2em;
+  }
+  .dow {
+      font-size: .8em;
+      color: $brand-color;
+  }
+}
+
+.datepicker-inline {
+  width: 280px;
+}
+
+// ELEMENT: Clock 
+.post-scheduler__clock {
+  width: 270px;
+  padding-left: 25px;
+  margin: 0 auto;
+  font-size: 36px;
+
+  input[type="radio"]{
+    display: none;
+  }
+
+  input[type="radio"]:checked + label {
+    color: $brand-color;
+  }
+
+  input[type=text] {
+    border-radius: 0;
+    border: none;
+    width: 55px;
+    outline: none;
+    font-family: $proxima-nova;
+    font-size: 30px;
+    border-bottom: 2px solid $gray8;
+    &:focus {
+      outline: none;
+      border: none;
+      border-bottom: 2px solid $brand-color;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-sizing: none;
+      -ms-box-shadow: none;
+    }
+    &.warning {
+      border-bottom-color: $warning-color;
+    }
+  }
+
+  select {
+    width: 50px;
+    background-color: $background-color;
+    border:none;
+    color: $white;
+  }
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    -webkit-padding-start: 0px;
+    color: $gray4;
+    font-size: 16px; 
+    line-height: .9;
+  }
+
+  li label {
+    margin: 0 15px;
+    cursor: pointer;
+  }
+}
+
+// ELEMENT: Error Handling
+
+.datepicker {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  direction: ltr;
+}
+
+.datepicker {
+  td,
+  thead tr:first-child{
+    cursor: pointer;
+    & .datepicker-switch{
+      cursor: auto;
+    }
+  }
+}
+
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover,
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active.disabled:hover {
+  background-color: $brand-color;
+  border-color: $brand-color $brand-color #002a80;
+  color: #000;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.55);
+}
+
+.datepicker table tr td.active {
+  &:hover,
+  &:hover:hover,
+  &.disabled:hover,
+  &.disabled:hover:hover,
+  &:active,
+  &:hover:active,
+  &.disabled:active,
+  &.disabled:hover:active,
+  &.active,
+  &:hover.active,
+  &.disabled.active,
+  &.disabled:hover.active,
+  &.disabled,
+  &:hover.disabled,
+  &.disabled.disabled,
+  &.disabled:hover.disabled,
+  &[disabled],
+  &:hover[disabled],
+  &.disabled[disabled],
+  &.disabled:hover[disabled] {
+    background-color: $brand-color;
+  }
+}
+
+.datepicker table tr td span {
+  -webkit-border-radius: 0px; 
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.datepicker table tr td span.active,
+.datepicker table tr td span.active:hover,
+.datepicker table tr td span.active.disabled,
+.datepicker table tr td span.active.disabled:hover {
+  background-color: #000;
+  background-image: -moz-linear-gradient(top, $brand-color, $brand-color);
+  background-image: -ms-linear-gradient(top, $brand-color, $brand-color);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($brand-color), to($brand-color));
+  background-image: -webkit-linear-gradient(top, $brand-color, $brand-color);
+  background-image: -o-linear-gradient(top, $brand-color, $brand-color);
+  background-image: linear-gradient(top, $brand-color, $brand-color);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$brand-color', endColorstr='$brand-color', GradientType=0);
+  border-color: $brand-color $brand-color #002a80;
+}
+.datepicker table tr td span.active {
+  &:hover,
+  &:hover:hover,
+  &.disabled:hover,
+  &.disabled:hover:hover,
+  &:active,
+  &:hover:active,
+  &.disabled:active,
+  &.disabled:hover:active,
+  &.active,
+  &:hover.active,
+  &.disabled.active,
+  &.disabled:hover.active,
+  &.disabled,
+  &:hover.disabled,
+  &.disabled.disabled,
+  &.disabled:hover.disabled,
+  &[disabled],
+  &:hover[disabled],
+  &.disabled[disabled],
+  &.disabled:hover[disabled] {
+    color: #000;
+    background-color: $brand-color;
+  }
+}
+
+.input-daterange input{
+  &:first-child {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+  &:last-child {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+}
+
+.datepicker.dropdown-menu {
+  background-color: $white;
+  border: 1px solid $gray2;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.datepicker.dropdown-menu th,
+.datepicker.datepicker-inline th,
+.datepicker.dropdown-menu td,
+.datepicker.datepicker-inline td {
+  padding: 4px 10px;
+}
+
+.datepicker.dropdown-menu th,
+.datepicker.datepicker-inline th {
+  text-align: center;
+}
+
+.datepicker table tr td.disabled,
+.datepicker table tr td.disabled:hover {
+  background: none;
+  color: #636363;
+  cursor: default;
+}

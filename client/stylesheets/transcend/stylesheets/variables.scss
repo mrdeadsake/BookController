@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+// font families
+$transcend-font-path:       "../fonts/" !default;
+$transcend-image-path:      "../images/" !default;
+
+$icon-font-family:					"icomoon";
+$klavika:										"Klavika", sans-serif;
+$proxima-nova:							"ProximaNova", sans-serif;
+
+
+// font sizes
+$font-size-base:            13px;
+
+$percentages: (10, 20, 25, 30, 33, 40, 50, 60, 66, 70, 75, 80, 90, 100);
+
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1280px,
+);
+
+// Recommended dev size: 1200- 1500px
+
+// MonoChrome
+$white: #fff;
+$gray1: #E6E6E6;
+$gray2: #CCCCCC;
+$gray3: #B2B2B2;
+$gray4: #999999;
+$gray5: #808080;
+$gray6: #666666;
+$gray7: #4D4D4D;
+$gray8: #333333;
+$gray9: #191919;
+$black: #000;
+
+// colors
+$brand-color:               #54c7dd;
+$add-color:                 #238C2B;
+$delete-color:              #ff2222;
+$error-color:               #ef463f;
+$warning-color:             #f68d3f;
+$success-color:             #83c25a;
+$info-color:                #d9d762;
+
+$positive-color:            #83c25a;
+$negative-color:            #ef463f;
+$neutral-color:             #b3b3b3;
+
+$male-color:                #126bb5;
+$female-color:              #ef7a90;
+$male-color-muted:          #126bb5;
+$female-color-muted:        #ef7a90;
+$no-gender-color:           #b3b3b3;
+
+$toned-down-positive-color: #238C2B;
+$toned-down-negative-color: #8C232B;
+$toned-down-neutral-color:  #126bb5;
+
+$toned-down-male-color:     #126bb5;
+$toned-down-female-color:   #ef7a90;
+$toned-down-no-gender-color:#b3b3b3;
+
+$accent-color-1:            #f68d3f; // orange
+$accent-color-2:            $white;
+$accent-color-3:            #b3b3b3; // gray
+
+// some colors for buttons
+$btn-text-color:            #121212;
+$btn-secondary-border-color:#444444;
+
+// some colors for inputs
+$input-border-color:        transparent;
+$input-background-color:    #28282a;
+$input-text-color:          #999999;
+$input-active-text-color:   #cccccc;
+
+// this border radius is used across lots of css components
+$border-radius:             5px;
+
+// the base background color of the app
+$background-color:          #292929;
+$main-content-background-color:#38383a;
+
+$placeholder-color:         #444444;
+
+// Social Profiles
+$facebook-color:  #3B5998;
+$twitter-color:   #00ACED;
+$linkedin-color:  #007BB6;
+$google-color:    #DD4B39;
+$instagram-color: #517FA4;
+$pinterest-color: #bd081c;

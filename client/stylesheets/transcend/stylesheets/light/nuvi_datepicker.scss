@@ -1,0 +1,269 @@
+body.light {
+
+  .post-scheduler {
+    background-color: $light-main-content-background-color;
+  }
+  .datepicker table tr td.day {
+    color: $gray7;
+  }
+  .datepicker table tr td.disabled,
+  .datepicker table tr td.disabled:hover {
+    color: $gray3;
+  }
+  .datepicker table tr td:hover {
+    background-color: $gray1;
+  }
+  .datepicker table > tbody > tr:hover > td.disabled {
+    background-color: transparent;
+  }
+
+ .post-scheduler {
+    hr {
+      border-left-color: $light-brand-color;
+    }
+  }
+  .date-time-picker-calendar {
+    .dow {
+        font-size: 1em;
+        color: $light-brand-color;
+    }
+  }
+  .post-scheduler__clock {
+    input[type="radio"] + label {
+      color: $gray4;
+    }
+    input[type="radio"]:checked + label {
+      color: $light-brand-color;
+    }
+
+    input[type=text] {
+      border-bottom-color: rgba(56, 198, 244, 0.4);
+      &:focus {
+        border-bottom-color: $light-brand-color;
+      }
+    }
+  }  
+
+  .datepicker table tr td.active,
+  .datepicker table tr td.active:hover,
+  .datepicker table tr td.active.disabled,
+  .datepicker table tr td.active.disabled:hover {
+    background-color: $light-brand-color;
+    border-color: $light-brand-color $light-brand-color #002a80;
+  }
+  
+  .datepicker table tr td.active {
+    &:hover, &:hover:hover,
+    &.disabled:hover, &.disabled:hover:hover,
+    &:active, &:hover:active,
+    &.disabled:active,
+    &.disabled:hover:active,
+    &.active, &:hover.active,
+    &.disabled.active,
+    &.disabled:hover.active,
+    &.disabled, &:hover.disabled,
+    &.disabled.disabled,
+    &.disabled:hover.disabled,
+    &[disabled], &:hover[disabled],
+    &.disabled[disabled],
+    &.disabled:hover[disabled] {
+      background-color: $light-brand-color;
+    }
+  }
+  
+  .datepicker table tr td span.active,
+  .datepicker table tr td span.active:hover,
+  .datepicker table tr td span.active.disabled,
+  .datepicker table tr td span.active.disabled:hover {
+    background-color: #000;
+    background-image: -moz-linear-gradient(top, $light-brand-color, $light-brand-color);
+    background-image: -ms-linear-gradient(top, $light-brand-color, $light-brand-color);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($light-brand-color), to($light-brand-color));
+    background-image: -webkit-linear-gradient(top, $light-brand-color, $light-brand-color);
+    background-image: -o-linear-gradient(top, $light-brand-color, $light-brand-color);
+    background-image: linear-gradient(top, $light-brand-color, $light-brand-color);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$light-brand-color', endColorstr='$light-brand-color', GradientType=0);
+    border-color: $light-brand-color $light-brand-color #002a80;
+  }
+  
+  .datepicker table tr td span.active {
+    &:hover,
+    &:hover:hover,
+    &.disabled:hover,
+    &.disabled:hover:hover,
+    &:active,
+    &:hover:active,
+    &.disabled:active,
+    &.disabled:hover:active,
+    &.active,
+    &:hover.active,
+    &.disabled.active,
+    &.disabled:hover.active,
+    &.disabled,
+    &:hover.disabled,
+    &.disabled.disabled,
+    &.disabled:hover.disabled,
+    &[disabled],
+    &:hover[disabled],
+    &.disabled[disabled],
+    &.disabled:hover[disabled] {
+      color: $light-brand-color;
+      background-color: $gray2;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .date-range-picker {
+    .date-time-picker-calendar {
+      background: $gray8;
+      .datepicker {
+        box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+      }
+    }
+    &__timeframe {
+      color: $brand-color;
+    }
+    &__range {
+      color: $gray4;
+      span.icon {
+        &:hover {
+          color: $gray2;
+        }
+      }
+      &__date {
+        &:hover {
+          color: $gray2;
+        }
+      }
+    }
+    &__scrim {
+      background-color: rgba(0,0,0,0.4);
+    }
+    &__presets {
+      background: #e8e8e8;
+      border: none;
+      li {
+        background-color: $background-color;
+        border-top: 1px solid #fff;
+        &:hover {
+          background-color: darken($background-color, 5%);
+        }
+      }
+    }
+
+    &__selector {
+      background: #e8e8e8;
+      box-shadow: none;
+      border: none;
+      &__footer {
+        background: $gray7;
+        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.6);
+      }
+      .date-range-picker__presets {
+        li {
+          background: transparent;
+          &:hover {
+            background: rgba(255,255,255,0.255);
+          }
+        }
+        border-left: 1px solid #fff;
+      }
+    }
+  }
+
+  .date-range-picker__range {
+    &:hover {
+      color: $gray2;
+    }
+  }
+
+  .DateRangePicker {
+    color: white;
+
+    &__Legend {
+      color: #52575e;
+    }
+
+    &__LegendItemColor {
+      border: 1px solid rgba(#000, .25);
+
+      &--selection {
+        background-color: darken($brand-color, 5);
+      }
+    }
+
+    &__PaginationArrow {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &__Month {
+      color: #333;
+    }
+
+    &__MonthHeader {
+      color: #38383a;
+    }
+
+    &__MonthHeaderSelect {
+      background: #e4e4e4;
+    }
+
+    &__WeekdayHeading {
+      color: #000;
+
+      abbr[title] {
+        color: #38383a;
+      }
+    }
+
+    &__Date {
+      border: 0 solid #f4f5f6;
+
+      &--weekend {
+        background-color: rgba(255,255,255,0.05);
+      }
+
+      &--is-disabled {
+        color: #606060;
+      }
+
+      &--is-selected {
+        color: #fff;
+      }
+
+      &--is-highlighted {
+        color: #333;
+      }
+    }
+
+    &__CalendarSelection {
+      background-color: rgba($brand-color, .75);
+      border: 1px solid darken($brand-color, 5);
+
+      &--is-pending {
+        background-color: rgba($brand-color, .35);
+      }
+    }
+
+    &__CalendarHighlight {
+      background-color: rgba(255, 255, 255, .25);
+      border: 1px solid rgba(0, 0, 0, .25);
+
+      &--single {
+        background-color: $brand-color;
+        border: 1px solid darken($brand-color, 5);
+      }
+    }
+  }
+}

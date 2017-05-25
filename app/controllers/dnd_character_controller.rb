@@ -1,11 +1,16 @@
 class DndCharacterController < ApplicationController
   respond_to :html, :json
   def index
-    respond_with(DndCharacter.all)
+
+    @all = DndCharacter.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @all}
+    end
   end
 
   def show
-    @current = DndCharacter.where(params[:player_name]).first
+    @current = DndCharacter.find(params[:id])
     respond_with(@current)
   end
 end
