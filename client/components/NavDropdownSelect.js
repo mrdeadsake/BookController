@@ -163,7 +163,7 @@ export default class NavDropdownSelect extends React.Component {
         <div className="select__content" onClick={ ::this.onDropDownClick }>
           <div className="select__label">{this.props.label}</div>
           <div className="select__selected-text">
-            <h1>{ this.state.selectedText }<span className="icon icon--sm icon--dropdown-arrow"></span></h1> 
+            <h1>{ this.state.selectedText }<span className="caret"></span></h1> 
           </div>
         </div>
         { this.renderOptions() }
@@ -177,9 +177,9 @@ export default class NavDropdownSelect extends React.Component {
         return <NavDropdownSelectOption textKey={ this.props.textKey } option={ option } key={ i } onClick={ ::this.onOptionClick } icon={ this.props.icon } onIconClick={ ::this.onIconClick } />;
       });
       return (
-        <div className={'column select__options-panel' + (this.props.alignRight ? ' select__options-panel--right' : '')}>
+        <div className={'select__options-panel' + (this.props.alignRight ? ' select__options-panel--right' : '')}>
           { this.renderSearch() }
-          <div className="column__cell select__options-panel__options" ref="options_list" onWheel={ ::this.onMouseScroll }>
+          <div className="select__options-panel__options" ref="options_list" onWheel={ ::this.onMouseScroll }>
             { options }
           </div>
           { this.renderButton() }
@@ -191,7 +191,7 @@ export default class NavDropdownSelect extends React.Component {
   renderSearch () {
     if (this.props.isSearchable) {
       return (
-        <div className="column__cell column__cell--fixed select__options__search">
+        <div className="select__options__search">
           <input type="text" ref="searchText" placeholder="Search filters" onKeyUp={ ::this.onSearchKeyUp } />
         </div>
       );
@@ -201,7 +201,7 @@ export default class NavDropdownSelect extends React.Component {
   renderButton () {
     if (this.props.newButton) {
       return (
-        <div className="column__cell column__cell--fixed select__options__button">
+        <div className="select__options__button">
           <button className="btn btn--sm btn--add full-width" onClick={ ::this.onNewButtonClick }>
             { this.props.newButton.text } <span className="icon icon--add"></span>
           </button>

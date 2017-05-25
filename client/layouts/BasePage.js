@@ -5,8 +5,8 @@ export default class BasePage extends React.Component {
   render () {
     return (
       <div className = "base-page">
-        <div className="container">
-          <div className="container__content">
+        <div className="">
+          <div className="">
             <BookSideNav selected={window.location.pathname} />
             <main className="form-content">
               { this.props.children }

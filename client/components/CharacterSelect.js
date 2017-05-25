@@ -67,7 +67,7 @@ export default class CharacterSelect extends React.Component {
   render() {
     return(
         <div>
-          <div className="row">{this.renderCharacters()}</div>
+          <div className="flex">{this.renderCharacters()}</div>
         </div>
       )
   }

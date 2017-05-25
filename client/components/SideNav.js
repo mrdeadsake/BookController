@@ -21,7 +21,7 @@ export default class SideNav extends React.Component {
 
   render () {
     return (
-      <div className="container__content__side-nav">
+      <div className="masthead">
         { this.renderUser() }
         <ul>
           { this.renderItems() }
