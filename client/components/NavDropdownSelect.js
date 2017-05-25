@@ -163,7 +163,7 @@ export default class NavDropdownSelect extends React.Component {
         <div className="select__content" onClick={ ::this.onDropDownClick }>
           <div className="select__label">{this.props.label}</div>
           <div className="select__selected-text">
-            <h1>{ this.state.selectedText }<span className="caret"></span></h1> 
+            <h3>{ this.state.selectedText }<span className="caret"></span></h3>
           </div>
         </div>
         { this.renderOptions() }

@@ -1,4 +1,6 @@
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "./modals.scss";
+@import "./modal.scss";
 
 .flex {
   display: flex;
@@ -125,13 +127,13 @@ main.form-content {
   border-width: 1px;
 }
 
-div.row__cell.details {
+div.details {
   border-left-style: solid;
   border-width: 1px;
   padding: 5px;
 }
 
-div.row__cell--fixed.chapter_id {
+div.chapter_id {
   padding: 5px;
   align-self: center;
   text-align: center;
@@ -139,6 +141,7 @@ div.row__cell--fixed.chapter_id {
 }
 
 div.table-outline {
+  margin-top: 5px;
   border-style: solid;
   border-width: 1px;
 }
