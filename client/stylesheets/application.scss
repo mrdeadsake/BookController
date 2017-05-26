@@ -1,6 +1,45 @@
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+//@import "bootstrap-custom";
+@import "./nav.scss";
 @import "./modals.scss";
 @import "./modal.scss";
+
+.nav-list {
+  
+}
+
+.nav-item {
+
+}
+
+.nav-drop {
+
+  &__items {
+
+  }
+}
+
+.nav-text {
+
+}
+
+.navicon {
+  margin-top: 2px;
+  &__left {
+    margin-right: 10px;
+  }
+  &__right {
+    margin-left: 10px;
+  }
+}
+
+.nav-button {
+
+}
+
+.nav-div {
+
+}
 
 .flex {
   display: flex;
