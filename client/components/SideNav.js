@@ -20,20 +20,13 @@ export default class SideNav extends React.Component {
 
   render () {
     return (
-      <div className="masthead">
-        { this.renderUser() }
+      <div className="nav">
         <ul>
           { this.renderItems() }
           { this.renderButton() }
         </ul>
       </div>
     );
-  }
-
-  renderUser () {
-    if (this.props.user) {
-      return <SideUserDropdown user={ this.props.user } appUrl={ this.props.appUrl }/>;
-    }
   }
 
   renderButton () {
@@ -91,8 +84,8 @@ export default class SideNav extends React.Component {
   }
 
   classNameForItem (item) {
-    const classNames = ['nav-item'];
-    if (item.id === this.props.selectedId) {
+    const classNames = ['nav-list'];
+    if (item.url === this.props.selectedId) {
       classNames.push('selected');
     }
     if (item.children) {

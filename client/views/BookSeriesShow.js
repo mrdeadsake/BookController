@@ -42,7 +42,7 @@ class BookSeriesShow extends React.Component {
   }
 
   renderButton() {
-    return(<button className="btn btn-sm" onClick={this.onSet}>Add More Details</button>)
+    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add More Details</button>)
   }
 
   renderBookSeriesListItems() {

@@ -81,8 +81,8 @@ export default class SideNavChildren extends React.Component {
       dropclass = 'slide-out';
     }
     return (
-      <div onClick={ this.onDropdownToggleClick }>
-        <div className="nav-item">
+      <div className="nav-list-container" onClick={ this.onDropdownToggleClick }>
+        <div className="nav-list-dropdown">
           { this.renderItemIcon() }
           <span className="nav-text">{ this.props.itemText }</span>
           <span className={ this.classNameForArrow() }></span>
@@ -135,7 +135,7 @@ export default class SideNavChildren extends React.Component {
 
   classNameForChild (child) {
     const classNames = [];
-    if (this.props.selectedId === child.id) {
+    if (this.props.selectedId === child.url) {
       classNames.push('selected');
     }
     if (child.children) {
