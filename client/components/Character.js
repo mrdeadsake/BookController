@@ -49,7 +49,7 @@ class Character extends React.Component {
 
   renderDetails(next) {
     return next.map((item, i)=> {
-      const last = i !== next.length-1;
+      const classname = (i !== next.length-1) ? "bottom" : null;
       return (
         <CharacterDetail
           key={i}
@@ -57,6 +57,7 @@ class Character extends React.Component {
           chapterId={item.number}
           details={item.details}
           submission={this.submitForm}
+          className={classname}
         />
 
         )
@@ -119,8 +120,8 @@ class Character extends React.Component {
       data: formData,
       headers: {'X-CSRF-Token': csrfToken},
 
-      success: function(projects) {
-        this.setState({success: true});
+      success: function() {
+        console.log("success")
       }.bind(this),
       error: function(response,status,err) {
       }

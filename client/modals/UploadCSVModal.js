@@ -67,6 +67,9 @@ class UploadCSVModal extends React.Component {
             Click or drag csv file here to upload.
           </div>
         </Dropzone>
+        <div className="pl">
+          Instructions go here
+        </div>
       </Modal>
       );
   }

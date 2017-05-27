@@ -28,8 +28,8 @@ export default class CharacterDetail extends React.Component {
   render() {
     return(
       <div className="flex">
-      <div className={"chapter_id"}>{this.props.chapterId}</div>
-        <form className="" onSubmit={this.handleSubmit}>
+      <div className={"chapter_id "+this.props.className}>{this.props.chapterId}</div>
+        <form className={this.props.className} onSubmit={this.handleSubmit}>
           <input 
             tabIndex={-1} 
             className="editable details" 
@@ -42,7 +42,7 @@ export default class CharacterDetail extends React.Component {
           />
           <input className="hidden" type="submit" value="Submit"/>
         </form>
-        <span className="glyphicon glyphicon-pencil details" onClick={this.focus}/>
+        <span className={"glyphicon glyphicon-pencil details "+this.props.className} onClick={this.focus}/>
       </div>
     )
   }
@@ -60,7 +60,9 @@ export default class CharacterDetail extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submission({id: this.props.id, details: this.state.value})
+    if (this.state.value !== this.state.editValue) {
+      this.props.submission({id: this.props.id, details: this.state.value})
+    }
   }
 
   handleChange(e) {
