@@ -4,6 +4,11 @@
 @import "./modal.scss";
 @import "./utilities.scss";
 
+
+.glyphicon {
+  top: 0;
+}
+
 .editable {
   pointer-events: none;
   background-color: transparent;
