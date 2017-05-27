@@ -43,7 +43,6 @@ export default class SideNavChildren extends React.Component {
         showChildren: true,
       }, () => {
         if (this.props.onHasSelectedChild) {
-          // haye guys. Don't be mad at me for dis. <3 future devs that has to work with this. plz respect me.
           this.props.onHasSelectedChild();
         }
       });
@@ -62,7 +61,7 @@ export default class SideNavChildren extends React.Component {
 
   onDropdownToggleClick (evt) {
     const anchor = this.closestAnchorToElement(evt.target);
-    if (!anchor) { // if it wasn't a link they clicked on
+    if (!anchor) {
       evt.preventDefault();
       evt.stopPropagation();
       this.setState({
@@ -81,13 +80,13 @@ export default class SideNavChildren extends React.Component {
       dropclass = 'slide-out';
     }
     return (
-      <div onClick={ this.onDropdownToggleClick }>
-        <div className="container__content__side-nav__item__drop__container">
+      <div className="nav-list-container" onClick={ this.onDropdownToggleClick }>
+        <div className="nav-list-dropdown">
           { this.renderItemIcon() }
-          <span className="container__content__side-nav__item__drop__container--text">{ this.props.itemText }</span>
+          <span className="nav-text">{ this.props.itemText }</span>
           <span className={ this.classNameForArrow() }></span>
         </div>
-        <ul ref="itemContainer" className={`container__content__side-nav__item__drop__container__items ${ dropclass }`}>
+        <ul ref="itemContainer" className={`nav-drop__items ${ dropclass }`}>
           { this.props.children.map((child, i) => {
             return (
               <li ref={ child.id || i } className={ this.classNameForChild(child) } key={ child.id || child.url }>
@@ -103,7 +102,7 @@ export default class SideNavChildren extends React.Component {
 
   renderItemIcon () {
     if (this.props.itemIcon) {
-      return <span className= { `container__content__side-nav__item__drop__container--left-icon icon icon--${ this.props.itemIcon }` }> </span>;
+      return <span className= { `nav-icon__left glyphicon glyphicon-${ this.props.itemIcon }` }> </span>;
     }
   }
 
@@ -124,22 +123,22 @@ export default class SideNavChildren extends React.Component {
   }
 
   classNameForArrow () {
-    const classNames = ['container__content__side-nav__item__drop__container--icon', 'icon', 'icon--sm'];
+    const classNames = ['nav-icon__right', 'icon', 'icon--sm'];
     if (this.state.showChildren) {
-      classNames.push('icon--dropdown-arrow-up');
+      classNames.push('glyphicon glyphicon-menu-up');
     } else {
-      classNames.push('icon--dropdown-arrow');
+      classNames.push('glyphicon glyphicon-menu-down');
     }
     return classNames.join(' ');
   }
 
   classNameForChild (child) {
     const classNames = [];
-    if (this.props.selectedId === child.id) {
+    if (this.props.selectedId === child.url) {
       classNames.push('selected');
     }
     if (child.children) {
-      classNames.push('container__content__side-nav__item__drop');
+      classNames.push('nav-drop__item');
     }
     if (child.className) {
       classNames.push(child.className);

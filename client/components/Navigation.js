@@ -26,17 +26,6 @@ class Navigation {
     return this.buildDataTag(relativePath, data);
   }
 
-  buildProductPath (aProductName, relativePath, data) {
-    const productName = aProductName.toUpperCase();
-    let productUrl = this.options[`${productName}_URL`];
-    const productPath = this.options[`${productName}_PRODUCT_NAME`];
-    if (productUrl.indexOf(productPath) !== (productUrl.length - productPath.length)) {
-      productUrl = `${productUrl}${productPath}`;
-    }
-    const normalizedRelativePath = this.normalizePath(relativePath);
-    return this.buildDataTag(`${productUrl}${normalizedRelativePath}`, data);
-  }
-
   buildDataTag (path, data) {
     if (data && _.isObject(data)) {
       return `${path}#${JSON.stringify(data)}`;

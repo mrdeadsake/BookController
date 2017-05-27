@@ -30,7 +30,6 @@ class Book extends React.Component {
       index: chapterActions.indexAction({id: props.book.id}),
       invalidateChapterList: chapterActions.invalidateIndexAction({id: props.book.id}),
       setModal: modalActions.setAction(),
-      //show: chapterActions.showAction({id:props.item.books[0].id})
     }
   }
 
@@ -54,6 +53,9 @@ class Book extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+  }
+
   onCharSelect(filter) {
     this.setState({ characterObject: filter});
   }
@@ -73,17 +75,24 @@ class Book extends React.Component {
   }
 
   render() {
+    let default_chapter = undefined;
+    if (this.props.index.data !== undefined) {
+      default_chapter = this.props.index.data[0];
+    }
     const bookSeries = this.props.item;
     const books = bookSeries.books;
+    const current_chapter = this.state.current_chapter === null && default_chapter !== undefined ? default_chapter : this.state.current_chapter;
+    const current_chapter_name = this.state.current_chapter === null ? default_chapter : this.state.current_chapter.name;
     const chapters = this.props.index.data || [];
     const chapter = 0;
     const characters = bookSeries.characters;
     const details = bookSeries.details;
+    const character = this.state.characterObject ? this.state.characterObject : {id: 0}
     return(
       <div className="book">
         <div className="flex">
           <WaitFor data={this.props.index}>
-            <div>
+            <div className="full">
               {
                 chapters.length > 0
                  ? <NavDropdownSelect
@@ -92,16 +101,16 @@ class Book extends React.Component {
                    options={ chapters }
                    textKey="name"
                    valueKey="id"
-                   selectedValue={this.state.current_chapter.id}
-                   selectedText={this.state.current_chapter.name}
+                   selectedValue={current_chapter.id}
+                   selectedText={current_chapter.name}
                   />
                 : this.renderButton()
               }
               <Chapter 
                 chapters={chapters} 
-                chapter={this.state.current_chapter} 
+                chapter={current_chapter} 
                 onCharSelect={this.onCharSelect} 
-                character={this.state.characterObject} 
+                character={character} 
                 allData={this.props.item}/>
             </div>
           </WaitFor>

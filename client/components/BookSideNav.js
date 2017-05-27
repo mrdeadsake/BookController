@@ -25,7 +25,7 @@ class BookSideNav extends React.Component {
 
     this.state = {
       items: [{
-        icon: 'dashboard',
+        icon: 'home',
         id: Navigation.buildPath('/landing'),
         text: 'Overview',
         url: '/overview',
@@ -43,14 +43,20 @@ class BookSideNav extends React.Component {
       menuItems.splice(1, 0, {
         id: 'book_series',
         text: 'Book Series',
-        icon: 'bar-graph',
+        icon: 'book',
         children: this.createSeriesItemLinks(series)
       });
       menuItems.push({
         id: "about_me",
         text: "About Me",
-        icon: "search",
+        icon: "info-sign",
         url: "/about"
+      });
+      menuItems.push({
+        id: "dnd",
+        text: "DND Stuff",
+        icon: "knight",
+        url: "/dnd"
       })
       this.setState({
         items: menuItems

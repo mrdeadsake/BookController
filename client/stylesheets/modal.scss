@@ -31,9 +31,10 @@
     box-sizing: border-box;
   }
   &__content {
+    display: flex;
     text-align: left;
     border-top: 1px solid #464646;
-    background-color: white;
+    background-color: #292929;
 	  border-radius: 0;
     position: relative;
     margin: 0 auto;

@@ -2,18 +2,23 @@ import { connect } from 'react-data-actions';
 import {characterDetailsActions} from '../actions/characterDetailsActions';
 import {characterActions} from '../actions/characterActions';
 import React from 'react';
+import CharacterDetail from './CharacterDetail';
 import _ from 'lodash';
+import $ from 'jquery';
 
 class Character extends React.Component {
 
   constructor(...args){
     super(...args);
-    this.state = {};
+      this.state = {
+        message: 'ReactInline demo'
+      }
     this.calculate = ::this.calculate;
     this.filterByCurrentChapter = ::this.filterByCurrentChapter;
     this.filterByCharacter = ::this.filterByCharacter;
     this.renderDetails = ::this.renderDetails;
-    this.updateStuff = ::this.updateStuff;
+    this.dataChanged = ::this.dataChanged;
+    this.focus = ::this.focus;
   }
 
   calculate() {
@@ -44,19 +49,27 @@ class Character extends React.Component {
 
   renderDetails(next) {
     return next.map((item, i)=> {
+      const classname = (i !== next.length-1) ? "bottom" : null;
       return (
-        <div className={"flex"} key={i}>
-          <div className={"chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.number}</div>
-          <div className={"details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
-        </div>
+        <CharacterDetail
+          key={i}
+          id={item.id}
+          chapterId={item.number}
+          details={item.details}
+          submission={this.submitForm}
+          className={classname}
+        />
+
         )
     });
   }
 
+        //  <div className={"flex"} key={i}>
+        //   <div className={"chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.number}</div>
+        //   <div className={"details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
+        // </div>
+
   renderButton() {
-    // return (
-    //   <button onClick={this.updateStuff}>Update info</button>
-    // )
   }
 
   filterByCurrentChapter(chapter){
@@ -67,11 +80,15 @@ class Character extends React.Component {
     if (detail.character_id == this.props.character.id) return true;
   }
 
-  updateStuff(){
-    let details = {character_id: 2, chapter_id: 8, details:'Kaladin does stuff', location: 'some place'};
-    this.props.update(details);
-    //this.props.show);
-  }
+      dataChanged(data) {
+        // data = { description: "New validated text comes here" } 
+        // Update your model from here 
+        this.setState({...data})
+    }
+ 
+    customValidateText(text) {
+      return (text.length > 0 && text.length < 64);
+    }
 
   renderCharacter() {
     if (this.props.character != undefined){
@@ -79,7 +96,7 @@ class Character extends React.Component {
       const allowed = details.filter(this.filterByCurrentChapter);
       const next = allowed.filter(this.filterByCharacter);
       return(
-        <div>
+        <div ref={"editstuff"}>
         <div className={"table-outline"}>
           {this.renderDetails(next)}
         </div>
@@ -90,6 +107,29 @@ class Character extends React.Component {
     return(<div className="">
       details
     </div>)
+  }
+
+  submitForm(formData) {
+    const id = formData["id"];
+    const csrfToken = $('meta[name="csrf-token"]')[0]["content"];
+    console.log("csrf", csrfToken);
+    $.ajax({
+      url: `/character_detail/${id}`,
+      dataType: 'json',
+      type: 'POST',
+      data: formData,
+      headers: {'X-CSRF-Token': csrfToken},
+
+      success: function() {
+        console.log("success")
+      }.bind(this),
+      error: function(response,status,err) {
+      }
+    });
+  }
+
+  focus() {
+    this.textInput.focus();
   }
 
   render() {

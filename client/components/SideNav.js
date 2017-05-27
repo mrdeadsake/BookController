@@ -20,8 +20,7 @@ export default class SideNav extends React.Component {
 
   render () {
     return (
-      <div className="masthead">
-        { this.renderUser() }
+      <div className="nav">
         <ul>
           { this.renderItems() }
           { this.renderButton() }
@@ -30,21 +29,15 @@ export default class SideNav extends React.Component {
     );
   }
 
-  renderUser () {
-    if (this.props.user) {
-      return <SideUserDropdown user={ this.props.user } appUrl={ this.props.appUrl }/>;
-    }
-  }
-
   renderButton () {
     if (this.props.button) {
       return (
-        <li key={ `btn-${this.props.button.text}` } className="container__content__side-nav__item">
-          <div className="container__content__side-nav__item__drop__container">
+        <li key={ `btn-${this.props.button.text}` } className="nav-list">
+          <div className="nav-button">
             <button className="btn btn--secondary" onClick={ this.props.button.onClick } title={ this.props.button.text }>
               { `${this.props.button.text} ` }
               { this.props.button.icon ?
-                  <span className={ `icon icon--${this.props.button.icon}` }> </span>
+                  <span className={ `nav-icon glyphicon glyphicon-${this.props.button.icon}` }> </span>
                 :
                   undefined
               }
@@ -77,26 +70,26 @@ export default class SideNav extends React.Component {
 
   renderChildlessItem (item) {
     return (
-      <div className="container__content__side-nav__item__drop__container">
+      <div className="nav-div">
         <a onClick={ this.navigate.bind(this, item.url) } href={ item.url ? Navigation.buildPath(item.url) : null } title={ item.text }>
           { item.icon ?
-            <span className={ `icon icon--${ item.icon }`}></span>
+            <span className={ `nav-icon__left glyphicon glyphicon-${ item.icon }`}></span>
           :
             undefined
           }
-          <span className={'container__content__side-nav__item__text ' + (item.selectedId === item.id ? 'selected' : '')}>{ item.text }</span>
+          <span className={'nav-text ' + (item.selectedId === item.id ? 'selected' : '')}>{ item.text }</span>
         </a>
       </div>
     );
   }
 
   classNameForItem (item) {
-    const classNames = ['container__content__side-nav__item'];
-    if (item.id === this.props.selectedId) {
+    const classNames = ['nav-list'];
+    if (item.url === this.props.selectedId) {
       classNames.push('selected');
     }
     if (item.children) {
-      classNames.push('container__content__side-nav__item__drop');
+      classNames.push('nav-drop');
     }
     if (item.className) {
       classNames.push(item.className);

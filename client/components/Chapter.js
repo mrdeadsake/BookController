@@ -37,9 +37,6 @@ class Chapter extends React.Component {
   }
 
   filterCharactersByChapter() {
-    // const details = this.props.allData.details;
-    // const characters = this.props.allData.characters;
-    // const chapterNumber = this.props.chapter.number;
     let arr = [];
     this.props.allData.details.map((x)=>{
       if(x.number <= this.props.chapter.number && arr.indexOf(x.character_id)==-1) arr.push(x.character_id);
@@ -86,16 +83,3 @@ class Chapter extends React.Component {
   }
 
 export default Chapter
-
-          // <div className="row">
-          //   <Chapter chapters={chapters} chapter={this.state.current_chapter}/>
-          // </div>
-          // <NavDropdownSelect
-          //   label=""
-          //   onSelect={this.onCharSelect}
-          //   options={ characters }
-          //   textKey="name"
-          //   valueKey="id"
-          //   selectedText={this.state.characterObject.name}
-          // />
-          // <Character character={this.state.characterObject} details={details} chapters={chapters} chapter={this.state.current_chapter}/>
