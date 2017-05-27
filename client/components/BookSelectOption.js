@@ -29,7 +29,6 @@ export default class BookSelectOption extends React.Component {
   }
 
   render () {
-    //const icon = this.props.icon || this.props.option.icon;
     const isSelected = this.props.selected;
     let selected = ''
     if (isSelected) {

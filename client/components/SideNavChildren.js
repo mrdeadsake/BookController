@@ -43,7 +43,6 @@ export default class SideNavChildren extends React.Component {
         showChildren: true,
       }, () => {
         if (this.props.onHasSelectedChild) {
-          // haye guys. Don't be mad at me for dis. <3 future devs that has to work with this. plz respect me.
           this.props.onHasSelectedChild();
         }
       });
@@ -62,7 +61,7 @@ export default class SideNavChildren extends React.Component {
 
   onDropdownToggleClick (evt) {
     const anchor = this.closestAnchorToElement(evt.target);
-    if (!anchor) { // if it wasn't a link they clicked on
+    if (!anchor) {
       evt.preventDefault();
       evt.stopPropagation();
       this.setState({

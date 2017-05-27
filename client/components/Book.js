@@ -30,7 +30,6 @@ class Book extends React.Component {
       index: chapterActions.indexAction({id: props.book.id}),
       invalidateChapterList: chapterActions.invalidateIndexAction({id: props.book.id}),
       setModal: modalActions.setAction(),
-      //show: chapterActions.showAction({id:props.item.books[0].id})
     }
   }
 
@@ -93,7 +92,7 @@ class Book extends React.Component {
       <div className="book">
         <div className="flex">
           <WaitFor data={this.props.index}>
-            <div>
+            <div className="full">
               {
                 chapters.length > 0
                  ? <NavDropdownSelect
