@@ -1,13 +1,6 @@
 class CharacterDetailsController < ApplicationController
-  require 'csv'
-  respond_to :json
-  def create
-    puts "hello!"
-  end
 
-  def index
-    puts "hello!"
-  end
+  respond_to :json
 
   def update
     @detail = CharacterDetail.find(params.require(:id))
