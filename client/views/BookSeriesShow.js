@@ -37,12 +37,11 @@ class BookSeriesShow extends React.Component {
   }
 
   onSet() {
-    console.log(this.props.params.id)
     this.props.setModal(<UploadCSVModal upload={this.props.upload} id={this.props.params.id}/>)
   }
 
   renderButton() {
-    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add More Details</button>)
+    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add More Details With CSV</button>)
   }
 
   renderBookSeriesListItems() {

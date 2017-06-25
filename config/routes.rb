@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'book_series/:id', to: 'book_series#show', constraints: {:format => :json}
   get 'character', to: 'character#index'
   post 'character_detail/:id', to: 'character_details#update'
+  put 'book_series/:id/character_detail/', to: 'character_details#create'
   get 'book_series/book/:id/chapter/index', to: 'chapter#index'
   post 'book_series/:id/character', to: 'character#create'
   get 'about', {:to =>"book_series#index"}

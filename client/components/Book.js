@@ -8,7 +8,7 @@ import modalActions from '../actions/modalActions';
 import React from 'react';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import WaitFor from './WaitFor';
-import UploadCSVModal from '../modals/UploadCSVModal';
+import AddDetailModal from '../modals/AddDetailModal';
 
 import _ from 'lodash';
 
@@ -27,7 +27,7 @@ class Book extends React.Component {
 
   static connectedActions (props) {
     return {
-      index: chapterActions.indexAction({id: props.book.id}),
+      chapters: chapterActions.indexAction({id: props.book.id}),
       invalidateChapterList: chapterActions.invalidateIndexAction({id: props.book.id}),
       setModal: modalActions.setAction(),
     }
@@ -35,8 +35,8 @@ class Book extends React.Component {
 
   componentWillReceiveProps(nextProps){
     if (nextProps != this.props) {
-      if (nextProps.index.data != undefined) {
-        const default_chapter = nextProps.index.data[0]
+      if (nextProps.chapters.data != undefined) {
+        const default_chapter = nextProps.chapters.data[0]
         this.setState({current_chapter: default_chapter})
       }
       if (nextProps.item.characters && nextProps.item.characters.length != 0) {
@@ -67,23 +67,24 @@ class Book extends React.Component {
   }
 
   onSet() {
-    this.props.setModal(<UploadCSVModal />)
+    console.log('onset')
+    this.props.setModal(<AddDetailModal book={this.props.book} chapters={this.props.chapters.data}/>)
   }
 
   renderButton() {
-    return(<button onClick={this.onSet}>Add Chapter</button>)
+    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add Chapter</button>)
   }
 
   render() {
     let default_chapter = undefined;
-    if (this.props.index.data !== undefined) {
-      default_chapter = this.props.index.data[0];
+    if (this.props.chapters.data !== undefined) {
+      default_chapter = this.props.chapters.data[0];
     }
     const bookSeries = this.props.item;
     const books = bookSeries.books;
     const current_chapter = this.state.current_chapter === null && default_chapter !== undefined ? default_chapter : this.state.current_chapter;
     const current_chapter_name = this.state.current_chapter === null ? default_chapter : this.state.current_chapter.name;
-    const chapters = this.props.index.data || [];
+    const chapters = this.props.chapters.data || [];
     const chapter = 0;
     const characters = bookSeries.characters;
     const details = bookSeries.details;
@@ -91,7 +92,7 @@ class Book extends React.Component {
     return(
       <div className="book">
         <div className="flex">
-          <WaitFor data={this.props.index}>
+          <WaitFor data={this.props.chapters}>
             <div className="full">
               {
                 chapters.length > 0
@@ -115,9 +116,18 @@ class Book extends React.Component {
             </div>
           </WaitFor>
         </div>
+        { this.renderButton() }
       </div>
       )
   }
+
+  // renderButton() {
+  //   return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add More Details With CSV</button>)
+  // }
+
+  // onSet() {
+  //   this.props.setModal(<UploadCSVModal upload={this.props.upload} id={this.props.params.id}/>)
+  // }
 }
 
 export default connect(Book)

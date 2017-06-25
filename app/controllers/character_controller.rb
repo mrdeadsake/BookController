@@ -73,7 +73,7 @@ class CharacterController < ApplicationController
 
     @map_csv.map{|x|
       book_id = get_book_id_from_name(x[:book_id])
-      chapter_id = get_chapter_id_from_number(x[:chapter_id], book_id)
+      chapter_id = get_chapter_id_from_name(x[:chapter_id], book_id)
       x[:character_id] = create_new_character(x[:character_id], book_id)
       x[:chapter_id] = chapter_id
     }
@@ -98,8 +98,8 @@ class CharacterController < ApplicationController
     Book.find_by(name: name.strip).id
   end
 
-  def get_chapter_id_from_number(number, book_id)
-    Book.find(book_id).chapters.where(number: number).first.id
+  def get_chapter_id_from_name(name, book_id)
+    Book.find(book_id).chapters.where(name: name).first.id
   end
 
 
