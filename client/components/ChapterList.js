@@ -1,9 +1,8 @@
-import { connect } from 'react-data-actions';
 import Chapter from './Chapter';
 import React from 'react';
 import _ from 'lodash';
 
-class ChapterList extends React.Component {
+export default class ChapterList extends React.Component {
   static propTypes = {
     chapters: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
   };
@@ -19,5 +18,3 @@ class ChapterList extends React.Component {
       )
   }
 }
-
-export default connect(ChapterList)

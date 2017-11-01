@@ -1,9 +1,8 @@
-import { connect } from 'react-data-actions';
 import Book from './Book';
 import React from 'react';
 import _ from 'lodash';
 
-class BookList extends React.Component {
+export default class BookList extends React.Component {
   static propTypes = {
     books: React.PropTypes.array,
   };
@@ -21,5 +20,3 @@ class BookList extends React.Component {
       )
   }
 }
-
-export default connect(BookList)

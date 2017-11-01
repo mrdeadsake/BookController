@@ -58,7 +58,7 @@
     "superagent": "^1.8.4",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^1.15.0"
   },
   "devDependencies": {}
 }
