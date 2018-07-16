@@ -43,10 +43,9 @@
     "expose-loader": "^0.7.5",
     "formaldehyde": "^0.3.3",
     "history": "^2.1.2",
-    "jquery": "^2.2.4",
+    "jquery": "^3.3.1",
     "jquery-ujs": "^1.2.2",
     "lodash": "^4.17.10",
-    "moment": "~2.14.0",
     "node-sass": "^3.10.1",
     "react": "15.4.2",
     "react-data-actions": "^0.9.3",
@@ -55,9 +54,9 @@
     "react-router": "^2.4.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "superagent": "^1.8.4",
+    "superagent": "^3.8.3",
     "transform-loader": "^0.2.3",
-    "url-loader": "^0.5.7",
+    "url-loader": "^1.0.1",
     "webpack": "^1.15.0"
   },
   "devDependencies": {}
