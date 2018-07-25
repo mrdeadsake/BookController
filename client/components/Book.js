@@ -4,7 +4,6 @@ import Chapter from '../components/Chapter';
 import { chapterActions } from '../actions/chapterActions';
 import modalActions from '../actions/modalActions';
 
-//import { bookActions, chapterActions } from '../actions/bookActions';
 import React from 'react';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import WaitFor from './WaitFor';
@@ -67,7 +66,6 @@ class Book extends React.Component {
   }
 
   onSet() {
-    console.log('onset')
     this.props.setModal(<AddDetailModal book={this.props.book} chapters={this.props.chapters.data}/>)
   }
 
@@ -120,14 +118,6 @@ class Book extends React.Component {
       </div>
       )
   }
-
-  // renderButton() {
-  //   return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add More Details With CSV</button>)
-  // }
-
-  // onSet() {
-  //   this.props.setModal(<UploadCSVModal upload={this.props.upload} id={this.props.params.id}/>)
-  // }
 }
 
 export default connect(Book)

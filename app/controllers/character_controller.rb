@@ -13,10 +13,7 @@ class CharacterController < ApplicationController
 
   def upload
     csv_text = File.read('/Users/derekadams/Projects/BookControl/details.csv')
-    csv = CSV.parse(csv_text, :headers => true)
-    csv.each do |r|
-      puts r.to_hash
-    end
+    CSV.parse(csv_text, :headers => true)
   end
 
   def create
@@ -90,8 +87,6 @@ class CharacterController < ApplicationController
     character.save! if character.new_record?
     return character[:id] if character
   rescue => exception
-    puts character.errors.full_messages
-    puts exception
   end
 
   def get_book_id_from_name(name)

@@ -27,17 +27,11 @@ class Character extends React.Component {
       const next = allowed.filter(this.filterByCharacter);
       this.setState({d: next});
       this.renderDetails(next);
-      // next is a list of all details that are for the current character
-      // allowed is a list of all the chapters that are up to the current
-
-      // return all details where the chapter_id is found in allowed
 
   }
 
   static connectedActions (props) {
     return {
-      //update: characterActions.createAction(),
-      //show: characterActions.indexAction()
     }
   }
 
@@ -64,11 +58,6 @@ class Character extends React.Component {
     });
   }
 
-        //  <div className={"flex"} key={i}>
-        //   <div className={"chapter_id " + (i !== next.length-1 ? "bottom " : "")}>{item.number}</div>
-        //   <div className={"details " + (i !== next.length-1 ? "bottom " : "")}>{item.details}</div>
-        // </div>
-
   renderButton() {
   }
 
@@ -81,8 +70,6 @@ class Character extends React.Component {
   }
 
       dataChanged(data) {
-        // data = { description: "New validated text comes here" } 
-        // Update your model from here 
         this.setState({...data})
     }
  
@@ -112,7 +99,6 @@ class Character extends React.Component {
   submitForm(formData) {
     const id = formData["id"];
     const csrfToken = $('meta[name="csrf-token"]')[0]["content"];
-    console.log("csrf", csrfToken);
     $.ajax({
       url: `/character_detail/${id}`,
       dataType: 'json',
@@ -121,7 +107,6 @@ class Character extends React.Component {
       headers: {'X-CSRF-Token': csrfToken},
 
       success: function() {
-        console.log("success")
       }.bind(this),
       error: function(response,status,err) {
       }
