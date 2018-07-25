@@ -32,13 +32,8 @@ class AddDetailModal extends React.Component {
     this.props.clearModal();
   }
 
-  onSuccess() {
+  onSuccess () {
     this.props.clearModal();
-  }
-
-  onDrop(accepted, rejected) {
-    console.log(accepted);
-    console.log(rejected);
   }
 
   onAccepted(files){
@@ -82,24 +77,16 @@ class AddDetailModal extends React.Component {
   }
   
   submitForm(formData) {
-    console.log(formData)
     const id = formData["id"];
     const series = this.props.book.book_series_id;
-    console.log(series)
     const csrfToken = $('meta[name="csrf-token"]')[0]["content"];
-    console.log("csrf", csrfToken);
     $.ajax({
       url: `${series}/character_detail/`,
       dataType: 'json',
       type: 'PUT',
       data: formData,
       headers: {'X-CSRF-Token': csrfToken},
-
-      success: function() {
-        console.log("success")
-      }.bind(this),
-      error: function(response,status,err) {
-      }
+      success: this.onSuccess(),
     });
   }
 

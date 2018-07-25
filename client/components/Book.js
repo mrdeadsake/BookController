@@ -70,7 +70,7 @@ class Book extends React.Component {
   }
 
   renderButton() {
-    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add Chapter</button>)
+    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add Character Detail</button>)
   }
 
   render() {
