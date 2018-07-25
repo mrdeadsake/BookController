@@ -33,8 +33,6 @@ class UploadCSVModal extends React.Component {
   }
 
   onDrop(accepted, rejected) {
-    console.log(accepted);
-    console.log(rejected);
   }
 
   onAccepted(files){
@@ -51,8 +49,6 @@ class UploadCSVModal extends React.Component {
   }
 
   onRejected(files){
-    console.log('rejected');
-    console.log(files);
   }
 
   render () {
