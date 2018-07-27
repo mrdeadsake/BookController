@@ -1,4 +1,3 @@
-import WaitFor from '../components/WaitFor';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import Book from '../components/Book';
 import BookSelect from '../components/BookSelect';
@@ -20,7 +19,7 @@ export default class BookSeriesListItem extends React.Component {
     this.onSelectBook = ::this.onSelectBook;
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidMount() {
     this.setState({selectedBook: nextProps.bookSeries.books[0]})
   }
 

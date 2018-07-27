@@ -7,12 +7,6 @@ class Chapter < ActiveRecord::Base
 
   attr_reader :csv, :map_csv, :hashing
 
-  def csv
-    csv_text = File.read('/Users/derekadams/Projects/BookControl/details.csv')
-    @csv = CSV.parse(csv_text, :headers => true)
-    @csv
-  end
-
   def hashing
     @hashing ||= csv.map{|c| c.to_hash}
   end
@@ -28,10 +22,6 @@ class Chapter < ActiveRecord::Base
      x[:chapter_id] = x[:chapter_id].to_i
     }
 
-    puts @map_csv
-    #@map_csv.each do |a|
-    #  puts a.inspect
-    #end
   end
 
 

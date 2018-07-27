@@ -70,7 +70,6 @@ export default class AddDetailsForm extends React.Component {
   }
 
   renderOptions() {
-    console.log('options')
     return (
       this.props.chapters.map((x) => {
         return (<option value={x.id} key={x.id}>{x.name}</option>)

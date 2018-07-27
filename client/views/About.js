@@ -6,8 +6,8 @@ export default class About extends React.Component {
     return(
       <div className="">
         <div className="">
-          <div>My name is Derek Adams, I'm a software engineer living and working in Salt Lake City, Utah currently looking to relocate to San Diego.</div>
-          <div>I'm a full-stack engineer developing web applications that include the following in our tech stack:</div>
+          <div>My name is Derek Adams, I'm a software engineer living and working in San Diego, CA currently.</div>
+          <div>I'm a full-stack engineer developing web applications that include the following in my tech stack:</div>
           <div>ReactJS</div>
           <div>Webpack</div>
           <div>NPM</div>

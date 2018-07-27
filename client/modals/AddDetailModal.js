@@ -20,6 +20,7 @@ export default class AddDetailModal extends React.Component {
   }
 
   onCancel () {
+<<<<<<< HEAD
     this.props.onClose();
   }
 
@@ -27,6 +28,15 @@ export default class AddDetailModal extends React.Component {
     this.props.onClose();
   }
 
+=======
+    this.props.clearModal();
+  }
+
+  onSuccess () {
+    this.props.clearModal();
+  }
+
+>>>>>>> master
   onAccepted(files){
     const fileReader = new FileReader();
     const file = files[0];
