@@ -1,18 +1,37 @@
-import {restActionsGenerator} from 'react-data-actions';
+import { FETCH_BOOK_SERIES, FETCH_BOOK_SERIES_INDEX, NEW_BOOK_SERIES } from './types';
 
-const bookSeriesActions = restActionsGenerator({
-  path: `/book_series`,
-  extension: 'json',
-  maxAge: 50000000,
-});
+const fetchBookSeriesIndex = () => dispatch => {
+  fetch(`${location.origin}/book_series.json`, {
+    headers: {
+      'content-type': 'application/json'
+    },
+  })
+    .then(res=>res.json())
+    .then(bookSeries=>dispatch({
+      type: FETCH_BOOK_SERIES_INDEX,
+      payload: bookSeries
+    })
+  );
+}
 
-const bookSeriesBookActions = restActionsGenerator({
-  path: `/books`,
-  extension: 'json',
-  maxAge: 50000000,
-});
+const fetchBookSeries = (id) => dispatch => {
+  fetch(`${location.origin}/book_series/${id}.json`, {
+    headers: {
+      'content-type': 'application/json'
+    },
+  })
+    .then(res=>res.json())
+    .then(bookSeries=>dispatch({
+      type: FETCH_BOOK_SERIES,
+      payload: bookSeries
+    })
+  );
+}
+
+
+
 
 export {
-  bookSeriesActions,
-  bookSeriesBookActions
+  fetchBookSeries,
+  fetchBookSeriesIndex
 }

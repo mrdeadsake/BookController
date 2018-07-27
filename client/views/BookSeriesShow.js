@@ -1,14 +1,10 @@
-import {characterDetailsActions } from '../actions/characterDetailsActions';
-import { bookActions, chapterActions } from '../actions/bookActions';
-import { bookSeriesActions } from '../actions/bookSeriesActions';
+import { fetchBookSeries } from '../actions/bookSeriesActions';
 import { characterActions } from '../actions/characterActions';
-import modalActions from '../actions/modalActions';
-import WaitFor from '../components/WaitFor';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import Book from '../components/Book';
 import BookList from '../components/BookList';
 import BookSeriesListItem from '../components/BookSeriesListItem';
-import { connect } from 'react-data-actions';
+import { connect } from 'react-redux';
 import React from 'react';
 import Character from '../components/Character';
 import Chapter from '../components/Chapter';
@@ -19,35 +15,47 @@ class BookSeriesShow extends React.Component {
 
   constructor(...args){
     super(...args);
-    this.onSet = ::this.onSet;
-  }
-
-  static connectedActions (props) {
-    return {
-      show: bookSeriesActions.showAction({id: props.params.id}),
-      invalidate: bookSeriesActions.invalidateShowAction(),
-      setModal: modalActions.setAction(),
-      upload: characterActions.createAction({id: props.params.id}),
+    this.state = {
+      modal: false,
     }
   }
 
+  componentDidMount() {
+    this.props.fetchBookSeries(this.props.params.id);
+  }
+
+
+  componentDidUpdate(prevProps) {
+    if (this.props.params.id !== prevProps.params.id)
+    this.props.fetchBookSeries(this.props.params.id);
+  }
+
   renderBooks() {
-    const books = this.props.show.books;
+    const books = this.props.bookSeries.books;
     return books.map((book, i)=> {return <Book book={book} key={i}/>});
   }
 
-  onSet() {
-    this.props.setModal(<UploadCSVModal upload={this.props.upload} id={this.props.params.id}/>)
+  // onSet() {
+  //   this.props.setModal(<UploadCSVModal upload={this.props.upload} id={this.props.params.id}/>)
+  // }
+
+  renderModal() {
+    if (this.state.modal) {
+      return(
+        <UploadCSVModal  upload={this.props.upload} id={this.props.params.id} onClose={()=> this.setState({modal: false})}/>
+        )
+    }
+    return null;
   }
 
-  renderButton() {
-    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add More Details With CSV</button>)
+  renderButton = () => {
+    return(<button className="btn btn-sm add-details"onClick={()=>this.setState({modal: true})}>Add More Details With CSV</button>)
   }
 
   renderBookSeriesListItems() {
-    const books = this.props.show.data || {};
-    if (books != {}){
-      return (<BookSeriesListItem item ={books} />)
+    const bookSeries = this.props.bookSeries || {};
+    if (bookSeries != {}){
+      return (<BookSeriesListItem bookSeries ={bookSeries} />)
     } else {
       return (null)
     }
@@ -57,13 +65,16 @@ class BookSeriesShow extends React.Component {
   render() {
     return(
       <section className="breathe">
-        <WaitFor data={this.props.show} >
+          { this.renderModal() }
           { this.renderBookSeriesListItems()}
-        </WaitFor>
         { this.renderButton() }
       </section>
       )
   }
 }
 
-export default connect(BookSeriesShow)
+const mapStateToProps = state => ({
+  bookSeries: state.bookSeries.item
+});
+
+export default connect(mapStateToProps, { fetchBookSeries })(BookSeriesShow);

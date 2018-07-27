@@ -1,12 +1,7 @@
-import { connect } from 'react-data-actions';
 import React from 'react';
 
-class Landing extends React.Component {
+export default class Landing extends React.Component {
 
-  static connectedActions () {
-    return {
-    }
-  }
   render() {
     return(
       <div className="row">
@@ -17,5 +12,3 @@ class Landing extends React.Component {
       )
   }
 }
-
-export default connect(Landing)
