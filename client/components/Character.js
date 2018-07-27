@@ -1,12 +1,10 @@
-import { connect } from 'react-data-actions';
-import {characterDetailsActions} from '../actions/characterDetailsActions';
-import {characterActions} from '../actions/characterActions';
+
 import React from 'react';
 import CharacterDetail from './CharacterDetail';
 import _ from 'lodash';
 import $ from 'jquery';
 
-class Character extends React.Component {
+export default class Character extends React.Component {
 
   constructor(...args){
     super(...args);
@@ -32,13 +30,6 @@ class Character extends React.Component {
 
       // return all details where the chapter_id is found in allowed
 
-  }
-
-  static connectedActions (props) {
-    return {
-      //update: characterActions.createAction(),
-      //show: characterActions.indexAction()
-    }
   }
 
   static propTypes = {
@@ -139,5 +130,3 @@ class Character extends React.Component {
       )
   }
 }
-
-export default connect(Character)

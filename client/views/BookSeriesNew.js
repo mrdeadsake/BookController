@@ -1,11 +1,8 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import modalActions from '../actions/modalActions';
 import UploadCSVModal from '../modals/UploadCSVModal';
-import { characterActions } from '../actions/characterActions';
-import { connect } from 'react-data-actions';
 
-class BookSeriesNew extends React.Component {
+export default class BookSeriesNew extends React.Component {
 
   constructor(...args){
     super(...args);
@@ -30,7 +27,6 @@ class BookSeriesNew extends React.Component {
       )
   }
 }
-export default connect(BookSeriesNew)
 /*
 var React = require('react');
 var Dropzone = require('react-dropzone');

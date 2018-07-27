@@ -1,8 +1,7 @@
 import Navigation from './Navigation';
 import SideNav from './SideNav';
-import { connect } from 'react-data-actions';
-import {chapterActions } from '../actions/chapterActions';
-import {bookSeriesBookActions} from '../actions/bookSeriesActions';
+import { connect } from 'react-redux';
+import { fetchBookSeriesIndex } from '../actions/bookSeriesActions';
 import React from 'react';
 import _ from 'lodash';
 
@@ -14,10 +13,8 @@ class BookSideNav extends React.Component {
     chapters: React.PropTypes.object,
   };
 
-  static connectedActions () {
-    return {
-      bookSeries: bookSeriesBookActions.indexAction(),
-    };
+  componentWillMount() {
+    this.props.fetchBookSeriesIndex();
   }
 
   constructor (props, context) {
@@ -34,7 +31,7 @@ class BookSideNav extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setSeries(props.bookSeries.data);
+    this.setSeries(props.bookSeries);
   }
 
   setSeries(series) {
@@ -79,4 +76,8 @@ class BookSideNav extends React.Component {
   }
 }
 
-export default connect(BookSideNav);
+const mapStateToProps = state => ({
+  bookSeries: state.bookSeries.items
+});
+
+export default connect(mapStateToProps, { fetchBookSeriesIndex })(BookSideNav);

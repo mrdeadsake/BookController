@@ -1,19 +1,10 @@
 import React from 'react';
 import Modal from './Modal';
 import Dropzone from 'react-dropzone';
-import { connect } from 'react-data-actions';
-import modalActions from '../actions/modalActions';
-import characterActions from '../actions/characterActions';
 import AddDetailsForm from '../components/AddDetailsForm';
 import $ from 'jquery';
 
-class AddDetailModal extends React.Component {
-
-  static connectedActions () {
-    return {
-      clearModal: modalActions.clearAction(),
-    };
-  }
+export default class AddDetailModal extends React.Component {
 
   static propTypes = {
     book: React.PropTypes.object,
@@ -29,16 +20,11 @@ class AddDetailModal extends React.Component {
   }
 
   onCancel () {
-    this.props.clearModal();
+    this.props.onClose();
   }
 
-  onSuccess() {
-    this.props.clearModal();
-  }
-
-  onDrop(accepted, rejected) {
-    console.log(accepted);
-    console.log(rejected);
+  onSuccess () {
+    this.props.onClose();
   }
 
   onAccepted(files){
@@ -82,27 +68,19 @@ class AddDetailModal extends React.Component {
   }
   
   submitForm(formData) {
-    console.log(formData)
     const id = formData["id"];
     const series = this.props.book.book_series_id;
-    console.log(series)
     const csrfToken = $('meta[name="csrf-token"]')[0]["content"];
-    console.log("csrf", csrfToken);
     $.ajax({
       url: `${series}/character_detail/`,
       dataType: 'json',
       type: 'PUT',
       data: formData,
       headers: {'X-CSRF-Token': csrfToken},
-
-      success: function() {
-        console.log("success")
-      }.bind(this),
-      error: function(response,status,err) {
-      }
+      success: this.onSuccess(),
     });
   }
 
 }
 
-export default connect(AddDetailModal);
+
