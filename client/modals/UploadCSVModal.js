@@ -1,8 +1,17 @@
 import React from 'react';
 import Modal from './Modal';
 import Dropzone from 'react-dropzone';
+import { connect } from 'react-data-actions';
+import modalActions from '../actions/modalActions';
+import characterActions from '../actions/characterActions';
 
-export default class UploadCSVModal extends React.Component {
+class UploadCSVModal extends React.Component {
+
+  static connectedActions () {
+    return {
+      clearModal: modalActions.clearAction(),
+    };
+  }
 
   static propTypes = {
     upload: React.PropTypes.func,
@@ -16,11 +25,11 @@ export default class UploadCSVModal extends React.Component {
   }
 
   onCancel () {
-    this.props.onClose();
+    this.props.clearModal();
   }
 
   onSuccess() {
-    this.props.onClose();
+    this.props.clearModal();
   }
 
   onDrop(accepted, rejected) {
@@ -61,3 +70,5 @@ export default class UploadCSVModal extends React.Component {
       );
   }
 }
+
+export default connect(UploadCSVModal);

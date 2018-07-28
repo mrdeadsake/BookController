@@ -1,10 +1,12 @@
-
+import { connect } from 'react-data-actions';
+import {characterDetailsActions} from '../actions/characterDetailsActions';
+import {characterActions} from '../actions/characterActions';
 import React from 'react';
 import CharacterDetail from './CharacterDetail';
 import _ from 'lodash';
 import $ from 'jquery';
 
-export default class Character extends React.Component {
+class Character extends React.Component {
 
   constructor(...args){
     super(...args);
@@ -26,6 +28,11 @@ export default class Character extends React.Component {
       this.setState({d: next});
       this.renderDetails(next);
 
+  }
+
+  static connectedActions (props) {
+    return {
+    }
   }
 
   static propTypes = {
@@ -117,3 +124,5 @@ export default class Character extends React.Component {
       )
   }
 }
+
+export default connect(Character)

@@ -4,9 +4,7 @@ json_defaults = { :defaults => { :format => :json } }
 Rails.application.routes.draw do
   get 'overview', {:to =>"book_series#index"}
   get '/books/', to: 'book_series#index', constraints: {:format => :json}
-  get '/book_series/', to: 'book_series#index', constraints: {:format => :json}
   get 'book_series/:id', to: 'book_series#show', constraints: {:format => :json}
-  get 'book_series/:book_series_id/books', to: 'book#index', constraints: {:format => :json}
   get 'character', to: 'character#index'
   post 'character_detail/:id', to: 'character_details#update'
   put 'book_series/:id/character_detail/', to: 'character_details#create'

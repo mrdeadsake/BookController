@@ -1,9 +1,10 @@
+import { connect } from 'react-data-actions';
 import React from 'react';
 import NavDropdownSelect from './NavDropdownSelect';
 import CharacterSelect from './CharacterSelect';
 import Character from './Character';
 
-export default class Chapter extends React.Component {
+class Chapter extends React.Component {
   
   constructor(props){
     super(props);
@@ -27,6 +28,9 @@ export default class Chapter extends React.Component {
     character: React.PropTypes.object,
   };
 
+  // onCharSelect(character) {
+  //   this.setState({ character: character});
+  // }
 
   onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
@@ -56,9 +60,6 @@ export default class Chapter extends React.Component {
   }
 
   render() {
-    if (!this.props.chapter) {
-      return null;
-    }
     let chapter = this.props.chapter;
     const chapters = this.props.chapters;
     if (chapter == null ){
@@ -81,3 +82,4 @@ export default class Chapter extends React.Component {
     }
   }
 
+export default Chapter

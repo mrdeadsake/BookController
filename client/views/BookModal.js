@@ -1,11 +1,19 @@
 import React from 'react';
+import modalActions from '../actions/modalActions';
+import { connect } from 'react-data-actions';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
-export default class BookModal extends React.Component {
+class BookModal extends React.Component {
 
   static propTypes = {
     modal: React.PropTypes.node,
   };
+
+  static connectedActions () {
+    return {
+      modal: modalActions.getAction(),
+    };
+  }
 
   render () {
     if (this.props.modal) {
@@ -23,3 +31,4 @@ export default class BookModal extends React.Component {
   }
 }
 
+export default connect(BookModal);
