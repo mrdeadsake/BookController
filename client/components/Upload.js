@@ -1,8 +1,9 @@
+import { connect } from 'react-data-actions';
 import Dropzone from 'react-dropzone';
 import React from 'react';
 
 
-export default class Upload extends React.Component {
+class Upload extends React.Component {
   static propTypes = {
     book: React.PropTypes.object,
   };
@@ -15,3 +16,4 @@ export default class Upload extends React.Component {
   }
 }
 
+export default connect(Upload)

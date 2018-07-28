@@ -1,101 +1,99 @@
-import { connect } from 'react-redux';
-import { fetchBooks } from '../actions/bookActions';
-import { fetchChapters } from '../actions/chapterActions';
+import { connect } from 'react-data-actions';
 import Character from '../components/Character';
 import Chapter from '../components/Chapter';
 import { chapterActions } from '../actions/chapterActions';
+import modalActions from '../actions/modalActions';
 
 import React from 'react';
 import NavDropdownSelect from '../components/NavDropdownSelect';
 import WaitFor from './WaitFor';
 import AddDetailModal from '../modals/AddDetailModal';
-import _ from 'lodash';
 
+import _ from 'lodash';
 
 class Book extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      characterObject: undefined,
-      current_chapter: undefined,
-      modal: false,
-    }
-
+  constructor(props){
+    super(props);
+    this.state = {current_chapter: null};
+    this.onCharSelect = ::this.onCharSelect;
+    this.onChapterSelect = ::this.onChapterSelect;
+    this.onSet = ::this.onSet;
   }
-
   static propTypes = {
-    bookSeries: React.PropTypes.object,
+    item: React.PropTypes.object
   };
 
+  static connectedActions (props) {
+    return {
+      chapters: chapterActions.indexAction({id: props.book.id}),
+      invalidateChapterList: chapterActions.invalidateIndexAction({id: props.book.id}),
+      setModal: modalActions.setAction(),
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps != this.props) {
+      if (nextProps.chapters.data != undefined) {
+        const default_chapter = nextProps.chapters.data[0]
+        this.setState({current_chapter: default_chapter})
+      }
+      if (nextProps.item.characters && nextProps.item.characters.length != 0) {
+        this.setState({characterObject: nextProps.item.characters[0]})
+      } else {
+        this.setState({characterObject: undefined})
+      }
+    }
+  }
+
   componentDidMount() {
-    if (this.props.bookSeries.characters && this.props.bookSeries.characters.length !== 0) {
-      this.setState({characterObject: this.props.bookSeries.characters[0]})
-    }
-    this.props.fetchChapters(this.props.book.id);
-    if (this.props.chapters && this.props.chapters.length !== 0) {
-      this.setState({default_chapter: this.props.chapters[0]})
+    if (this.props.item.characters && this.props.item.characters.length != 0) {
+      this.setState({characterObject: this.props.item.characters[0]})
     }
   }
 
-    componentDidUpdate(prevProps) {
-    if (this.props.book.id !== prevProps.book.id) {
-      this.props.fetchChapters(this.props.book.id);
-    }
-    if (this.props.chapters && this.props.chapters[0] !== prevProps.chapters[0]) {
-      this.setState({default_chapter: this.props.chapters[0]})
-    }
+  componentWillUnmount() {
   }
 
-  onCharSelect = (filter) => {
+  onCharSelect(filter) {
     this.setState({ characterObject: filter});
   }
 
-  onChapterSelect = (chapter) => {
+  onChapterSelect(chapter) {
     this.setState({
       current_chapter: chapter
     })
   }
 
-  renderModal() {
-    if (this.state.modal) {
-      return(
-        <AddDetailModal book={this.props.book} chapters={this.props.chapters} onClose={()=> this.setState({modal: false})}/>
-        )
-    }
-    return null;
+  onSet() {
+    this.props.setModal(<AddDetailModal book={this.props.book} chapters={this.props.chapters.data}/>)
   }
 
-  renderButton = () => {
-    return(<button className="btn btn-sm add-details" onClick={()=>this.setState({modal: true})}>Add Chapter</button>)
+  renderButton() {
+    return(<button className="btn btn-sm add-details" onClick={this.onSet}>Add Character Detail</button>)
   }
 
   render() {
     let default_chapter = undefined;
-    let current_chapter, current_chapter_name;
-
-    const bookSeries = this.props.bookSeries;
-
-    if (!!this.state && !!this.state.default_chapter) {
-      default_chapter = this.state.default_chapter;
-
-       current_chapter = !this.state.current_chapter && default_chapter !== undefined ? default_chapter : this.state.current_chapter;
-       current_chapter_name = !this.state.current_chapter  ? default_chapter : this.state.current_chapter.name;
+    if (this.props.chapters.data !== undefined) {
+      default_chapter = this.props.chapters.data[0];
     }
-
-    const chapters = this.props.chapters || [];
+    const bookSeries = this.props.item;
+    const books = bookSeries.books;
+    const current_chapter = this.state.current_chapter === null && default_chapter !== undefined ? default_chapter : this.state.current_chapter;
+    const current_chapter_name = this.state.current_chapter === null ? default_chapter : this.state.current_chapter.name;
+    const chapters = this.props.chapters.data || [];
     const chapter = 0;
-
     const characters = bookSeries.characters;
     const details = bookSeries.details;
-    const character = this.state && this.state.characterObject ? this.state.characterObject : {id: 0}
+    const character = this.state.characterObject ? this.state.characterObject : {id: 0}
     return(
       <div className="book">
-        { this.renderModal() }
         <div className="flex">
+          <WaitFor data={this.props.chapters}>
             <div className="full">
               {
-                !!current_chapter
+                chapters.length > 0
                  ? <NavDropdownSelect
                    label=""
                    onSelect={this.onChapterSelect}
@@ -105,28 +103,24 @@ class Book extends React.Component {
                    selectedValue={current_chapter.id}
                    selectedText={current_chapter.name}
                   />
-                : null
+                : this.renderButton()
               }
               <Chapter 
                 chapters={chapters} 
                 chapter={current_chapter} 
                 onCharSelect={this.onCharSelect} 
                 character={character} 
-                allData={this.props.bookSeries}/>
+                allData={this.props.item}/>
             </div>
+          </WaitFor>
         </div>
         { this.renderButton() }
-        </div>
+      </div>
       )
   }
 }
 
-const mapStateToProps = state => ({
-  bookSeries: state.bookSeries.item,
-  chapters: state.chapters.items,
-});
-
-export default connect(mapStateToProps, { fetchChapters })(Book);
+export default connect(Book)
 
 
 

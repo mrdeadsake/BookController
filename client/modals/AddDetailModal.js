@@ -1,10 +1,19 @@
 import React from 'react';
 import Modal from './Modal';
 import Dropzone from 'react-dropzone';
+import { connect } from 'react-data-actions';
+import modalActions from '../actions/modalActions';
+import characterActions from '../actions/characterActions';
 import AddDetailsForm from '../components/AddDetailsForm';
 import $ from 'jquery';
 
-export default class AddDetailModal extends React.Component {
+class AddDetailModal extends React.Component {
+
+  static connectedActions () {
+    return {
+      clearModal: modalActions.clearAction(),
+    };
+  }
 
   static propTypes = {
     book: React.PropTypes.object,
@@ -20,11 +29,11 @@ export default class AddDetailModal extends React.Component {
   }
 
   onCancel () {
-    this.props.onClose();
+    this.props.clearModal();
   }
 
   onSuccess () {
-    this.props.onClose();
+    this.props.clearModal();
   }
 
   onAccepted(files){
@@ -83,4 +92,4 @@ export default class AddDetailModal extends React.Component {
 
 }
 
-
+export default connect(AddDetailModal);

@@ -1,15 +1,11 @@
-import { FETCH_CHAPTERS, NEW_CHAPTERS } from './types';
+import {restActionsGenerator} from 'react-data-actions';
 
-export const fetchChapters = (book_id) => dispatch => {
-  fetch(`${location.origin}/book_series/book/${book_id}/chapter/index.json`, {
-    headers: {
-      'content-type': 'application/json'
-    },
-  })
-    .then(res=>res.json())
-    .then(chapters=>dispatch({
-      type: FETCH_CHAPTERS,
-      payload: chapters
-    })
-  );
+const chapterActions = restActionsGenerator({
+  path: `book/:id/chapter/index`,
+  extension: 'json',
+  maxAge: 50000000,
+});
+
+export {
+  chapterActions,
 }

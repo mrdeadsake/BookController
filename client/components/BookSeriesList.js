@@ -1,3 +1,4 @@
+import { connect } from 'react-data-actions';
 import BookSeriesListItem  from './BookSeriesListItem';
 import React from 'react';
 import _ from 'lodash';
