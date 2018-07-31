@@ -14,15 +14,23 @@ export default class BookSeriesListItem extends React.Component {
   constructor(props){
     super(props);
     if (props.bookSeries != undefined && props.bookSeries[0] != undefined) {
-     this.state={selectedBook: props.bookSeries.books[0]};      
+     this.state={selectedBook: props.bookSeries.books[0]};
     }
     this.onSelectBook = ::this.onSelectBook;
   }
 
   componentDidMount() {
-    this.setState({selectedBook: nextProps.bookSeries.books[0]})
+    if (this.props.bookSeries.books !== undefined) {
+      this.setState({selectedBook: this.props.bookSeries.books[0]})
+    }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.booksSeries !== undefined && this.props.bookSeries.id !== prevProps.bookSeries.id) {
+      this.props.fetchChapters(this.props.book.id);
+      this.setState({selectedBook: this.props.bookSeries.books[0]}) 
+    }
+  }
   onSelectBook(book){
     this.setState({selectedBook: book});
   }

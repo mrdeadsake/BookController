@@ -1,7 +1,7 @@
 import { FETCH_BOOKS, NEW_BOOKS } from './types';
 
 export const fetchBooks = (id) => dispatch => {
-	fetch(`${location.origin}/book_series/1/books.json`, {
+	fetch(`${location.origin}/book_series/${id}/books.json`, {
     headers: {
       'content-type': 'application/json'
     },

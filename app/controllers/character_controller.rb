@@ -65,7 +65,7 @@ class CharacterController < ApplicationController
 
   def map_csv
     @map_csv ||= hashing.map do |sub|
-      sub.map { |k, v| [mappings[k]||k, v.strip] }.to_h
+      sub.map { |k, v| [mappings[k]||k, v] }.to_h
     end
 
     @map_csv.map{|x|
