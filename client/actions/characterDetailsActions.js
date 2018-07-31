@@ -15,4 +15,4 @@ export const createDetails = (book_series_id, detailsData) => dispatch => {
       payload: detail
     })
   );
-
+}
