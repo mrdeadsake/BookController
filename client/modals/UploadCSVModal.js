@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from './Modal';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
-import { createDetails } from '../actions/characterDetailsActions'; 
+import { createDetails } from '../actions/characterDetailsActions';
 
 class UploadCSVModal extends React.Component {
 
