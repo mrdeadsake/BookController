@@ -47,7 +47,6 @@
     "jquery-ujs": "^1.2.2",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.2",
-    "npm-check-updates": "^2.14.2",
     "react": "^16.4.2",
     "react-data-actions": "^0.10.5",
     "react-dom": "16.4.2",
